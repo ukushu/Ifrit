@@ -143,12 +143,8 @@ To run the example project:
 * clone the Fuse-Swift( https://github.com/krisk/fuse-swift.git ) repo
 * and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
-1. Add a dependency on Fuse:
-- CocoaPods: add `pod 'Fuse'` to your `Podfile`. 
-- Carthage: add `github "krisk/fuse-swift"` to your `Cartfile`.
+1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
 
-2. Add `import Fuse` to your source files.
+2. `import Ifrit` to your source files.
