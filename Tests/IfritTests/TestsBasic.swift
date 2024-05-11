@@ -51,6 +51,18 @@ class TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch1() {
+        struct Book: Fuseable {
+            let author: String
+            let title: String
+            
+            var properties: [FuseProp] {
+                return [
+                    FuseProp(author, weight: 0.3),
+                    FuseProp(title, weight: 0.7)
+                ]
+            }
+        }
+        
         let books: [Book] = [
             Book(author: "John X", title: "Old Man's War fiction"),
             Book(author: "P.D. Mans", title: "Right Ho Jeeves")
@@ -65,6 +77,18 @@ class TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch2() {
+        struct Book: Fuseable {
+            let author: String
+            let title: String
+            
+            var properties: [FuseProp] {
+                return [
+                    FuseProp(author, weight: 0.7),
+                    FuseProp(title, weight: 0.3)
+                ]
+            }
+        }
+        
         let books: [Book] = [
             Book(author: "John X", title: "Old Man's War fiction"),
             Book(author: "P.D. Mans", title: "Right Ho Jeeves")
