@@ -59,10 +59,10 @@ extension Tests {
             let title: String
             let author: String
             
-            var properties: [FuseProperty] {
+            var properties: [FuseProp] {
                 return [
-                    FuseProperty(value: title, weight: 0.7),
-                    FuseProperty(value: author, weight: 0.3)
+                    FuseProp(title, weight: 0.7),
+                    FuseProp(author, weight: 0.3)
                 ]
             }
         }
@@ -85,10 +85,10 @@ extension Tests {
             let title: String
             let author: String
             
-            var properties: [FuseProperty] {
+            var properties: [FuseProp] {
                 return [
-                    FuseProperty(value: title, weight: 0.3),
-                    FuseProperty(value: author, weight: 0.7)
+                    FuseProp(title, weight: 0.3),
+                    FuseProp(author, weight: 0.7)
                 ]
             }
         }
@@ -225,7 +225,6 @@ extension Tests {
     }
 }
 
-
 /////////////////////////////////////
 /// HELPERS
 ////////////////////////////////////////
@@ -234,10 +233,10 @@ fileprivate struct Book: Fuseable {
     let author: String
     let title: String
     
-    var properties: [FuseProperty] {
+    var properties: [FuseProp] {
         return [
-            FuseProperty(value: title, weight: 0.5),
-            FuseProperty(value: author, weight: 0.5)
+            FuseProp(title, weight: 0.5),
+            FuseProp(author, weight: 0.5)
         ]
     }
 }

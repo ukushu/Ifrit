@@ -1,13 +1,4 @@
-//
-//  FuseUtilities.swift
-//  Pods
-//
-//  Created by Kirollos Risk on 5/2/17.
-//
-//
-
-import Foundation
-
+//  Created by Kirollos Risk on 5/2/17
 
 class FuseUtilities {
     /// Computes the score for a match with `e` errors and `x` location.
