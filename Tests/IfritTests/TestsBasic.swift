@@ -51,21 +51,9 @@ class TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch1() {
-        struct Book: Fuseable {
-            let title: String
-            let author: String
-            
-            var properties: [FuseProp] {
-                return [
-                    FuseProp(title, weight: 0.7),
-                    FuseProp(author, weight: 0.3)
-                ]
-            }
-        }
-        
         let books: [Book] = [
-            Book(title: "Old Man's War fiction", author: "John X"),
-            Book(title: "Right Ho Jeeves", author: "P.D. Mans")
+            Book(author: "John X", title: "Old Man's War fiction"),
+            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
         ]
         
         let fuse = Fuse()
@@ -77,21 +65,9 @@ class TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch2() {
-        struct Book: Fuseable {
-            let title: String
-            let author: String
-            
-            var properties: [FuseProp] {
-                return [
-                    FuseProp(title, weight: 0.3),
-                    FuseProp(author, weight: 0.7)
-                ]
-            }
-        }
-        
         let books: [Book] = [
-            Book(title: "Old Man's War fiction", author: "John X"),
-            Book(title: "Right Ho Jeeves", author: "P.D. Mans")
+            Book(author: "John X", title: "Old Man's War fiction"),
+            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
         ]
         
         let fuse = Fuse()
@@ -101,20 +77,15 @@ class TestsBasic: XCTestCase {
         XCTAssert(results[0].index == 1, "The first result is the second book")
         XCTAssert(results[1].index == 0, "The second result is the first book")
     }
-}
-
-/////////////////////////////////////
-/// HELPERS
-////////////////////////////////////////
-
-internal struct Book: Fuseable {
-    let author: String
-    let title: String
     
-    var properties: [FuseProp] {
-        return [
-            FuseProp(title, weight: 0.5),
-            FuseProp(author, weight: 0.5)
-        ]
+    func test_CorrectIdOfObject_ProperiesArraysSearch() {
+        let animes: [Anime] = largeAnimeArray()
+        
+        let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
+        
+        let fuse = Fuse()
+        let results = fuse.search("тріган", in: animes)
+        
+        XCTAssertEqual(results.first!.index, correctIdx)
     }
 }

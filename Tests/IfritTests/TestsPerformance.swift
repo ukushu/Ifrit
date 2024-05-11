@@ -44,12 +44,3 @@ class TestsPerformance: XCTestCase {
     }
 }
 
-fileprivate func largeBooksArray(len: Int = 5_000) -> [String] {
-    var tmp = booksArray
-    
-    while tmp.count < len {
-        tmp.append(contentsOf: booksArray)
-    }
-    
-    return Array( tmp.dropLast(tmp.count - len) )
-}
