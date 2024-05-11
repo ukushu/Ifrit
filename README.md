@@ -12,10 +12,10 @@ This repository is based on archived repository Fuze-Swift by  ( https://github.
 ```diff
 - Fuze-Swift is dead
 + Ifrit is live :)
-- Fuze-Swift have Threading issue - crashes is possible
+- Fuze-Swift have threading issue - crashes is possible
 + Ifrit is a Fuze-Swift with fixed Threading issues - no crashes :)
-+ Ifrit have fixes xcode 15 build warnings
-+ Ifrit code fixed to swift 5 standards
+- Fuze-Swift written for xcode 11 and have warnings
++ Ifrit have fixes xcode 15 build warnings and code is updated to swift 5 standards
 ```
 
 ## Usage
