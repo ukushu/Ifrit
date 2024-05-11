@@ -1,5 +1,10 @@
 # Ifrit
 
+```
+https://github.com/ukushu/Ifrit.git
+git@github.com:ukushu/Ifrit.git
+```
+
 ## What is Ifrit?
 
 Ifrit is a super lightweight library which provides a simple way to do fuzzy searching.
