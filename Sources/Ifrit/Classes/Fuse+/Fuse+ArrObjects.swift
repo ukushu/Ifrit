@@ -133,9 +133,9 @@ extension Fuse {
                     var totalScore = 0.0
                     
                     var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
-
+                    
                     item.properties.forEach { property in
-
+                        
                         let value = property.value
                         
                         if let result = self.search(pattern, in: value) {

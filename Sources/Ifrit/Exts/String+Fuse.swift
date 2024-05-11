@@ -1,4 +1,3 @@
-//  String+Fuse.swift
 //  Created by Kirollos Risk on 5/2/17
 
 import Foundation

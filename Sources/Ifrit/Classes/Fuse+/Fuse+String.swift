@@ -41,7 +41,7 @@ extension Fuse {
             
         } else {
             let result = _search(pattern, in: aString)
-
+            
             //If the averaged score is 1 then there were no matches so return nil. Otherwise return the average result
             return result.score == 1 ? nil : result
             
@@ -140,7 +140,7 @@ extension Fuse {
             }
             
             var currentLocationIndex: String.Index? = nil
-
+            
             for j in (start...finish).reversed() {
                 let currentLocation = j - 1
                 
@@ -178,7 +178,7 @@ extension Fuse {
                         // Indeed it is
                         threshold = score
                         bestLocation = currentLocation
-
+                        
                         guard let bestLocation = bestLocation else {
                             break
                         }
