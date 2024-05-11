@@ -1,8 +1,12 @@
 import XCTest
 @testable import Ifrit
 
-class Tests: XCTestCase {
-    //MARK: - Basic Tests
+class Tests: XCTestCase {}
+
+/////////////////////////////////////
+/// Basic tests
+////////////////////////////////////////
+extension Tests {
     func testBasic() {
         let fuse = Fuse()
         
@@ -39,13 +43,13 @@ class Tests: XCTestCase {
         XCTAssert(results[0].index == 2, "The first result is the third book")
         XCTAssert(results[1].index == 1, "The second result is the second book")
     }
-
+    
     func testRange() {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
-
+        
         let fuse = Fuse()
         let results = fuse.search("silm", in: books)
-
+        
         XCTAssert(results[0].ranges.count == 1, "There is a matching range in the first result")
         XCTAssert(results[0].ranges[0] == 4...7, "The range goes over the matched substring")
     }
@@ -101,8 +105,12 @@ class Tests: XCTestCase {
         XCTAssert(results[0].index == 1, "The first result is the second book")
         XCTAssert(results[1].index == 0, "The second result is the first book")
     }
-    
-    //MARK: - Tokenize Tests
+}
+
+/////////////////////////////////////
+/// Tokenize Tests
+/////////////////////////////////////
+extension Tests {
     func testBasicTokenized() {
         let fuse = Fuse(tokenize: true)
         
@@ -162,21 +170,9 @@ class Tests: XCTestCase {
     }
     
     func testProtocolWeightedSearchTokenized() {
-        struct Book: Fuseable {
-            let title: String
-            let author: String
-            
-            var properties: [FuseProperty] {
-                return [
-                    FuseProperty(value: title, weight: 0.5),
-                    FuseProperty(value: author, weight: 0.5)
-                ]
-            }
-        }
-        
         let books: [Book] = [
-            Book(title: "Old Man's War fiction", author: "John X"),
-            Book(title: "Right Ho Jeeves", author: "P.D. Mans")
+            Book(author: "John X", title: "Old Man's War fiction"),
+            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
         ]
         
         let fuse = Fuse(tokenize: true)
@@ -188,18 +184,6 @@ class Tests: XCTestCase {
     }
     
     func testProtocolWeightedSearchTokenized2() {
-        struct Book: Fuseable {
-            let author: String
-            let title: String
-            
-            var properties: [FuseProperty] {
-                return [
-                    FuseProperty(value: title, weight: 0.5),
-                    FuseProperty(value: author, weight: 0.5)
-                ]
-            }
-        }
-        
         let books: [Book] = [
             Book(author: "John X", title: "Old Man's War fiction"),
             Book(author: "John X", title: "Man's Old War fiction")
@@ -212,41 +196,48 @@ class Tests: XCTestCase {
         XCTAssert(results[0].index == 0, "The first result is the first book")
         XCTAssert(results[1].index == 1, "The second result is the second book")
     }
-    
-    //MARK: - Performance Tests
+}
+
+/////////////////////////////////////
+/// PERFORMANCE TESTS
+////////////////////////////////////////
+extension Tests {
     func testPerformanceSync() {
-        if let path = Bundle(for: type(of: self)).path(forResource: "books", ofType: "txt") {
-            do {
-                let data = try String(contentsOfFile: path, encoding: .utf8)
-                let books = data.components(separatedBy: .newlines)
-                let fuse = Fuse()
-                
-                self.measure {
-                    _ = fuse.search("Th tinsg", in: books)
-                }
-            } catch {
-                print(error)
-            }
+        let fuse = Fuse()
+        
+        self.measure {
+            _ = fuse.search("Th tinsg", in: booksArray)
         }
     }
     
     func testPerformanceAsync() {
-        if let path = Bundle(for: type(of: self)).path(forResource: "books", ofType: "txt") {
-            do {
-                let data = try String(contentsOfFile: path, encoding: .utf8)
-                let books = data.components(separatedBy: .newlines)
-                let fuse = Fuse()
-                
-                self.measure {
-                    let expect = self.expectation(description: "searching")
-                    fuse.search("Th tinsg", in: books, completion: { results in
-                        expect.fulfill()
-                    })
-                    self.wait(for: [expect], timeout: 20000000)
-                }
-            } catch {
-                print(error)
-            }
+        let fuse = Fuse()
+        
+        self.measure {
+            let expect = self.expectation(description: "searching")
+            
+            fuse.search("Th tinsg", in: booksArray, completion: { results in
+                expect.fulfill()
+            })
+            
+            self.wait(for: [expect], timeout: 20000000)
         }
+    }
+}
+
+
+/////////////////////////////////////
+/// HELPERS
+////////////////////////////////////////
+
+fileprivate struct Book: Fuseable {
+    let author: String
+    let title: String
+    
+    var properties: [FuseProperty] {
+        return [
+            FuseProperty(value: title, weight: 0.5),
+            FuseProperty(value: author, weight: 0.5)
+        ]
     }
 }
