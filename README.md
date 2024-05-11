@@ -91,12 +91,17 @@ struct Book: Fuseable {
     let title: String
     let author: String
     
-    var properties: [FuseProperty] {
+    var properties: [FuseProp] {
         return [
-            FuseProperty(title, weight: 0.3),
-            FuseProperty(author, weight: 0.7)
+            FuseProp(title, weight: 0.3),
+            FuseProp(author, weight: 0.7)
         ]
     }
+    //Or this like:
+    //var properties: [FuseProp] {
+    //    return [title, author].map{ FuseProp($0) }
+    //}
+    //
 }
 
 let books: [Book] = [
