@@ -27,6 +27,9 @@ This repository is based on archived repository Fuze-Swift by  ( https://github.
 - Fuze-Swift written for xcode 11 and have warnings :(
 + Ifrit code is updated to swift's latest standards and there are no build warnings :)
 
+- Fuze-Swift does not support async/await
++ Ifrit does
+
 + Ifrit have refactored end extended tests coverage :)
 ```
 
