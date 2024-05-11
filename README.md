@@ -58,6 +58,16 @@ results.forEach { item in
 ```
 
 ##### Asynchronous version
+```swift
+let results = await fuse.search("Te silm", in: books)
+
+results.forEach { item in
+    print("index: " + item.index)
+    print("score: " + item.score)
+    print("ranges: " + item.ranges)
+}
+```
+
 
 ```swift
 fuse.search("Te silm", in: books, completion: { results in
@@ -75,18 +85,18 @@ fuse.search("Te silm", in: books, completion: { results in
 struct Book: Fuseable {
     let title: String
     let author: String
-
+    
     var properties: [FuseProperty] {
         return [
-            FuseProperty(value: title, weight: 0.3),
-            FuseProperty(value: author, weight: 0.7)
+            FuseProperty(title, weight: 0.3),
+            FuseProperty(author, weight: 0.7)
         ]
     }
 }
 
 let books: [Book] = [
-    Book(title: "Old Man's War fiction", author: "John X"),
-    Book(title: "Right Ho Jeeves", author: "P.D. Mans")
+    Book(author: "John X", title: "Old Man's War fiction"),
+    Book(author: "P.D. Mans", title: "Right Ho Jeeves")
 ]
 let fuse = Fuse()
 let results = fuse.search("man", in: books)
@@ -111,6 +121,19 @@ results.forEach { item in
 
 ##### Asynchronous version
 
+async/await
+```
+let results = await fuse.search("Man", in: books)
+
+results.forEach { item in
+    print("index: " + item.index)
+    print("score: " + item.score)
+    print("results: " + item.results)
+    print("---------------")
+}
+```
+
+callback
 ```swift
 fuse.search("Man", in: books, completion: { results in
     results.forEach { item in
