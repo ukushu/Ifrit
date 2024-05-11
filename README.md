@@ -9,7 +9,7 @@ git@github.com:ukushu/Ifrit.git
 
 Ifrit is a super lightweight library which provides a simple way to do fuzzy searching.
 
-This repository is based on archived repository Fuze-Swift by  ( https://github.com/krisk/fuse-swift)
+This repository is based on archived repository Fuze-Swift by KRisk ( https://github.com/krisk/fuse-swift)
 
 <!-- ![Demo](https://s17.postimg.org/47a90nmvj/bitap-search-demo.gif) -->
 
