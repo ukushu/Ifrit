@@ -1,5 +1,8 @@
 # Ifrit
 
+<img src="https://raw.githubusercontent.com/ukushu/Ifrit/main/Ifrit_Logo_360.png" width="150" height="150">
+
+
 ```
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
