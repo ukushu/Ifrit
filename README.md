@@ -21,14 +21,14 @@ This repository is based on archived repository Fuze-Swift by  ( https://github.
 - Fuze-Swift is dead :(
 + Ifrit is live :)
 
-- Fuze-Swift have threading issue - crashes is possible :(
-+ Ifrit is a Fuze-Swift with fixed Threading issues - no crashes :)
+- Fuze-Swift have multithreading issues - crashes is possible :(
++ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
 
-- Fuze-Swift written for xcode 11 and have warnings :(
+- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
 + Ifrit code is updated to swift's latest standards and there are no build warnings :)
 
-- Fuze-Swift does not support async/await
-+ Ifrit does
+- Fuze-Swift supports async functins with callbacks, but does not support async/await
++ Ifrit supports both async functions types :)
 
 + Ifrit have refactored end extended tests coverage :)
 ```
