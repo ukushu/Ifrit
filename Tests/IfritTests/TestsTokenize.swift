@@ -33,7 +33,7 @@ class TestsTokenize: XCTestCase {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.search("Te silm", in: books)
+        let results = fuse.searchSync("Te silm", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 2, "The first result is the third book")
@@ -44,7 +44,7 @@ class TestsTokenize: XCTestCase {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.search("The Loc", in: books)
+        let results = fuse.searchSync("The Loc", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")
@@ -55,7 +55,7 @@ class TestsTokenize: XCTestCase {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.search("silm", in: books)
+        let results = fuse.searchSync("silm", in: books)
         
         XCTAssert(results[0].ranges.count == 1, "There is a matching range in the first result")
         XCTAssert(results[0].ranges[0] == 4...7, "The range goes over the matched substring")
@@ -68,7 +68,7 @@ class TestsTokenize: XCTestCase {
         ]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.search("man right", in: books)
+        let results = fuse.searchSync("man right", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")
@@ -82,7 +82,7 @@ class TestsTokenize: XCTestCase {
         ]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.search("john man", in: books)
+        let results = fuse.searchSync("john man", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")

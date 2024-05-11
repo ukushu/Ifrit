@@ -33,7 +33,7 @@ class TestsBasic: XCTestCase {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         
         let fuse = Fuse()
-        let results = fuse.search("Te silm", in: books)
+        let results = fuse.searchSync("Te silm", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 2, "The first result is the third book")
@@ -44,7 +44,7 @@ class TestsBasic: XCTestCase {
         let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         
         let fuse = Fuse()
-        let results = fuse.search("silm", in: books)
+        let results = fuse.searchSync("silm", in: books)
         
         XCTAssert(results[0].ranges.count == 1, "There is a matching range in the first result")
         XCTAssert(results[0].ranges[0] == 4...7, "The range goes over the matched substring")
@@ -57,7 +57,7 @@ class TestsBasic: XCTestCase {
         ]
         
         let fuse = Fuse()
-        let results = fuse.search("man", in: books)
+        let results = fuse.searchSync("man", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")
@@ -71,7 +71,7 @@ class TestsBasic: XCTestCase {
         ]
         
         let fuse = Fuse()
-        let results = fuse.search("man", in: books)
+        let results = fuse.searchSync("man", in: books)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 1, "The first result is the second book")
@@ -84,7 +84,7 @@ class TestsBasic: XCTestCase {
         let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
         
         let fuse = Fuse()
-        let results = fuse.search("тріган", in: animes)
+        let results = fuse.searchSync("тріган", in: animes)
         
         XCTAssertEqual(results.first!.index, correctIdx)
     }

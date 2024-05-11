@@ -9,7 +9,7 @@ extension Fuse {
     ///   -   text: The pattern string to search for
     ///   - aList: The list of string in which to search
     /// - Returns: A tuple containing the `item` in which the match is found, the `score`, and the `ranges` of the matched characters
-    public func search(_ text: String, in aList: [String]) -> [SearchResult] {
+    public func searchSync(_ text: String, in aList: [String]) -> [SearchResult] {
         let pattern = self.createPattern(from: text)
         
         var items = [SearchResult]()

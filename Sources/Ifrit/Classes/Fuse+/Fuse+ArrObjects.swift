@@ -37,7 +37,7 @@ extension Fuse {
     ///   - text: The pattern string to search for
     ///   - aList: The list of `Fuseable` objects in which to search
     /// - Returns: A list of `CollectionResult` objects
-    public func search(_ text: String, in aList: [Fuseable]) -> [FusableSearchResult] {
+    public func searchSync(_ text: String, in aList: [Fuseable]) -> [FusableSearchResult] {
         let pattern = self.createPattern(from: text)
         
         var collectionResult = [FusableSearchResult]()

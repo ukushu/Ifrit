@@ -42,7 +42,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 ```swift
 let fuse = Fuse()
-let result = fuse.search("od mn war", in: "Old Man's War")
+let result = fuse.searchSync("od mn war", in: "Old Man's War")
 
 print(result?.score)  // 0.44444444444444442
 print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
@@ -55,7 +55,7 @@ print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...
 let books = ["The Silmarillion", "The Lock Artist", "The Lost Symbol"]
 let fuse = Fuse()
 
-let results = fuse.search("Te silm", in: books)
+let results = fuse.searchSync("Te silm", in: books)
 
 results.forEach { item in
     print("index: " + item.index)
@@ -112,7 +112,7 @@ let books: [Book] = [
     Book(author: "P.D. Mans", title: "Right Ho Jeeves")
 ]
 let fuse = Fuse()
-let results = fuse.search("man", in: books)
+let results = fuse.searchSync("man", in: books)
 
 results.forEach { item in
     print("index: " + item.index)

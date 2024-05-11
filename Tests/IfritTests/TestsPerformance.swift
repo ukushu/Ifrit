@@ -17,7 +17,7 @@ class TestsPerformance: XCTestCase {
         let fuse = Fuse()
         
         self.measure {
-            _ = fuse.search("Th tinsg", in: books )
+            _ = fuse.searchSync("Th tinsg", in: books )
         }
     }
     
