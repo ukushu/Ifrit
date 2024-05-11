@@ -7,7 +7,7 @@ let package = Package(
     name: "Ifrit",
     platforms: [
       .iOS(.v12),
-      .macOS(.v10_13)
+      .macOS(.v10_15)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.

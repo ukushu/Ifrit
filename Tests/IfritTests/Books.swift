@@ -1302,4 +1302,517 @@ let booksArray: [String] = """
     Metamorphoses
     The Tale of the Bamboo Cutter
     Aesop’s Fables
+    School
+    Who am I?
+    Big and Little
+    I Can See
+    I Can, We Can
+    Hats
+    Kittens
+    Lunch
+    We are Painting
+    What Am I?
+    Apples
+    Boots
+    Car Wash Kid
+    Catch the Cat
+    I Like Shapes
+    I Need a Little Help
+    My Cat Muffin
+    Swing Swing Swing
+    We Like to Play
+    What Can I Be?
+    Where Do Insects Live?
+    Big and Small
+    Butterfly
+    Is It Time?
+    New Roof
+    Noisy Breakfast
+    Old Mo
+    Bears Bears Everywhere
+    A Box Can Be Many Things
+    Bubble Trouble
+    Fresh Autumn Leaves
+    The Haircut
+    I am the Artist!
+    I Do Not Want To
+    I Like Shoes
+    Just Like Me
+    Lara Ladybug
+    The Lost Hat
+    Not Enough Water
+    Rosa Loves to Read
+    A Tooth Is Loose
+    What Comes in a Shell
+    Work and Play
+    Beautiful Bugs
+    Germs
+    Please, Wind?
+    A Tree Can Be
+    Water Everywhere!
+    Grandpa's Quilt
+    Hurry Up!
+    Kites
+    Animal Homes
+    Big Machines
+    Open Wide
+    Whoops!
+    One Happy Classroom
+    Too Many Balloons
+    Who is Getting Married?
+    Are We There Yet?
+    The Best Mud Pie
+    Hello Doctor
+    Kim's Trip to Hawaii
+    Luna the Wake-Up Cat
+    Next to an Ant
+    Rainy-Day Music
+    Wrinkles
+    A Circle in the Sky
+    Feeding the Gulls
+    Harry's House
+    How Does Your Salad Grow?
+    Martina the Cockroach
+    Shine, Sun!
+    Sir Mike
+    Two Feet Up, Two Feet Down
+    Up, Up, and Away: The Story of Amelia Earhart
+    Who Do I Look Like?
+    Addition Annie
+    Katie Did It
+    Rude Ralph
+    The Secret Code
+    All About Light
+    All About Sound
+    Always Be Safe
+    The Boy Who Cried Wolf
+    Generous Me
+    Listen to Me
+    The Tortoise and the Hare
+    Unusual Show
+    The Very Big Potato
+    The Birthday Party
+    The Elves and the Shoemaker
+    Food Court
+    Goldilocks and the Three Bears
+    The Lion's Song
+    The Mural
+    So Many Me's
+    On the Lake
+    The Blue Mittens
+    Penguins
+    A Wise Wish
+    Collecting
+    Don't Be Late
+    I Love Mud and Mud Loves Me
+    The Little Red Hen
+    Paper Bag Trail
+    Rainy Day Alphabet Book
+    Elliot Drives Away
+    I'll Do It Later
+    It's a Good Thing There are
+    Insects
+    Peanut Butter Rhino
+    The Spider and the Beehive
+    Stone Soup
+    The Three Billy Goats Gruff
+    The Ugly Duckling
+    Vegetables, Vegetables!
+    Who Needs Friends?
+    Amazon Sun, Amazon Rain
+    Flies Are Fascinating
+    Patterns Everywhere
+    The Princess and the Pea
+    The Showdown
+    Take Care of Your Teeth
+    Beavers
+    Busy, Buzzy Bees
+    Cinderella
+    Little Koel Finds His Song
+    The Night Sky
+    The Nightingale
+    Odd and Even Socks
+    Part of the Pack
+    Wax Man
+    Where do Puddles Go?
+    Who Wants a Ride?
+    Hellen Keller
+    Inside an Ant Colony
+    Log Hotel
+    Not for Me
+    Sea Slug and Mr. Pelican
+    The Tortoise and the Hare
+    Amalia and the Grasshopper
+    Little One Inch
+    The Treasure Hunt
+    Eye Foolers
+    Rain Forest
+    Science Fair Friends
+    The Sun's Family of Planets
+    Fire and Wind
+    Turtles Take Their Time
+    Under the City
+    Hawks on the Clock
+    Anne of Green Gables
+    Allergies
+    Journey to the Center of the Earth
+    Ramadan
+    Tricky Rabbit
+    What Magnets Can do
+    Antarctica
+    Ant Attack!
+    Curse of the Jungle Treasure
+    Earth is Mostly Ocean, The
+    Mookie is Missing!
+    This Odd House
+    Tiny Turtle Wants a Friend
+    Animals of Long Ago
+    Endangered Animals
+    Tortoise Shell and Other African Stories, The
+    Drum Beats
+    Drum Beats On, The
+    Riding Lessons
+    You Are the Boss!
+    20,000 Leagues Under the Sea
+    Africa
+    Asia
+    Australia and Oceana
+    Button Your Lip (and Other Idioms)
+    Europe
+    North America
+    Sir Arthur
+    South America
+    Treasure Island
+    What a Great Idea!
+    Bird with Two Heads, The
+    Five Snakes, The
+    From Zero to Hero
+    Golden Touch and Other Greek Myths
+    Helen Keller, Girl of Courage
+    Jet Packs and Other Groovey Gadgets
+    King Arthur
+    Man in a Box: A Slave's Escape
+    Samurai Fighters
+    Tom Sawyer
+    Witch Hunt
+    Crocodile Tales
+    Demeter and Persephone
+    Elizabeth Blackwell, First Woman Doctor
+    Frankenstein
+    Songs My Granda Sang
+    War of the Worlds
+    First on the Moon
+    News and Chews
+    Red-Headed League, The
+    Myths From Around the World
+    3 Thrillers From Poe
+    Beluga Whales
+    Robinson Crusoe
+    African Animals
+    Alligators and Crocodiles
+    Elephants
+    Secrets of Old Hanson House
+    Tigers
+    Zebras
+    Louis Braille: Boy Who Invented the Books
+    for the Blind
+    That's Science? Bad Hair Days and Other
+    Experiments
+    Amelia Earhart, Adventure In The Sky
+    Growing Crystals
+    Gymnastics
+    Creatures Infest Local School!
+    Black Holes
+    Constellations
+    Galaxies
+    Last Leaf, The
+    Meteor Showers
+    Mystery of the Spotted Band
+    Solar System, The
+    Stars
+    Sweater Thief, The
+    Amazon, The
+    Answer Girl Answers Your Questions About
+    the Human Body
+    Arabian Nights
+    Sharks and Rays
+    Underground Railroad
+    Ancient Maya, The
+    Battle of the Bands
+    Black Beauty (Junior Classic)
+    David Copperfield
+    Dr. Jekyll and Mr. Hyde
+    Gulliver's Travels
+    Here Comes the Judge
+    Lucky to be Alive
+    Moby Dick
+    Saving the Animals
+    Albert Einstein: Creative Genius
+    Aztec Treasure Hunt
+    Classic Tales Of Terror
+    False! Popular Myths Debunked
+    Favourite Funny Poems
+    Great Explorations
+    Invisible Man
+    Odyssey, The
+    Urban Legends (previously published as The Killer Hairdo)
+    A Feel Better Book for Littler Worriers
+    ABCs of Kindness
+    All Are Welcome
+    Baby Be Kind
+    Be Kind
+    Buddy the Bulldozer Learns to Calm Down
+    Calm Down Time
+    Can I Play Too?
+    Can You Make a Happy Face
+    Eyes That Kiss in the Comers
+    Families
+    Hair Love
+    Happy Hippo, Angry Duck
+    How do I feel? A book about emotions
+    How Full is Your Bucket? For Kids
+    If You're Happy and You Know It!
+    I'm Happy Sad Today
+    In My Heart: A Book of Feelings
+    It Will Be Okay
+    Jabari Jumps
+    Join in and Play
+    Julián is a Mermaid
+    Language That We All Can Speak
+    Little Fox Has Feelings
+    Meesha Makes Friends
+    Meeting Mimi: A Story About Different Abilities
+    On Monday When It Rained
+    Poor Little Rabbit
+    Remarkably YOU
+    Rex Wrecks It!
+    Roaring Mad Riley
+    Stella Brings the Family
+    Strictly No Elephants
+    The Colors of Us
+    The Feelings Book
+    The Kissing Hand
+    The Many Colors of Harpreet Singh
+    The Pout Pout Fish and the Ma Mad Day
+    Together We Can
+    What If I Know My Feelings?
+    When I Am/Cuando Estoy
+    When We Are Kind
+    You Are a Lion! And Other Fun
+    Yoga Poses
+    Harry Potter and the Philosopher's Stone, J.K. Rowling, FANTASY, Good
+    Harry Potter and the Chamber of Secrets, J.K. Rowling, FANTASY, Fair
+    Harry Potter and the Prisoner of Azkaban, J.K. Rowling, FANTASY, New
+    Harry Potter and the Goblet of Fire, J.K. Rowling, FANTASY, Good
+    Harry Potter and the Order of the Phoenix, J.K. Rowling, FANTASY, Excellent
+    Harry Potter and the Half-Blood Prince, J.K. Rowling, FANTASY, New
+    Harry Potter and the Deathly Hallows, J.K. Rowling, FANTASY, Bad
+    Jenney's Second Year Latin, Charles Jenney Jr., TEXTBOOK, Fair
+    Physics: The Physical Setting, Landa & Kiefer, TEXTBOOK, Poor
+    Moby Dick, Herman Melville, FICTION, Fair
+    Go Set A Watchman, Harper Lee, FICTION, New
+    To Kill A Mockingbird, Harper Lee, FICTION, Fair
+    Mythology, Edith Hamilton, CLASSICS, Poor
+    Animal Farm, George Orwell, FICTION, Excellent
+    American History: A Survey, Brinkley, TEXTBOOK, Bad
+    The History of the Decline and Fall of the Roman Empire by Edward Gibbon (
+    The History of Human Marriage by Edward Westermarck
+    The Satires of Juvenal, Persius, Sulpicia, and Lucilius by Juvenal
+    History of the Decline and Fall of the Roman Empire — Volume 1 by Edward Gibbon)
+    Frankenstein; Or, The Modern Prometheus by Mary Wollstonecraft Shelley
+    Romeo and Juliet by William Shakespeare
+    Moby Dick; Or, The Whale by Herman Melville
+    Pride and Prejudice by Jane Austen
+    Middlemarch by George Eliot
+    A Room with a View by E. M. Forster
+    The Complete Works of William Shakespeare by William Shakespeare
+    Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott
+    The Blue Castle: a novel by L. M. Montgomery
+    The Enchanted April by Elizabeth Von Arnim
+    Antiquities of the Jews by Flavius Josephus
+    Forty-one years in India: from subaltern to commander-in-chief by Roberts
+    The Adventures of Ferdinand Count Fathom — Complete by T. Smollett
+    Spenser's The Faerie Queene, Book I by Edmund Spenser
+    Cranford by Elizabeth Cleghorn Gaskell
+    The Adventures of Roderick Random by T. Smollett
+    The Expedition of Humphry Clinker by T. Smollett
+    Twenty years after by Alexandre Dumas and Auguste Maquet
+    History of Tom Jones, a Foundling by Henry Fielding
+    Pascal's Pensées by Blaise Pascal
+    My Life — Volume 1 by Richard Wagner
+    Alice's Adventures in Wonderland by Lewis Carroll
+    The treatise of Lorenzo Valla on the Donation of Constantine by Lorenzo Valla
+    Nieuw volledig Oost-Indisch kookboek by J. M. J. Catenius-van der Meijden
+    The guide for the perplexed by Moses Maimonides
+    The Social Cancer: A Complete English Version of Noli Me Tangere by José Rizal
+    A Doll's House : a play by Henrik Ibsen
+    All About Coffee by William H. Ukers
+    Revelations of Divine Love
+    The Great Gatsby by F. Scott Fitzgerald
+    Tom Brown at Rugby by Thomas Hughes
+    Beauty contest? by Henry Slesar
+    The Importance of Being Earnest: A Trivial Comedy for Serious People by Oscar W828)
+    The Picture of Dorian Gray by Oscar Wilde
+    Crime and Punishment by Fyodor Dostoyevsky
+    A Tale of Two Cities by Charles Dickens
+    Metamorphosis by Franz Kafka
+    A Christmas Carol in Prose; Being a Ghost Story of Christmas by Charles Dickens
+    Dracula by Bram Stoker
+    Scotland in Pagan Times; The Iron Age by Joseph Anderson
+    The crow's-nest by Sara Jeannette Duncan
+    The Strange Case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson
+    Plain Facts for Old and Young by John Harvey Kellogg
+    Adventures of Huckleberry Finn by Mark Twain
+    Great Expectations by Charles Dickens
+    An enemy of peace by Robert Silverberg
+    Der Struwwelpeter by Heinrich Hoffmann
+    History of the Royal Regiment of Artillery Vol. 2 by Francis Duncan
+    "Everyman," with other interludes, including eight miracle plays
+    The Odyssey by Homer
+    The Goslings: A Study of the American Schools by Upton Sinclair
+    A Modest Proposal by Jonathan Swift
+    Grimms' Fairy Tales by Jacob Grimm and Wilhelm Grimm
+    Problems in Greek history by J. P. Mahaffy
+    Don Quijote by Miguel de Cervantes Saavedra
+    The Adventures of Tom Sawyer, Complete by Mark Twain
+    The Prince by Niccolò Machiavelli
+    The Yellow Wallpaper by Charlotte Perkins Gilman
+    The Brothers Karamazov by Fyodor Dostoyevsky
+    The Puppet Show of Memory by Maurice Baring
+    The Organism as a Whole, from a Physicochemical Viewpoint by Jacques Loeb
+    The Adventures of Sherlock Holmes by Arthur Conan Doyle
+    The Kama Sutra of Vatsyayana by Vatsyayana
+    Jane Eyre: An Autobiography by Charlotte Brontë
+    The Philippines a Century Hence by José Rizal
+    The Scarlet Letter by Nathaniel Hawthorne
+    Loyola and the Educational System of the Jesuits by Thomas Hughes
+    Experiments on Animals by Stephen Paget
+    The Iliad by Homer
+    Stories and Ballads of the Far Past by Nora K. Chadwick
+    History of the Royal Regiment of Artillery, Vol. 1 by Francis Duncan
+    Heart of Darkness by Joseph Conrad
+    The A.B.-Z. of our own nutrition by Horace Fletcher
+    Introduction to the science of language, Volume 1 (of 2) by A. H. Sayce
+    Aesop's Fables by Aesop
+    War and Peace by graf Leo Tolstoy
+    Ulysses by James Joyce
+    The Architecture of Colonial America by Harold Donaldson Eberlein
+    Noli Me Tangere by José Rizal
+    Thus Spake Zarathustra: A Book for All and None by Friedrich Wilhelm Nietzsche
+    The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet
+    The 2005 CIA World Factbook by United States. Central Intelligence Agency
+    The Bible: I. Authenticity II. Credibility III. Morality by John E. Remsburg
+    Hoyle's Games Modernized by Professor Hoffmann and Edmond Hoyle
+    Tractatus Logico-Philosophicus by Ludwig Wittgenstein
+    Audubon and His Journals, Volume 2 by John James Audubon
+    Wuthering Heights by Emily Brontë
+    The Bird Book by Chester A. Reed
+    Biddy and the silver man by Harlan Ellison
+    Oliver Twist by Charles Dickens
+    Don Quixote by Miguel de Cervantes Saavedra
+    Meditations by Emperor of Rome Marcus Aurelius
+    Walden, and On The Duty Of Civil Disobedience by Henry David Thoreau
+    Ang "Filibusterismo" (Karugtóng ng Noli Me Tangere) by José Rizal
+    The Romance of Lust: A classic Victorian erotic novel by Anonymous
+    Peter Pan by J. M. Barrie
+    Frankenstein; Or, The Modern Prometheus by Mary Wollstonecraft Shelley
+    Pride and Prejudice by Jane Austen
+    Moby Dick; Or, The Whale by Herman Melville
+    Romeo and Juliet by William Shakespeare
+    Middlemarch by George Eliot
+    A Room with a View by E. M. Forster
+    The Complete Works of William Shakespeare by William Shakespeare
+    Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott
+    The Enchanted April by Elizabeth Von Arnim
+    The Blue Castle: a novel by L. M. Montgomery
+    The Adventures of Ferdinand Count Fathom — Complete by T. Smollett
+    Cranford by Elizabeth Cleghorn Gaskell
+    Alice's Adventures in Wonderland by Lewis Carroll
+    The Adventures of Roderick Random by T. Smollett
+    The Expedition of Humphry Clinker by T. Smollett
+    History of Tom Jones, a Foundling by Henry Fielding
+    Twenty years after by Alexandre Dumas and Auguste Maquet
+    My Life — Volume 1 by Richard Wagner
+    A Doll's House : a play by Henrik Ibsen
+    The Importance of Being Earnest: A Trivial Comedy for Serious People by Oscar Wilde
+    The Great Gatsby by F. Scott Fitzgerald
+    The History of the Decline and Fall of the Roman Empire by Edward Gibbon
+    Metamorphosis by Franz Kafka
+    The Picture of Dorian Gray by Oscar Wilde
+    A Tale of Two Cities by Charles Dickens
+    Crime and Punishment by Fyodor Dostoyevsky
+    Dracula by Bram Stoker
+    The Yellow Wallpaper by Charlotte Perkins Gilman
+    The Strange Case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson
+    Ang "Filibusterismo" (Karugtóng ng Noli Me Tangere) by José Rizal
+    Noli Me Tangere by José Rizal
+    Great Expectations by Charles Dickens
+    A Modest Proposal by Jonathan Swift
+    Adventures of Huckleberry Finn by Mark Twain
+    The Brothers Karamazov by Fyodor Dostoyevsky
+    Jane Eyre: An Autobiography by Charlotte Brontë
+    The Scarlet Letter by Nathaniel Hawthorne
+    The Reign of Greed by José Rizal
+    Heart of Darkness by Joseph Conrad
+    Don Quijote by Miguel de Cervantes Saavedra
+    A Christmas Carol in Prose; Being a Ghost Story of Christmas by Charles Dickens
+    The Adventures of Sherlock Holmes by Arthur Conan Doyle
+    Grimms' Fairy Tales by Jacob Grimm and Wilhelm Grimm
+    The Odyssey by Homer
+    Ulysses by James Joyce
+    Tractatus Logico-Philosophicus by Ludwig Wittgenstein
+    The Iliad by Homer
+    War and Peace by graf Leo Tolstoy
+    The Kama Sutra of Vatsyayana by Vatsyayana
+    The Philippines a Century Hence by José Rizal
+    The Prince by Niccolò Machiavelli
+    The Souls of Black Folk by W. E. B. Du Bois
+    The Geography of Strabo, Volume 1 (of 3) by Strabo
+    Wuthering Heights by Emily Brontë
+    Thus Spake Zarathustra: A Book for All and None by Friedrich Wilhelm Nietzsche
+    The Adventures of Tom Sawyer, Complete by Mark Twain
+    Don Quixote by Miguel de Cervantes Saavedra
+    A Short History of Freethought Ancient and Modern, Volume 1 of 2 by J. M. Robertson
+    Dubliners by James Joyce
+    The Romance of Lust: A classic Victorian erotic novel by Anonymous
+    The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet
+    Treasure Island by Robert Louis Stevenson
+    Anne of Green Gables by L. M. Montgomery
+    Winnie-the-Pooh by A. A. Milne
+    Little Women by Louisa May Alcott
+    Peter Pan by J. M. Barrie
+    The divine comedy by Dante Alighieri
+    Calculus Made Easy by Silvanus P. Thompson
+    The Hound of the Baskervilles by Arthur Conan Doyle
+    Walden, and On The Duty Of Civil Disobedience by Henry David Thoreau
+    The Wonderful Wizard of Oz by L. Frank Baum
+    Leviathan by Thomas Hobbes
+    Beyond Good and Evil by Friedrich Wilhelm Nietzsche
+    The War of the Worlds by H. G. Wells
+    A Study in Scarlet by Arthur Conan Doyle
+    Notes from the Underground by Fyodor Dostoyevsky
+    Meditations by Emperor of Rome Marcus Aurelius
+    The Prophet by Kahlil Gibran
+    The Republic by Plato
+    Second Treatise of Government by John Locke
+    Emma by Jane Austen
+    Frankenstein; Or, The Modern Prometheus by Mary Wollstonecraft Shelley
+    Oliver Twist by Charles Dickens
+    Antiquities of the Jews by Flavius Josephus
+    Narrative of the Life of Frederick Douglass, an American Slave by Frederick Douglass
+    The Satires of Juvenal, Persius, Sulpicia, and Lucilius by Juvenal
+    The First Book of Adam and Eve by Rutherford Hayes Platt
+    Persuasion by Jane Austen
+    Gulliver's Travels into Several Remote Nations of the World by Jonathan Swift
+    Pygmalion by Bernard Shaw
+    Anthem by Ayn Rand
+    The Time Machine by H. G. Wells
+    Paradise Lost by John Milton
+    The Social Cancer: A Complete English Version of Noli Me Tangere by José Rizal
+    The King in Yellow by Robert W. Chambers
+    White Nights and Other Stories by Fyodor Dostoyevsky
+    The Rámáyan of Válmíki, translated into English verse by Valmiki
+    The King James Version of the Bible
+    Josefine Mutzenbacher by Felix Salten
+    The Confessions of St. Augustine by Bishop of Hippo Saint Augustine
     """.split(separator: "/n").map{ "\($0)" }

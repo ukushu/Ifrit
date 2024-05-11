@@ -1,12 +1,8 @@
 import XCTest
 @testable import Ifrit
 
-class Tests: XCTestCase { }
-
-/////////////////////////////////////
-/// Basic tests
-////////////////////////////////////////
-extension Tests {
+class TestsBasic: XCTestCase {
+    
     func testBasic() {
         let fuse = Fuse()
         

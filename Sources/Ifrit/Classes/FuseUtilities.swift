@@ -1,6 +1,6 @@
 //  Created by Kirollos Risk on 5/2/17
 
-class FuseUtilities {
+internal class FuseUtilities {
     /// Computes the score for a match with `e` errors and `x` location.
     ///
     /// - Parameter pattern: Pattern being sought.

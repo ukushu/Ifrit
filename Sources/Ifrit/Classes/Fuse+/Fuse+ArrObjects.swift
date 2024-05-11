@@ -173,4 +173,49 @@ extension Fuse {
             }
         }
     }
+    
+    /// Asynchronously searches for a text pattern in an array of `Fuseable` objects.
+    ///
+    /// Each `FuseSearchable` object contains a `properties` accessor which returns `FuseProperty` array. Each `FuseProperty` is a tuple containing a `value` (the value of the property which should be included in the search), and a `weight` (how much "weight" to assign to the score)
+    ///
+    /// ## Example
+    ///
+    /// Ensure the object conforms to `Fuseable`:
+    ///
+    ///     struct Book: Fuseable {
+    ///         let title: String
+    ///         let author: String
+    ///
+    ///         var properties: [FuseProperty] {
+    ///             return [
+    ///                 FuseProperty(value: title, weight: 0.7),
+    ///                 FuseProperty(value: author, weight: 0.3)
+    ///             ]
+    ///         }
+    ///     }
+    ///
+    /// Searching is straightforward:
+    ///
+    ///     let books: [Book] = [
+    ///         Book(title: "Old Man's War fiction", author: "John X"),
+    ///         Book(title: "Right Ho Jeeves", author: "P.D. Mans")
+    ///     ]
+    ///
+    ///     let fuse = Fuse()
+    ///     fuse.search("Man", in: books, completion: { results in
+    ///         print(results)
+    ///     })
+    ///
+    /// - Parameters:
+    ///   - text: The pattern string to search for
+    ///   - aList: The list of `Fuseable` objects in which to search
+    ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
+    ///   - completion: The handler which is executed upon completion
+    public func search(_ text: String, in aList: [Fuseable], chunkSize: Int = 100) async -> [FusableSearchResult]  {
+        await withCheckedContinuation { continuation in
+            search(text, in: aList, chunkSize: 100) { results in
+                continuation.resume(returning: results)
+            }
+        }
+    }
 }

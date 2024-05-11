@@ -1,10 +1,8 @@
+import Foundation
 import XCTest
 @testable import Ifrit
 
-/////////////////////////////////////
-/// Tokenize Tests
-/////////////////////////////////////
-extension Tests {
+class TestsTokenize: XCTestCase {
     func testBasicTokenized() {
         let fuse = Fuse(tokenize: true)
         

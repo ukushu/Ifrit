@@ -10,7 +10,7 @@ public class Fuse {
     internal var isCaseSensitive: Bool
     internal var tokenize: Bool
     
-    public typealias Pattern = (text: String, len: Int, mask: Int, alphabet: [Character: Int])
+//    public typealias Pattern = (text: String, len: Int, mask: Int, alphabet: [Character: Int])
     
     public typealias SearchResult = (index: Int, score: Double, ranges: [CountableClosedRange<Int>])
     
@@ -41,20 +41,23 @@ public class Fuse {
     ///
     /// - Parameter aString: A string from which to create the pattern tuple
     /// - Returns: A tuple containing pattern metadata
-    public func createPattern (from aString: String) -> Pattern? {
-        let pattern = self.isCaseSensitive ? aString : aString.lowercased()
-        let len = pattern.count
+    public func createPattern(from str: String) -> Pattern? {
+        guard str.count > 0 else { return nil }
         
-        if len == 0 {
-            return nil
-        }
-        
-        return (
-            text: pattern,
-            len: len,
-            mask: 1 << (len - 1),
-            alphabet: FuseUtilities.calculatePatternAlphabet(pattern)
-        )
+        return Pattern(text: self.isCaseSensitive ? str : str.lowercased() )
     }
 }
 
+public extension Fuse {
+    struct Pattern {
+        let text: String
+        var len: Int { text.count }
+        var mask: Int { 1 << (text.count - 1) }
+        let alphabet: [Character : Int]
+        
+        public init(text: String) {
+            self.text = text
+            self.alphabet = FuseUtilities.calculatePatternAlphabet(text)
+        }
+    }
+}
