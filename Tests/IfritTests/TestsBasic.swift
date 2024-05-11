@@ -78,13 +78,48 @@ class TestsBasic: XCTestCase {
         XCTAssert(results[1].index == 0, "The second result is the first book")
     }
     
-    func test_CorrectIdOfObject_ProperiesArraysSearch() {
+    func test_CorrectIdOfObject_ProperiesArraysSearchSync() {
         let animes: [Anime] = largeAnimeArray()
         
         let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
         
         let fuse = Fuse()
         let results = fuse.searchSync("тріган", in: animes)
+        
+        XCTAssertEqual(results.first!.index, correctIdx)
+    }
+    
+    func test_CorrectIdOfObject_ProperiesArraysSearchAsync() async {
+        let animes: [Anime] = largeAnimeArray()
+        
+        let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
+        
+        let fuse = Fuse()
+        let results = await fuse.search("тріган", in: animes)
+        
+        XCTAssertEqual(results.first!.index, correctIdx)
+    }
+    
+    func test_CorrectIdOfString_SearchSync() {
+        let books = largeBookTitlesArray(len: 1000)
+        let bookName = "House of Leaves"
+        
+        let correctIdx = books.firstIndex(where: { $0 == bookName } )
+        
+        let fuse = Fuse()
+        let results = fuse.searchSync(bookName, in: books)
+        
+        XCTAssertEqual(results.first!.index, correctIdx)
+    }
+    
+    func test_CorrectIdOfString_SearchAsync() async {
+        let books = largeBookTitlesArray(len: 1000)
+        let bookName = "The Adventures and Misadventures of Magroll"
+        
+        let correctIdx = books.firstIndex(where: { $0 == bookName } )
+        
+        let fuse = Fuse()
+        let results = await fuse.search(bookName, in: books)
         
         XCTAssertEqual(results.first!.index, correctIdx)
     }

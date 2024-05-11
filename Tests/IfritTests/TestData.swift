@@ -33,7 +33,7 @@ internal extension Array {
     }
 }
 
-func largeBooksArray(len: Int = 5_000) -> [String] {
+func largeBookTitlesArray(len: Int = 50_000) -> [String] {
     var tmp = booksArray
     
     while tmp.count < len {
@@ -1869,7 +1869,7 @@ let booksArray: [String] = """
     The King James Version of the Bible
     Josefine Mutzenbacher by Felix Salten
     The Confessions of St. Augustine by Bishop of Hippo Saint Augustine
-    """.split(separator: "/n").map{ "\($0)" }
+    """.split(separator: "\n").map{ "\($0)" }
 
 
 let animesList =
