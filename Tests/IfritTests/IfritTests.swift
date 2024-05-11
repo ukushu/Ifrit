@@ -1,7 +1,7 @@
 import XCTest
 @testable import Ifrit
 
-class Tests: XCTestCase {}
+class Tests: XCTestCase { }
 
 /////////////////////////////////////
 /// Basic tests

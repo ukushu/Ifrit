@@ -16,6 +16,7 @@ This repository is based on archived repository Fuze-Swift by  ( https://github.
 + Ifrit is a Fuze-Swift with fixed Threading issues - no crashes :)
 - Fuze-Swift written for xcode 11 and have warnings :(
 + Ifrit code is updated to swift 5 standards and there are no build warnings :)
++ Ifrit have refactored end extended tests :)
 ```
 
 ## Usage
