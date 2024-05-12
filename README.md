@@ -41,7 +41,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 ## Usage
 
-#### Searching in a string
+#### Searching in a `String`
 
 ```swift
 let fuse = Fuse()
@@ -51,7 +51,7 @@ print(result?.score)  // 0.44444444444444442 // LOWEST SCORE = BETTER
 print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
 ```
 
-#### Searching in an array of strings
+#### Search in `[String]`
 
 ##### Synchronous version
 ```swift
@@ -67,7 +67,7 @@ results.forEach { item in
 }
 ```
 
-##### ASYNChronous version ( async/await )
+##### ASYNChronous version search in `[String]` ( async/await )
 ```swift
 let results = await fuse.search("Te silm", in: books)
 
@@ -89,7 +89,7 @@ fuse.search("Te silm", in: books, completion: { results in
 })
 ```
 
-#### Searching in an array of `Fuseable` objects.
+#### Search in `[Fuseable]` objects
 
 ##### Synchronous version
 ```swift
@@ -135,7 +135,7 @@ results.forEach { item in
 // results: [(value: "Old Man\'s War fiction", score: 0.027999999999999997, ranges: [CountableClosedRange(4...6)])]
 ```
 
-##### ASYNChronous version ( async/await )
+##### ASYNChronous version: search in `[Fuseable]` objects ( async/await )
 ```
 let results = await fuse.search("Man", in: books)
 
@@ -147,7 +147,7 @@ results.forEach { item in
 }
 ```
 
-##### ASYNChronous version 2 ( callback )
+##### ASYNChronous version: search in `[Fuseable]` objects ( callback )
 ```swift
 fuse.search("Man", in: books, completion: { results in
     results.forEach { item in
