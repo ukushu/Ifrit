@@ -52,16 +52,15 @@ extension Fuse {
         let itemsLock = NSLock()
         
         let group = DispatchGroup()
-        let count = aList.count
         
-        stride(from: 0, to: count, by: chunkSize).forEach {
-            let chunk = Array(aList[$0..<min($0 + chunkSize, count)])
+        aList.splitBy(chunkSize).enumerated().forEach { (chunkIndex, chunk) in
             group.enter()
+            
             self.searchQueue.async {
                 for (index, item) in chunk.enumerated() {
                     if let result = self.search(pattern, in: item) {
                         itemsLock.lock()
-                        items.append((index, result.score, result.ranges))
+                        items.append((chunkIndex * chunkSize + index, result.score, result.ranges))
                         itemsLock.unlock()
                     }
                 }

@@ -119,52 +119,53 @@ extension Fuse {
         let pattern = self.createPattern(from: text)
         
         let group = DispatchGroup()
-        let count = aList.count
         
         var collectionResult = [FusableSearchResult]()
         let resultLock = NSLock()
         
-        stride(from: 0, to: count, by: chunkSize).forEach {
-            let chunk = Array(aList[$0..<min($0 + chunkSize, count)])
-            group.enter()
-            self.searchQueue.async {
-                for (index, item) in chunk.enumerated() {
-                    var scores = [Double]()
-                    var totalScore = 0.0
-                    
-                    var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
-                    
-                    item.properties.forEach { property in
-                        
-                        let value = property.value
-                        
-                        if let result = self.search(pattern, in: value) {
-                            let weight = property.weight == 1 ? 1 : 1 - property.weight
-                            let score = result.score * weight
-                            totalScore += score
-                            
-                            scores.append(score)
-                            
-                            propertyResults.append((value: property.value, score: score, ranges: result.ranges))
-                        }
-                    }
-                    
-                    if scores.count == 0 {
-                        continue
-                    }
-                    
-                    resultLock.lock()
-                    collectionResult.append((
-                        index: index,
-                        score: totalScore / Double(scores.count),
-                        results: propertyResults
-                    ))
-                    resultLock.unlock()
-                }
+        aList.splitBy(chunkSize).enumerated()
+            .forEach { (chunkIndex, chunk) in
                 
-                group.leave()
+                group.enter()
+                
+                self.searchQueue.async {
+                    for (index, item) in chunk.enumerated() {
+                        var scores = [Double]()
+                        var totalScore = 0.0
+                        
+                        var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
+                        
+                        item.properties.forEach { property in
+                            
+                            let value = property.value
+                            
+                            if let result = self.search(pattern, in: value) {
+                                let weight = property.weight == 1 ? 1 : 1 - property.weight
+                                let score = result.score * weight
+                                totalScore += score
+                                
+                                scores.append(score)
+                                
+                                propertyResults.append((value: property.value, score: score, ranges: result.ranges))
+                            }
+                        }
+                        
+                        if scores.count == 0 {
+                            continue
+                        }
+                        
+                        resultLock.lock()
+                        collectionResult.append((
+                            index: chunkIndex * chunkSize + index,
+                            score: totalScore / Double(scores.count),
+                            results: propertyResults
+                        ))
+                        resultLock.unlock()
+                    }
+                    
+                    group.leave()
+                }
             }
-        }
         
         group.notify(queue: self.searchQueue) {
             let sorted = collectionResult.sorted { $0.score < $1.score }
@@ -216,6 +217,18 @@ extension Fuse {
             search(text, in: aList, chunkSize: 100) { results in
                 continuation.resume(returning: results)
             }
+        }
+    }
+}
+
+/////////////////////////
+///HELPERS
+////////////////////////
+
+extension Array {
+    func splitBy(_ chunkSize: Int) -> [ArraySlice<Element>] {
+        return stride(from: 0, to: self.count, by: chunkSize).map {
+            self[$0..<Swift.min($0 + chunkSize, self.count)]
         }
     }
 }
