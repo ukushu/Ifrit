@@ -47,7 +47,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 let fuse = Fuse()
 let result = fuse.searchSync("od mn war", in: "Old Man's War")
 
-print(result?.score)  // 0.44444444444444442
+print(result?.score)  // 0.44444444444444442 // LOVEST SCORE = BETTER SCORE
 print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
 ```
 
