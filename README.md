@@ -31,10 +31,10 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 + Ifrit code is updated to swift's latest standards and there are no build warnings :)
 
 - Fuze-Swift supports async functins with callbacks, but does not support async/await
-+ Ifrit supports both async functions types :)
++ Ifrit supports callbacks and async/await both:)
 
-- Fuze-Swift async functins returned incorrect results (wrong indexes) :((((
-+ Ifrit's async functins returns correct indexes :)
+- Fuze-Swift async functions returned incorrect results (wrong indexes) :((((
++ Ifrit's async functins returns correct indexes and covered with tests :)
 
 + Ifrit have refactored code end extended tests coverage :)
 ```
