@@ -34,9 +34,9 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 + Ifrit supports both async functions types :)
 
 - Fuze-Swift async functins returned incorrect results (wrong indexes) :((((
-+ Ifrit's async functins returns correct :)
++ Ifrit's async functins returns correct indexes :)
 
-+ Ifrit have refactored end extended tests coverage :)
++ Ifrit have refactored code end extended tests coverage :)
 ```
 
 ## Usage
