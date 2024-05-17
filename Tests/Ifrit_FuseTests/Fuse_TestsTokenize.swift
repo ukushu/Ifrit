@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 @testable import Ifrit
 
-class TestsTokenize: XCTestCase {
+class Fuse_TestsTokenize: XCTestCase {
     func testBasicTokenized() {
         let fuse = Fuse(tokenize: true)
         

@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 @testable import Ifrit
 
-class TestsPerformance: XCTestCase {
+class Fuse_Performance: XCTestCase {
     /*
      M1 Proccessor
      Books: 50 000
