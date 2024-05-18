@@ -15,7 +15,7 @@ Advanteges:
 ```diff
 + Super lightweight
 + No dependencies
-+ Asynchronous search ( async/awain and callbacks both )
++ Asynchronous search ( async/await + callbacks both )
 + OS supported: MacOS(>v10_15), iOS(>v13), VisionOs, Linux
 + Text highlight support (AttributedString)
 + Covered with automated tests
