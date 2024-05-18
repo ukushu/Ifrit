@@ -16,7 +16,7 @@ Advanteges:
 + Super lightweight
 + No dependencies
 + Asynchronous search ( async/await + callbacks both )
-+ OS supported: MacOS(>v10_15), iOS(>v13), VisionOs, Linux
++ OS supported: MacOS(>=v10_15), iOS(>=v13), VisionOs, Linux
 + Text highlight support (AttributedString)
 + Covered with automated tests
 + Swift 5.9 and higher
