@@ -9,12 +9,34 @@ git@github.com:ukushu/Ifrit.git
 ```
 
 ## What is Ifrit?
+Ifrit is fuzzy search library written in pure swift.
 
-Ifrit is a super lightweight library which provides a simple way to do fuzzy searching.
+Advanteges:
+```diff
++ Super lightweight
++ No dependencies
++ Asynchronous search ( async/awain and callbacks both )
++ OS supported: MacOS(>v10_15), iOS(>v13), VisionOs, Linux
++ Text highlight support (AttributedString)
++ Covered with automated tests
++ Swift 5.9 and higher
++ MIT Licensed
+```
+
+Disadvantages:
+```diff
+- Wasn't tested in production
+```
 
 This repository is based on archived repository Fuze-Swift by KRisk ( https://github.com/krisk/fuse-swift)
 
+
+## Demo
+
 <!-- ![Demo](https://s17.postimg.org/47a90nmvj/bitap-search-demo.gif) -->
+
+[![Ifrit demo][1]][1]
+
 
 ## Difference: Ifrit VS Fuze-Swift?
 ```diff
@@ -22,9 +44,9 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 - Ifrit supports only Packages :(
 
 - Fuze-Swift is dead :(
-+ Ifrit is live :)
++ Ifrit is a Fuse-Swift reborn from hell and ALIVE as ever :)
 
-- Fuze-Swift have multithreading issues - crashes is possible :(
+- Fuze-Swift async/multithreading issues. Crashes is possible :(
 + Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
 
 - Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
@@ -36,7 +58,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 - Fuze-Swift async functions returns incorrect results (wrong indexes) :((((
 + Ifrit's async functins returns correct indexes and covered with tests :)
 
-+ Ifrit have refactored code and extended tests coverage :)
++ Ifrit - extended coverage with automated tests in general :)
 ```
 
 ## Usage
@@ -185,3 +207,6 @@ To run the example project:
 1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
 
 2. `import Ifrit` to your source files.
+
+
+  [1]: https://i.sstatic.net/8MwFeAHT.gif
