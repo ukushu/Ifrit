@@ -92,9 +92,13 @@ let fuse = Fuse()
 let results = fuse.searchSync("Te silm", in: books)
 
 results.forEach { item in
-    print("index: " + item.index)
-    print("score: " + item.score)
-    print("ranges: " + item.ranges)
+    print("""
+        index: \(item.index)
+        score: \(item.score)
+        ranges: \(item.ranges)
+        ---------------
+        """
+    )
 }
 
 // --------------------
@@ -102,18 +106,26 @@ results.forEach { item in
 let results = await fuse.search("Te silm", in: books)
 
 results.forEach { item in
-    print("index: " + item.index)
-    print("score: " + item.score)
-    print("ranges: " + item.ranges)
+    print("""
+        index: \(item.index)
+        score: \(item.score)
+        ranges: \(item.ranges)
+        ---------------
+        """
+    )
 }
 
 // --------------------
 // ASYNC search - callbacks
 fuse.search("Te silm", in: books, completion: { results in
     results.forEach { item in
-        print("index: " + item.index)
-        print("score: " + item.score)
-        print("ranges: " + item.ranges)
+        print("""
+            index: \(item.index)
+            score: \(item.score)
+            ranges: \(item.ranges)
+            ---------------
+            """
+        )
     }
 })
 ```
@@ -148,10 +160,7 @@ let fuse = Fuse()
 let results = fuse.searchSync("man", in: books)
 
 results.forEach { item in
-    print("index: " + item.index)
-    print("score: " + item.score)
-    print("results: " + item.results)
-    print("---------------")
+    print("index: \(item.index); score: \(item.score)")
 }
 
 // --------------------
@@ -159,19 +168,13 @@ results.forEach { item in
 let results = await fuse.search("Man", in: books)
 
 results.forEach { item in
-    print("index: " + item.index)
-    print("score: " + item.score)
-    print("results: " + item.results)
-    print("---------------")
+    print("index: \(item.index); score: \(item.score)")
 }
 
 // ASYNC: callbacks
 fuse.search("Man", in: books, completion: { results in
     results.forEach { item in
-        print("index: " + item.index)
-        print("score: " + item.score)
-        print("results: " + item.results)
-        print("---------------")
+        print("index: \(item.index); score: \(item.score)")
     }
 })
 ```
