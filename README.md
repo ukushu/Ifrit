@@ -1,14 +1,12 @@
-🇺🇦🇺🇦🇺🇦 PLEASE, SUPPORT UKRAINE! 🇺🇦🇺🇦🇺🇦
-
 # Ifrit
 
 <img src="https://raw.githubusercontent.com/ukushu/Ifrit/main/Ifrit_Logo_360.png" width="150" height="150">
-
 
 ```
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
 ```
+🇺🇦🇺🇦🇺🇦 PLEASE, SUPPORT UKRAINE! 🇺🇦🇺🇦🇺🇦
 
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
