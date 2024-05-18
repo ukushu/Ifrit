@@ -75,6 +75,10 @@ print(result?.score)  // 0.44444444444444442 // LOWEST SCORE = BETTER
 print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
 
 // --------------------
+// ASYNC search - async/await
+
+// --------------------
+// ASYNC search - callbacks
 
 ```
 
@@ -116,7 +120,6 @@ fuse.search("Te silm", in: books, completion: { results in
 
 #### Search in `[Fuseable]` objects
 
-##### Synchronous version
 ```swift
 struct Book: Fuseable {
     let title: String
