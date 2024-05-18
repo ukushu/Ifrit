@@ -67,19 +67,24 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 ```swift
 let fuse = Fuse()
+
+// SYNC search
 let result = fuse.searchSync("od mn war", in: "Old Man's War")
 
 print(result?.score)  // 0.44444444444444442 // LOWEST SCORE = BETTER
 print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
+
+// --------------------
+
 ```
 
 #### Search in `[String]`
 
-##### Synchronous version
 ```swift
 let books = ["The Silmarillion", "The Lock Artist", "The Lost Symbol"]
 let fuse = Fuse()
 
+// SYNC search
 let results = fuse.searchSync("Te silm", in: books)
 
 results.forEach { item in
@@ -87,10 +92,9 @@ results.forEach { item in
     print("score: " + item.score)
     print("ranges: " + item.ranges)
 }
-```
 
-##### ASYNChronous version search in `[String]` ( async/await )
-```swift
+// --------------------
+// ASYNC search - async/await
 let results = await fuse.search("Te silm", in: books)
 
 results.forEach { item in
@@ -98,10 +102,9 @@ results.forEach { item in
     print("score: " + item.score)
     print("ranges: " + item.ranges)
 }
-```
 
-##### ASYNChronous version 2 ( callback )
-```swift
+// --------------------
+// ASYNC search - callbacks
 fuse.search("Te silm", in: books, completion: { results in
     results.forEach { item in
         print("index: " + item.index)
@@ -129,7 +132,6 @@ struct Book: Fuseable {
     //var properties: [FuseProp] {
     //    return [title, author].map{ FuseProp($0) }
     //}
-    //
 }
 
 let books: [Book] = [
@@ -137,6 +139,9 @@ let books: [Book] = [
     Book(author: "P.D. Mans", title: "Right Ho Jeeves")
 ]
 let fuse = Fuse()
+
+// --------------------
+// SYNC version
 let results = fuse.searchSync("man", in: books)
 
 results.forEach { item in
@@ -146,19 +151,8 @@ results.forEach { item in
     print("---------------")
 }
 
-// Output:
-//
-// index: 1
-// score: 0.015000000000000003
-// results: [(value: "P.D. Mans", score: 0.015000000000000003, ranges: [CountableClosedRange(5...7)])]
-// ---------------
-// index: 0
-// score: 0.027999999999999997
-// results: [(value: "Old Man\'s War fiction", score: 0.027999999999999997, ranges: [CountableClosedRange(4...6)])]
-```
-
-##### ASYNChronous version: search in `[Fuseable]` objects ( async/await )
-```
+// --------------------
+// ASYNC: async/await
 let results = await fuse.search("Man", in: books)
 
 results.forEach { item in
@@ -167,10 +161,8 @@ results.forEach { item in
     print("results: " + item.results)
     print("---------------")
 }
-```
 
-##### ASYNChronous version: search in `[Fuseable]` objects ( callback )
-```swift
+// ASYNC: callbacks
 fuse.search("Man", in: books, completion: { results in
     results.forEach { item in
         print("index: " + item.index)
