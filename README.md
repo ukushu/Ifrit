@@ -61,6 +61,13 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 + Ifrit - extended coverage with automated tests in general :)
 ```
 
+## Instructions
+
+[How to use Fuse](https://github.com/ukushu/Ifrit/blob/main/FuseInstructions.md)
+
+[How to use Levenstain](https://github.com/ukushu/Ifrit/blob/main/FuseInstructions.md)
+
+
 
 ## Levenstain distance
 
