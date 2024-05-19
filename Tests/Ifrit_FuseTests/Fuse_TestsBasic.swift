@@ -147,4 +147,20 @@ class Fuse_TestsBasic: XCTestCase {
         
         XCTAssertEqual(results.first!.index, correctIdx)
     }
+    
+    func test_SyncAndAsyncWorksTheSameWay() async {
+        let books = largeBookTitlesArray(len: 1000)
+        let bookName = "The Adventures and Misadventures of Magroll"
+        
+        let fuse = Fuse()
+        
+        let results1 = fuse.searchSync(bookName, in: books)
+        let results2 = await fuse.search(bookName, in: books)
+        
+        results1.indices.forEach{ idx in
+            XCTAssertEqual(results1[idx].index, results2[idx].index)
+            XCTAssertEqual(results1[idx].ranges, results2[idx].ranges)
+            XCTAssertEqual(results1[idx].score, results2[idx].score)
+        }
+    }
 }
