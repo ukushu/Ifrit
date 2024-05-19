@@ -63,21 +63,18 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 ## Instructions
 
-[How to use Fuse](https://github.com/ukushu/Ifrit/blob/main/FuseInstructions.md)
+[How to use Fuse](https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md)
 
-[How to use Levenstain](https://github.com/ukushu/Ifrit/blob/main/LevenstainInstructions.md)
-
-
-
+[How to use Levenstain](https://github.com/ukushu/Ifrit/blob/main/Docs/LevenstainInstructions.md)
 
 
 ## Example Project
 
-!!!!!!!!!!!
-Ifrit repository have no example project.
-!!!!!!!!!!!
+```diff
+- Ifrit repository have no example project. Use instructions instead.
+```
 
-As example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
+But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
 To run the example project:
 * clone the Fuse-Swift( https://github.com/krisk/fuse-swift.git ) repo
 * and run `pod install` from the Example directory first.
