@@ -10,8 +10,6 @@ public class Fuse {
     internal var isCaseSensitive: Bool
     internal var tokenize: Bool
     
-//    public typealias Pattern = (text: String, len: Int, mask: Int, alphabet: [Character: Int])
-    
     public typealias SearchResult = (index: Int, score: Double, ranges: [CountableClosedRange<Int>])
     
     internal lazy var searchQueue: DispatchQueue = { [unowned self] in
