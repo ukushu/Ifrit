@@ -179,7 +179,45 @@ fuse.search("Man", in: books, completion: { results in
 })
 ```
 
-### Options
+### How to use Ifrit with Attributed String (SwiftUI)
+
+( NSAttributed string is similar )
+
+```swift
+import SwiftUI
+
+@available(macOS 12, *)
+func attributedString(_ fuzz: FusableSearchResult, _ string: String) -> AttributedString {
+    var attributedString = AttributedString(string)
+    for result in fuzz.results {
+        if result.value != string { continue }
+        let ranges = result.ranges
+        for range in ranges {
+            // Convert CountableClosedRange<Int> to Range<AttributedString.Index>
+            if let start = attributedString.index(at: range.lowerBound),
+               let end = attributedString.index(at: range.upperBound + 1) {
+                let attributedRange = start..<end
+                
+                // Apply attributes using AttributeContainer
+                var container = AttributeContainer()
+                container.foregroundColor = .red
+                attributedString[attributedRange].setAttributes(container)
+            }
+        }
+    }
+
+    return attributedString
+}
+
+@available(macOS 12, *)
+extension AttributedString {
+    func index(at offset: Int) -> AttributedString.Index? {
+        return index(startIndex, offsetByCharacters: offset)
+    }
+}
+```
+
+### `Fuse` Options
 
 `Fuse` takes the following options:
 
@@ -190,7 +228,7 @@ fuse.search("Man", in: books, completion: { results in
 - `isCaseSensitive`: Indicates whether comparisons should be case sensitive. Defaults to `false`
 
 
-### Levenstain distance
+## Levenstain distance
 
 Also ifrit contains `Levenstain distance` between 2 strings. `Fuse` works better in general. But in some cases this also can be useful. Levenstain search can work a bit faster with long strings, as example. 
 
