@@ -1,7 +1,7 @@
 import Foundation
 
 public class Levenstain {
-    public static func search(_ text: String, in aList: [String]) -> [Fuse.SearchResult] {
+    public static func searchSync(_ text: String, in aList: [String]) -> [Fuse.SearchResult] {
         let tmp = aList.indices
             .map { idx -> Fuse.SearchResult in
                 let score = aList[idx].levenshteinDistanceScore(to: text, trimWhiteSpacesAndNewLines: true)
@@ -13,12 +13,12 @@ public class Levenstain {
             .sorted(by: { $0.score < $1.score } )
     }
     
-    public static func search(_ text: String, in aList: [any Fuseable]) -> [Fuse.SearchResult] {
+    public static func searchSync(_ text: String, in aList: [any Fuseable]) -> [Fuse.SearchResult] {
         let tmp = aList.enumerated()
             .compactMap { (idx, item) -> Fuse.SearchResult?  in
                 let allValues = item.properties.map{ $0.value }
                 
-                if let score = search(text, in: allValues).first?.score {
+                if let score = searchSync(text, in: allValues).first?.score {
                     return Fuse.SearchResult(Int(idx), score, [] )
                 }
                 

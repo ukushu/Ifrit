@@ -189,6 +189,53 @@ fuse.search("Man", in: books, completion: { results in
 - `maxPatternLength`: The maximum valid pattern length. The longer the pattern, the more intensive the search operation will be. If the pattern exceeds the `maxPatternLength`, the `search` operation will return `nil`. Why is this important? [Read this](https://en.wikipedia.org/wiki/Word_(computer_architecture)#Word_size_choice). Defaults to `32`
 - `isCaseSensitive`: Indicates whether comparisons should be case sensitive. Defaults to `false`
 
+
+### Levenstain distance
+
+Also ifrit contains `Levenstain distance` between 2 strings. `Fuse` works better in general. But in some cases this also can be useful. Levenstain search can work a bit faster with long strings, as example. 
+
+LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have **EMPTY RANGES PROPERTY**.
+
+```diff
+- WARNING: LEVENSTAIN SEARCH ignores weight parameter of `FuseProp` of `Fusable` objects
+- WARNING: LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have EMPTY RANGES PROPERTY.
+- WARNING: LEVENSTAIN SEARCH supports only Sync search.
+```
+
+#### Levenstain search in `[String]`
+```swift
+let animes = ["Gekijouban Fairy Tail: Houou no Miko",
+            "Fairy Tail the Movie: The Phoenix Priestess",
+            "Priestess of the Phoenix",
+            "Fairy Tail: The Phoenix Priestess"]
+
+let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
+
+// --------------------
+// ASYNC: async/await
+// DOES NOT SUPPORTED
+
+// --------------------
+// ASYNC: callbacks
+// DOES NOT SUPPORTED
+```
+
+#### Levenstain search in `[Fuseable]` objects
+```swift
+let animes = getAnimeList(count: 10) // Fusable objects
+
+let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
+
+// --------------------
+// ASYNC: async/await
+// DOES NOT SUPPORTED
+
+// --------------------
+// ASYNC: callbacks
+// DOES NOT SUPPORTED
+```
+
+
 ## Example Project
 
 !!!!!!!!!!!
@@ -205,6 +252,5 @@ To run the example project:
 1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
 
 2. `import Ifrit` to your source files.
-
 
   [1]: https://i.sstatic.net/8MwFeAHT.gif
