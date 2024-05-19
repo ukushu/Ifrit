@@ -1,6 +1,8 @@
 ## Ifrit - Usage of `Levenstain` distance search
 
-Also ifrit contains `Levenstain distance` between 2 strings. `Fuse` works better in general. But in some cases this also can be useful. Levenstain search can work a bit faster with long strings, as example.
+Also ifrit contains `Levenstain distance` between 2 strings algorythm. And `Levenstain distance` search. 
+
+Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful. In some cases it's can be a bit faster.
 
 LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have **EMPTY RANGES PROPERTY**.
 
