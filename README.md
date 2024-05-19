@@ -65,7 +65,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 [How to use Fuse](https://github.com/ukushu/Ifrit/blob/main/FuseInstructions.md)
 
-[How to use Levenstain](https://github.com/ukushu/Ifrit/blob/main/FuseInstructions.md)
+[How to use Levenstain](https://github.com/ukushu/Ifrit/blob/main/LevenstainInstructions.md)
 
 
 
