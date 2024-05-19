@@ -1,4 +1,4 @@
-## Usage of `Fuse`
+## Ifrit - Usage of `Fuse`
 
 #### Searching in a `String`
 
