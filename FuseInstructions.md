@@ -116,9 +116,7 @@ fuse.search("Man", in: books, completion: { results in
 })
 ```
 
-### How to use Ifrit with Attributed String (SwiftUI)
-
-( NSAttributed string is similar )
+### How to use Ifrit with AttributedString (SwiftUI)
 
 ```swift
 import SwiftUI
@@ -153,6 +151,13 @@ extension AttributedString {
     }
 }
 ```
+
+### How to use Ifrit with AttributedString (SwiftUI)
+
+```diff
+- NSAttributedString example is absent at the moment :(
+```
+
 
 ### `Fuse` Options
 
