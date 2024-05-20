@@ -19,7 +19,6 @@ Advanteges:
 + Asynchronous search ( async/await + callbacks both )
 + Text highlight support (AttributedString)
 + Covered with automated tests
-+ Swift 5.9 and higher
 + MIT Licensed
 ```
 
