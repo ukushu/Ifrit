@@ -25,7 +25,7 @@ Advanteges:
 Disadvantages:
 ```diff
 - Wasn't tested in production
-- Swift 5.9 and higher
+- Swift 5.9 and higher, older versionf of Swift does not supported.
 ```
 
 This repository is based on archived repository Fuze-Swift by KRisk ( https://github.com/krisk/fuse-swift)
