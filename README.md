@@ -30,6 +30,8 @@ Disadvantages:
 
 This repository is based on archived repository Fuse-Swift by KRisk ( https://github.com/krisk/fuse-swift)
 
+Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
+
 
 ## Demo
 
