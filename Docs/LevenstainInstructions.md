@@ -1,8 +1,10 @@
 ## Ifrit - Usage of `Levenstain` distance search
 
-Also ifrit contains `Levenstain distance` between 2 strings algorythm. And `Levenstain distance` search. 
+Also ifrit contains `Levenstain distance` -- distance between 2 strings algorythm. 
 
-Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful. In some cases it's can be a bit faster.
+And `Levenstain distance` search.
+
+Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful - it's can be a bit faster.
 
 LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have **EMPTY RANGES PROPERTY**.
 
