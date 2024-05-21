@@ -152,7 +152,7 @@ extension AttributedString {
 }
 ```
 
-### How to use Ifrit with AttributedString (SwiftUI)
+### How to use Ifrit with NSAttributedString
 
 ```diff
 - NSAttributedString example is absent at the moment :(
