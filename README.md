@@ -20,6 +20,7 @@ Advanteges:
 + Text highlight support (AttributedString)
 + Covered with automated tests
 + MIT Licensed
++ Static and dynamic libs - you are able to choose what is better in your case
 ```
 
 Disadvantages:
