@@ -11,8 +11,9 @@ git@github.com:ukushu/Ifrit.git
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
 
-Advanteges:
+
 ```diff
+Advanteges:
 + Super lightweight
 + No dependencies
 + OS supported: MacOS(>=v10_15), iOS(>=v13), visionOS, watchOS, twOS, Linux
@@ -21,15 +22,13 @@ Advanteges:
 + Covered with automated tests
 + MIT Licensed
 + Static and dynamic libs - you are able to choose what is better in your case
-```
 
 Disadvantages:
-```diff
 - Wasn't tested in production
 - Swift 5.9 and higher, older version of Swift does not supported.
 ```
 
-This repository is based on archived repository Fuse-Swift by KRisk ( https://github.com/krisk/fuse-swift)
+This repository is based on archived repository Fuse-Swift by KRisk: https://github.com/krisk/fuse-swift
 
 Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
