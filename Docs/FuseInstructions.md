@@ -77,6 +77,54 @@ fuse.search("Te silm", in: books, completion: { results in
 })
 ```
 
+#### Search in `[Fuseable]` objects - how to use `FuseProp`
+
+Sample 1: 
+
+```swift
+struct Book: Fuseable {
+    let title: String
+    let author: String
+
+    // each FuseProp weight == 1
+    var properties: [FuseProp] {
+        return [title, author].map{ FuseProp($0) }
+    }
+}
+```
+
+Sample 2: 
+```swift
+struct Book: Fuseable {
+    let title: String
+    let author: String
+
+    // Custom weight for each FuseProp
+    var properties: [FuseProp] {
+        return [
+            FuseProp(title, weight: 0.3),
+            FuseProp(author, weight: 0.7)
+        ]
+    }
+}
+```
+
+Sample 3: 
+```swift
+struct Book: Fuseable {
+    let titles: [String]
+    let authors: [String]
+
+    // using with [String] properties
+    var properties: [FuseProp] {
+        return titles
+                 .appending(contentOf: authors)
+                 .map{ FuseProp($0) }
+    }
+}
+```
+
+
 #### Search in `[Fuseable]` objects
 
 ```swift
@@ -84,16 +132,7 @@ struct Book: Fuseable {
     let title: String
     let author: String
     
-    var properties: [FuseProp] {
-        return [
-            FuseProp(title, weight: 0.3),
-            FuseProp(author, weight: 0.7)
-        ]
-    }
-    //Or this like:
-    //var properties: [FuseProp] {
-    //    return [title, author].map{ FuseProp($0) }
-    //}
+    var properties: [FuseProp] { [title, author].map{ FuseProp($0) } }
 }
 
 let books: [Book] = [
