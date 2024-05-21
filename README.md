@@ -61,6 +61,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit code is updated to swift's latest standards and there are no build warnings :)
 
 + Ifrit - extended coverage with automated tests in general :)
++ Ifrit have additional search with Levenstain distance :)
 ```
 
 ## Documentation / Instructions
