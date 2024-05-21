@@ -6,12 +6,10 @@ And `Levenstain distance` search.
 
 Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful - it's can be a bit faster.
 
-LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have **EMPTY RANGES PROPERTY**.
-
 ```diff
 - WARNING: LEVENSTAIN SEARCH ignores weight parameter of `FuseProp` of `Fusable` objects
 - WARNING: LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have EMPTY RANGES PROPERTY.
-- WARNING: LEVENSTAIN SEARCH supports only Sync search.
+- WARNING: LEVENSTAIN SEARCH supports only Sync search at the moment
 ```
 
 #### Levenstain search in `[String]`
