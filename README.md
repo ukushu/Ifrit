@@ -63,7 +63,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit - extended coverage with automated tests in general :)
 ```
 
-## Instructions
+## Documentation / Instructions
 
 [How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md)
 
@@ -73,7 +73,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 Ifrit repository have no example project. Use instructions above instead. They are clear enough. But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
 
-## Documentation / Installation
+## Installation
 
 1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
 
