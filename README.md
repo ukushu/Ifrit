@@ -25,10 +25,10 @@ Advanteges:
 Disadvantages:
 ```diff
 - Wasn't tested in production
-- Swift 5.9 and higher, older versionf of Swift does not supported.
+- Swift 5.9 and higher, older version of Swift does not supported.
 ```
 
-This repository is based on archived repository Fuze-Swift by KRisk ( https://github.com/krisk/fuse-swift)
+This repository is based on archived repository Fuse-Swift by KRisk ( https://github.com/krisk/fuse-swift)
 
 
 ## Demo
@@ -46,17 +46,17 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 - Fuze-Swift is dead :(
 + Ifrit is a Fuse-Swift reborn from hell and ALIVE as ever :)
 
-- Fuze-Swift async/multithreading issues. Crashes is possible :(
-+ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
-
-- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
-+ Ifrit code is updated to swift's latest standards and there are no build warnings :)
-
 - Fuze-Swift supports async functins with callbacks, but does not support async/await
 + Ifrit supports callbacks and async/await both:)
 
+- Fuze-Swift have async/multithreading issues. Crashes is possible :(
++ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
+
 - Fuze-Swift async functions returns incorrect results (wrong indexes) :((((
 + Ifrit's async functins returns correct indexes and covered with tests :)
+
+- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
++ Ifrit code is updated to swift's latest standards and there are no build warnings :)
 
 + Ifrit - extended coverage with automated tests in general :)
 ```
