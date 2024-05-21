@@ -71,14 +71,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 ## Example Project
 
-```diff
-- Ifrit repository have no example project. Use instructions instead.
-```
-
-But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
-To run the example project:
-* clone the Fuse-Swift( https://github.com/krisk/fuse-swift.git ) repo
-* and run `pod install` from the Example directory first.
+Ifrit repository have no example project. Use instructions above instead. They are clear enough. But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
 
 ## Installation
 
