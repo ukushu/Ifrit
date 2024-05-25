@@ -11,24 +11,26 @@ git@github.com:ukushu/Ifrit.git
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
 
-Advanteges:
+
 ```diff
+Advanteges:
 + Super lightweight
 + No dependencies
++ OS supported: MacOS(>=v10_15), iOS(>=v13), visionOS, watchOS, twOS, Linux
 + Asynchronous search ( async/await + callbacks both )
-+ OS supported: MacOS(>=v10_15), iOS(>=v13), VisionOs, Linux
 + Text highlight support (AttributedString)
 + Covered with automated tests
-+ Swift 5.9 and higher
 + MIT Licensed
-```
++ Static and dynamic libs - you are able to choose what is better in your case
 
 Disadvantages:
-```diff
 - Wasn't tested in production
+- Swift 5.9 and higher, older version of Swift does not supported.
 ```
 
-This repository is based on archived repository Fuze-Swift by KRisk ( https://github.com/krisk/fuse-swift)
+This repository is based on archived repository Fuse-Swift by KRisk: https://github.com/krisk/fuse-swift
+
+Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 
 ## Demo
@@ -46,22 +48,23 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 - Fuze-Swift is dead :(
 + Ifrit is a Fuse-Swift reborn from hell and ALIVE as ever :)
 
-- Fuze-Swift async/multithreading issues. Crashes is possible :(
-+ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
-
-- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
-+ Ifrit code is updated to swift's latest standards and there are no build warnings :)
-
 - Fuze-Swift supports async functins with callbacks, but does not support async/await
 + Ifrit supports callbacks and async/await both:)
+
+- Fuze-Swift have async/multithreading issues. Crashes is possible :(
++ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
 
 - Fuze-Swift async functions returns incorrect results (wrong indexes) :((((
 + Ifrit's async functins returns correct indexes and covered with tests :)
 
+- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
++ Ifrit code is updated to swift's latest standards and there are no build warnings :)
+
 + Ifrit - extended coverage with automated tests in general :)
++ Ifrit have additional search with Levenstain distance :)
 ```
 
-## Instructions
+## Documentation / Instructions
 
 [How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md)
 
@@ -69,14 +72,7 @@ This repository is based on archived repository Fuze-Swift by KRisk ( https://gi
 
 ## Example Project
 
-```diff
-- Ifrit repository have no example project. Use instructions instead.
-```
-
-But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
-To run the example project:
-* clone the Fuse-Swift( https://github.com/krisk/fuse-swift.git ) repo
-* and run `pod install` from the Example directory first.
+Ifrit repository have no example project. Use instructions above instead. They are clear enough. But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
 
 ## Installation
 
