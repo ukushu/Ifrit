@@ -2,14 +2,14 @@
 
 Also ifrit contains `Levenstain distance` -- distance between 2 strings algorythm. 
 
-And `Levenstain distance` search.
+Also is awailable `Levenstain distance search` in collections.
 
-Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful - it's can be a bit faster.
+Search using `Fuse` works better in general. But in some cases `Levenstain distance` this also can be useful - it's can be a bit faster in some cases.
 
 ```diff
-- WARNING: LEVENSTAIN SEARCH ignores weight parameter of `FuseProp` of `Fusable` objects
+- WARNING: LEVENSTAIN SEARCH ignores weight parameter form `Fusable`'s `FuseProp`.
 - WARNING: LEVENSTAIN SEARCH returns the same search result: `[Fuse.SearchResult]`, but this result have EMPTY RANGES PROPERTY.
-- WARNING: LEVENSTAIN SEARCH supports only Sync search at the moment
+- WARNING: LEVENSTAIN SEARCH: async functions is not supported at the moment.
 ```
 
 #### Levenstain search in `[String]`
