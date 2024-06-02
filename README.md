@@ -21,7 +21,7 @@ Advanteges:
 + Text highlight support (AttributedString)
 + Covered with automated tests
 + MIT Licensed
-+ Static and dynamic libs - you are able to choose what is better in your case
++ Ability to link Ifrit as Static and dynamic package - you are able to choose what is better in your case
 
 Disadvantages:
 - Wasn't tested in production
