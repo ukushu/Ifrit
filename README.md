@@ -6,7 +6,7 @@
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
 ```
-🇺🇦🇺🇦🇺🇦 PLEASE, SUPPORT UKRAINE! 🇺🇦🇺🇦🇺🇦
+🇺🇦🇺🇦🇺🇦 UKRAINE NEED YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
 
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
