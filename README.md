@@ -62,8 +62,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 + Ifrit - extended coverage with automated tests in general :)
 + Ifrit have additional search system using Levenstain distance algorythm :)
-
-+ Ifrit have a little bit changed syntax
++ Ifrit have ability to search by several templates
++ Ifrit have a little bit changed syntax to be more flexible.
 ```
 
 ## Documentation / Instructions
