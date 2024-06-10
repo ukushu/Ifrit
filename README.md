@@ -62,6 +62,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 + Ifrit - extended coverage with automated tests in general :)
 + Ifrit have additional search system using Levenstain distance algorythm :)
+
++ Ifrit have a little bit changed syntax
 ```
 
 ## Documentation / Instructions
@@ -72,7 +74,9 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 ## Example Project
 
-Ifrit repository have no example project. Use instructions above instead. They are clear enough. But also as example project you can use project from original [Fuse-Swift repository](https://github.com/krisk/fuse-swift)
+Ifrit repository have no example project. 
+
+Use instructions above. They are clear enough.
 
 ## Installation
 
