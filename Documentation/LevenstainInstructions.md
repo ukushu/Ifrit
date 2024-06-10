@@ -34,7 +34,7 @@ let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in
 ```swift
 let animes = getAnimeList(count: 10) // Fusable objects
 
-let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
+let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties )
 
 // --------------------
 // ASYNC: async/await

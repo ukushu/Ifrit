@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 @testable import Ifrit
 
-final class IfritDocumentationCode_Test: XCTestCase {
+final class IfritDoxCode_Fuse_Test: XCTestCase {
     
     //#### Searching in a `String` using `Fuse`
     func test_1() throws {

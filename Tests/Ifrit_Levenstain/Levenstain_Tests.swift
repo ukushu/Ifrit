@@ -98,7 +98,7 @@ extension Levenstain_Tests {
 ///HELPERS
 /////////////////////////
 
-fileprivate func getAnimeList(count: Int) -> [AnimeListInfo] {
+func getAnimeList(count: Int) -> [AnimeListInfo] {
     guard count >= 2 else { fatalError() }
     
     let animes : [AnimeListInfo] = [
@@ -147,7 +147,7 @@ fileprivate func getAnimeList(count: Int) -> [AnimeListInfo] {
 }
 
 
-fileprivate struct AnimeListInfo: Codable, Searchable  {
+struct AnimeListInfo: Codable, Searchable  {
     // Search in this fields
     let nameEng: String?
     let nameJap: String
