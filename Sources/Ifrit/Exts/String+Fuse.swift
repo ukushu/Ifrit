@@ -2,7 +2,7 @@
 
 import Foundation
 
-extension String {
+internal extension String {
     /// Get the character at a given index
     ///
     /// - Parameter index: some index
