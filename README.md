@@ -68,9 +68,9 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 ## Documentation / Instructions
 
-[How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md)
+[How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Documentation/FuseInstructions.md)
 
-[How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Docs/LevenstainInstructions.md)
+[How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Documentation/LevenstainInstructions.md)
 
 ## Example Project
 
