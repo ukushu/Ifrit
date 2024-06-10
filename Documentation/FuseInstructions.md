@@ -104,6 +104,15 @@ extension Book: Searchable {
     }
 }
 ```
+```diff
++ Important thing: you're able to use several [FuseProp] properties and 
++ search in exact fields set that you need in curr situation. Or with different weights ofc :)
++ 
++ Use case sample:
++ if your user search in ukrainian language - you need to search string in ukrainian language titles.
++ In case of english - in englishe titles.
+```
+
 
 Sample for use with arrays:
 
