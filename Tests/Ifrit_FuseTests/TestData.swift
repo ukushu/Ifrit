@@ -1,7 +1,7 @@
 import Foundation
 @testable import Ifrit
 
-internal struct Book: Fuseable {
+internal struct Book: Searchable {
     let author: String
     let title: String
     
@@ -13,7 +13,7 @@ internal struct Book: Fuseable {
     }
 }
 
-internal struct Anime: Fuseable {
+internal struct Anime: Searchable {
     let ukrainian: [String]
     let engOrJap: [String]
     

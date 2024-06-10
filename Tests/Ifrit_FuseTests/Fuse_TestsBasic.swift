@@ -51,7 +51,7 @@ class Fuse_TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch1() {
-        struct Book: Fuseable {
+        struct Book: Searchable {
             let author: String
             let title: String
             
@@ -69,7 +69,7 @@ class Fuse_TestsBasic: XCTestCase {
         ]
         
         let fuse = Fuse()
-        let results = fuse.searchSync("man", in: books)
+        let results = fuse.searchSync("man", in: books, by: \Book.properties)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")
@@ -77,7 +77,7 @@ class Fuse_TestsBasic: XCTestCase {
     }
     
     func testProtocolWeightedSearch2() {
-        struct Book: Fuseable {
+        struct Book: Searchable {
             let author: String
             let title: String
             
@@ -95,7 +95,7 @@ class Fuse_TestsBasic: XCTestCase {
         ]
         
         let fuse = Fuse()
-        let results = fuse.searchSync("man", in: books)
+        let results = fuse.searchSync("man", in: books, by: \Book.properties)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 1, "The first result is the second book")
@@ -108,7 +108,7 @@ class Fuse_TestsBasic: XCTestCase {
         let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
         
         let fuse = Fuse()
-        let results = fuse.searchSync("тріган", in: animes)
+        let results = fuse.searchSync("тріган", in: animes, by: \Anime.properties)
         
         XCTAssertEqual(results.first!.index, correctIdx)
     }
@@ -119,7 +119,7 @@ class Fuse_TestsBasic: XCTestCase {
         let correctIdx = animes.firstIndex(where: { $0.ukrainian.contains("Тріган") })
         
         let fuse = Fuse()
-        let results = await fuse.search("тріган", in: animes)
+        let results = await fuse.search("тріган", in: animes, by: \Anime.properties)
         
         XCTAssertEqual(results.first!.index, correctIdx)
     }

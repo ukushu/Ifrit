@@ -13,10 +13,13 @@ public class Levenstain {
             .sorted(by: { $0.score < $1.score } )
     }
     
-    public static func searchSync(_ text: String, in aList: [any Fuseable]) -> [Fuse.SearchResult] {
+    public static func searchSync<T>(_ text: String,
+                                     in aList: [T],
+                                     by keyPath: KeyPath<T, [FuseProp]>) -> [Fuse.SearchResult] where T: Searchable
+    {
         let tmp = aList.enumerated()
             .compactMap { (idx, item) -> Fuse.SearchResult?  in
-                let allValues = item.properties.map{ $0.value }
+                let allValues = item[keyPath: keyPath].map{ $0.value }
                 
                 if let score = searchSync(text, in: allValues).first?.score {
                     return Fuse.SearchResult(Int(idx), score, [] )

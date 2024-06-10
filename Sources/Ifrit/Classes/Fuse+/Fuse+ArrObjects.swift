@@ -3,44 +3,13 @@
 import Foundation
 
 extension Fuse {
-    /// Searches for a text pattern in an array of `Fuseable` objects.
     ///
-    /// Each `FuseSearchable` object contains a `properties` accessor which returns `FuseProperty` array. Each `FuseProperty` is a tuple containing a `value` (the value of the property which should be included in the search), and a `weight` (how much "weight" to assign to the score)
+    /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
-    /// ## Example
-    ///
-    /// Ensure the object conforms to `Fuseable`:
-    ///
-    ///     struct Book: Fuseable {
-    ///         let title: String
-    ///         let author: String
-    ///
-    ///         var properties: [FuseProperty] {
-    ///             return [
-    ///                 FuseProperty(value: title, weight: 0.7),
-    ///                 FuseProperty(value: author, weight: 0.3)
-    ///             ]
-    ///         }
-    ///     }
-    ///
-    /// Searching is straightforward:
-    ///
-    ///     let books: [Book] = [
-    ///         Book(title: "Old Man's War fiction", author: "John X"),
-    ///         Book(title: "Right Ho Jeeves", author: "P.D. Mans")
-    ///     ]
-    ///
-    ///     let fuse = Fuse()
-    ///     let results = fuse.search("Man", in: books)
-    ///
-    /// - Parameters:
-    ///   - text: The pattern string to search for
-    ///   - aList: The list of `Fuseable` objects in which to search
-    /// - Returns: A list of `CollectionResult` objects
-    public func searchSync(_ text: String, in aList: [Fuseable]) -> [FusableSearchResult] {
+    public func searchSync<T>(_ text: String, in aList: [T], by keyPath: KeyPath<T, [FuseProp]>) -> [FuzzySrchResult]  where T: Searchable {
         let pattern = self.createPattern(from: text)
         
-        var collectionResult = [FusableSearchResult]()
+        var collectionResult = [FuzzySrchResult]()
         
         for (index, item) in aList.enumerated() {
             var scores = [Double]()
@@ -48,7 +17,7 @@ extension Fuse {
             
             var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
             
-            item.properties.forEach { property in
+            item[keyPath: keyPath].forEach { property in
                 
                 let value = property.value
                 
@@ -72,55 +41,24 @@ extension Fuse {
                 score: totalScore / Double(scores.count),
                 results: propertyResults
             ))
-            
         }
         
         return collectionResult.sorted { $0.score < $1.score }
     }
     
-    /// Asynchronously searches for a text pattern in an array of `Fuseable` objects.
     ///
-    /// Each `FuseSearchable` object contains a `properties` accessor which returns `FuseProperty` array. Each `FuseProperty` is a tuple containing a `value` (the value of the property which should be included in the search), and a `weight` (how much "weight" to assign to the score)
+    /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
-    /// ## Example
-    ///
-    /// Ensure the object conforms to `Fuseable`:
-    ///
-    ///     struct Book: Fuseable {
-    ///         let title: String
-    ///         let author: String
-    ///
-    ///         var properties: [FuseProperty] {
-    ///             return [
-    ///                 FuseProperty(value: title, weight: 0.7),
-    ///                 FuseProperty(value: author, weight: 0.3)
-    ///             ]
-    ///         }
-    ///     }
-    ///
-    /// Searching is straightforward:
-    ///
-    ///     let books: [Book] = [
-    ///         Book(title: "Old Man's War fiction", author: "John X"),
-    ///         Book(title: "Right Ho Jeeves", author: "P.D. Mans")
-    ///     ]
-    ///
-    ///     let fuse = Fuse()
-    ///     fuse.search("Man", in: books, completion: { results in
-    ///         print(results)
-    ///     })
-    ///
-    /// - Parameters:
-    ///   - text: The pattern string to search for
-    ///   - aList: The list of `Fuseable` objects in which to search
-    ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
-    ///   - completion: The handler which is executed upon completion
-    public func search(_ text: String, in aList: [Fuseable], chunkSize: Int = 100, completion: @escaping ([FusableSearchResult]) -> Void) {
+    public func search<T>(_ text: String, in aList: [T],
+                          by keyPath: KeyPath<T, [FuseProp]>,
+                          chunkSize: Int = 100,
+                          completion: @escaping ([FuzzySrchResult]) -> Void) where T: Searchable
+    {
         let pattern = self.createPattern(from: text)
         
         let group = DispatchGroup()
         
-        var collectionResult = [FusableSearchResult]()
+        var collectionResult = [FuzzySrchResult]()
         let resultLock = NSLock()
         
         aList.splitBy(chunkSize).enumerated()
@@ -135,8 +73,7 @@ extension Fuse {
                         
                         var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
                         
-                        item.properties.forEach { property in
-                            
+                        item[keyPath: keyPath].forEach { property in
                             let value = property.value
                             
                             if let result = self.search(pattern, in: value) {
@@ -175,60 +112,18 @@ extension Fuse {
         }
     }
     
-    /// Asynchronously searches for a text pattern in an array of `Fuseable` objects.
     ///
-    /// Each `FuseSearchable` object contains a `properties` accessor which returns `FuseProperty` array. Each `FuseProperty` is a tuple containing a `value` (the value of the property which should be included in the search), and a `weight` (how much "weight" to assign to the score)
+    /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
-    /// ## Example
-    ///
-    /// Ensure the object conforms to `Fuseable`:
-    ///
-    ///     struct Book: Fuseable {
-    ///         let title: String
-    ///         let author: String
-    ///
-    ///         var properties: [FuseProperty] {
-    ///             return [
-    ///                 FuseProperty(value: title, weight: 0.7),
-    ///                 FuseProperty(value: author, weight: 0.3)
-    ///             ]
-    ///         }
-    ///     }
-    ///
-    /// Searching is straightforward:
-    ///
-    ///     let books: [Book] = [
-    ///         Book(title: "Old Man's War fiction", author: "John X"),
-    ///         Book(title: "Right Ho Jeeves", author: "P.D. Mans")
-    ///     ]
-    ///
-    ///     let fuse = Fuse()
-    ///     fuse.search("Man", in: books, completion: { results in
-    ///         print(results)
-    ///     })
-    ///
-    /// - Parameters:
-    ///   - text: The pattern string to search for
-    ///   - aList: The list of `Fuseable` objects in which to search
-    ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
-    ///   - completion: The handler which is executed upon completion
-    public func search(_ text: String, in aList: [Fuseable], chunkSize: Int = 100) async -> [FusableSearchResult]  {
+    public func search<T>(_ text: String,
+                       in aList: [T],
+                       by keyPath: KeyPath<T, [FuseProp]>,
+                       chunkSize: Int = 100) async -> [FuzzySrchResult] where T: Searchable
+    {
         await withCheckedContinuation { continuation in
-            search(text, in: aList, chunkSize: 100) { results in
+            search(text, in: aList, by: keyPath, chunkSize: 100) { results in
                 continuation.resume(returning: results)
             }
-        }
-    }
-}
-
-/////////////////////////
-///HELPERS
-////////////////////////
-
-extension Array {
-    func splitBy(_ chunkSize: Int) -> [ArraySlice<Element>] {
-        return stride(from: 0, to: self.count, by: chunkSize).map {
-            self[$0..<Swift.min($0 + chunkSize, self.count)]
         }
     }
 }

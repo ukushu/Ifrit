@@ -1,10 +1,8 @@
 //  Created by Kirollos Risk on 5/2/17
 
-public protocol Fuseable {
-    var properties: [FuseProp] { get }
-}
+public protocol Searchable { }
 
-public typealias FusableSearchResult = (
+public typealias FuzzySrchResult = (
     index: Int,
     score: Double,
     results: [(

@@ -68,7 +68,7 @@ class Fuse_TestsTokenize: XCTestCase {
         ]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.searchSync("man right", in: books)
+        let results = fuse.searchSync("man right", in: books, by: \Book.properties)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")
@@ -82,7 +82,7 @@ class Fuse_TestsTokenize: XCTestCase {
         ]
         
         let fuse = Fuse(tokenize: true)
-        let results = fuse.searchSync("john man", in: books)
+        let results = fuse.searchSync("john man", in: books, by: \Book.properties)
         
         XCTAssert(results.count > 0, "There are results")
         XCTAssert(results[0].index == 0, "The first result is the first book")

@@ -38,22 +38,22 @@ final class Levenstain_Tests: XCTestCase {
     func test_AdvancedSearch() throws {
         let animes = getAnimeList(count: 10)
         
-        let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
+        let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.score, 0)
         
-        let result2 = Levenstain.searchSync("Test of Array", in: animes)
+        let result2 = Levenstain.searchSync("Test of Array", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result2.count, 10)
         XCTAssertEqual(result2.first?.score, 0)
         
-        let result3 = Levenstain.searchSync("Array of Tests", in: animes)
+        let result3 = Levenstain.searchSync("Array of Tests", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result3.count, 10)
         XCTAssertGreaterThan(result3.first!.score, 0.666)
         
-        let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes)
+        let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(incorrectSearch.count, 10)
         XCTAssertGreaterThan(incorrectSearch.first!.score, 0.6)
@@ -69,7 +69,7 @@ extension Levenstain_Tests {
         let animes = getAnimeList(count: 1_300)
         
         self.measure {
-            let _ = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
+            let _ = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         }
         // M1 PC results:
         // search in 10_000 objects [5 search strings in object]
@@ -147,7 +147,7 @@ fileprivate func getAnimeList(count: Int) -> [AnimeListInfo] {
 }
 
 
-fileprivate struct AnimeListInfo: Codable, Fuseable  {
+fileprivate struct AnimeListInfo: Codable, Searchable  {
     // Search in this fields
     let nameEng: String?
     let nameJap: String

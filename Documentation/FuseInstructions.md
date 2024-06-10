@@ -18,15 +18,14 @@ let fuse = Fuse()
 // SYNC search
 let result = fuse.searchSync("od mn war", in: "Old Man's War")
 
-print(result?.score)  // 0.44444444444444442 // LOWEST SCORE = BETTER
-print(result?.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
+print(result!.score)  // 0.44444444444444442 // LOWEST SCORE = BETTER
+print(result!.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...6), CountableClosedRange(9...12)]
 
 // --------------------
 // ASYNC search - async/await
 
 // --------------------
 // ASYNC search - callbacks
-
 ```
 
 #### Search in `[String]`
@@ -36,9 +35,9 @@ let books = ["The Silmarillion", "The Lock Artist", "The Lost Symbol"]
 let fuse = Fuse()
 
 // SYNC search
-let results = fuse.searchSync("Te silm", in: books)
+let results1 = fuse.searchSync("Te silm", in: books)
 
-results.forEach { item in
+results1.forEach { item in
     print("""
         index: \(item.index)
         score: \(item.score)
@@ -50,9 +49,9 @@ results.forEach { item in
 
 // --------------------
 // ASYNC search - async/await
-let results = await fuse.search("Te silm", in: books)
+let results2 = fuse.searchSync("Te silm", in: books)
 
-results.forEach { item in
+results2.forEach { item in
     print("""
         index: \(item.index)
         score: \(item.score)
@@ -77,30 +76,27 @@ fuse.search("Te silm", in: books, completion: { results in
 })
 ```
 
-#### Search in `[Fuseable]` objects - how to use `FuseProp`
+#### Search in `[Searchable]` objects - how to use `FuseProp`
 
-Sample 1: 
+Declaration of searchable object:
 
 ```swift
-struct Book: Fuseable {
+struct Book: Searchable {
     let title: String
     let author: String
+}
 
+extension Book: Searchable {
+    
+    ///////////////////
     // each FuseProp weight == 1
-    var properties: [FuseProp] {
+    var propertiesWeight1: [FuseProp] {
         return [title, author].map{ FuseProp($0) }
     }
-}
-```
-
-Sample 2: 
-```swift
-struct Book: Fuseable {
-    let title: String
-    let author: String
-
-    // Custom weight for each FuseProp
-    var properties: [FuseProp] {
+    
+    ///////////////////
+    // each FuseProp have custom weight
+    var propertiesCustomWeight: [FuseProp] {
         return [
             FuseProp(title, weight: 0.3),
             FuseProp(author, weight: 0.7)
@@ -109,14 +105,14 @@ struct Book: Fuseable {
 }
 ```
 
-Sample 3: 
+Sample for use with arrays:
+
 ```swift
-struct Book: Fuseable {
+struct Library: Fuseable {
     let titles: [String]
     let authors: [String]
-
-    // using with [String] properties
-    var properties: [FuseProp] {
+    
+    var arrayProperties: [FuseProp] {
         return titles
                  .appending(contentOf: authors)
                  .map{ FuseProp($0) }
@@ -125,12 +121,12 @@ struct Book: Fuseable {
 ```
 
 
-#### Search in `[Fuseable]` objects
+#### Search in `[Searchable]` objects
 
 ```swift
-struct Book: Fuseable {
-    let title: String
+struct Book: Searchable {
     let author: String
+    let title: String
     
     var properties: [FuseProp] { [title, author].map{ FuseProp($0) } }
 }
@@ -143,22 +139,22 @@ let fuse = Fuse()
 
 // --------------------
 // SYNC version
-let results = fuse.searchSync("man", in: books)
+let resultsSync = fuse.searchSync("man", in: books, by: \Book.properties)
 
-results.forEach { item in
+resultsSync.forEach { item in
     print("index: \(item.index); score: \(item.score)")
 }
 
 // --------------------
 // ASYNC: async/await
-let results = await fuse.search("Man", in: books)
+let resultsAsync = await fuse.search("Man", in: books, by: \Book.properties)
 
-results.forEach { item in
+resultsAsync.forEach { item in
     print("index: \(item.index); score: \(item.score)")
 }
 
 // ASYNC: callbacks
-fuse.search("Man", in: books, completion: { results in
+fuse.search("Man", in: books, by: \Book.properties, completion: { results in
     results.forEach { item in
         print("index: \(item.index); score: \(item.score)")
     }
@@ -206,4 +202,3 @@ extension AttributedString {
 ```diff
 - NSAttributedString example is absent at the moment :(
 ```
-

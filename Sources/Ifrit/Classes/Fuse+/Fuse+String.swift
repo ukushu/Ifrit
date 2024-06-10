@@ -222,7 +222,7 @@ extension Fuse {
     ///   - text: the text string to search for.
     ///   - aString: The string in which to search for the pattern
     /// - Returns: A tuple containing a `score` between `0.0` (exact match) and `1` (not a match), and `ranges` of the matched characters.
-    public func search(_ text: String, in aString: String) -> (score: Double, ranges: [CountableClosedRange<Int>])? {
+    public func searchSync(_ text: String, in aString: String) -> (score: Double, ranges: [CountableClosedRange<Int>])? {
         return self.search(self.createPattern(from: text), in: aString)
     }
 }
