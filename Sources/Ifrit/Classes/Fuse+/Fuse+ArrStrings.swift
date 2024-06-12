@@ -9,10 +9,10 @@ extension Fuse {
     ///   -   text: The pattern string to search for
     ///   - aList: The list of string in which to search
     /// - Returns: A tuple containing the `item` in which the match is found, the `score`, and the `ranges` of the matched characters
-    public func searchSync(_ text: String, in aList: [String]) -> [SearchResult] {
+    public func searchSync(_ text: String, in aList: [String]) -> [SrchDetails] {
         let pattern = self.createPattern(from: text)
         
-        var items = [SearchResult]()
+        var items = [SrchDetails]()
         
         for (index, item) in aList.enumerated() {
             if let result = self.search(pattern, in: item) {
@@ -30,7 +30,7 @@ extension Fuse {
     ///   - aList: The list of string in which to search
     ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
     ///   - completion: The handler which is executed upon completion
-    public func search(_ text: String, in aList: [String], chunkSize: Int = 100) async -> [SearchResult]  {
+    public func search(_ text: String, in aList: [String], chunkSize: Int = 100) async -> [SrchDetails]  {
         await withCheckedContinuation { continuation in
             search(text, in: aList, chunkSize: chunkSize) { results in
                 continuation.resume(returning: results)
@@ -45,10 +45,10 @@ extension Fuse {
     ///   - aList: The list of string in which to search
     ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
     ///   - completion: The handler which is executed upon completion
-    public func search(_ text: String, in aList: [String], chunkSize: Int = 100, completion: @escaping ([SearchResult]) -> Void) {
+    public func search(_ text: String, in aList: [String], chunkSize: Int = 100, completion: @escaping ([SrchDetails]) -> Void) {
         let pattern = self.createPattern(from: text)
         
-        var items = [SearchResult]()
+        var items = [SrchDetails]()
         let itemsLock = NSLock()
         
         let group = DispatchGroup()

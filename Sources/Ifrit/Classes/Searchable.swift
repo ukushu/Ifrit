@@ -1,4 +1,3 @@
-//  Created by Kirollos Risk on 5/2/17
 
 public protocol Searchable { }
 
@@ -11,3 +10,5 @@ public typealias FuzzySrchResult = (
         ranges: [CountableClosedRange<Int>]
     )]
 )
+
+public typealias SrchDetails = (index: Int, score: Double, ranges: [CountableClosedRange<Int>])

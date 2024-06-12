@@ -1,12 +1,12 @@
 import Foundation
 
 public class Levenstain {
-    public static func searchSync(_ text: String, in aList: [String]) -> [Fuse.SearchResult] {
+    public static func searchSync(_ text: String, in aList: [String]) -> [SrchDetails] {
         let tmp = aList.indices
-            .map { idx -> Fuse.SearchResult in
+            .map { idx -> SrchDetails in
                 let score = aList[idx].levenshteinDistanceScore(to: text, trimWhiteSpacesAndNewLines: true)
                 
-                return Fuse.SearchResult(Int(idx), 1 - score, [])
+                return SrchDetails(Int(idx), 1 - score, [])
             }
         
         return tmp
@@ -15,14 +15,14 @@ public class Levenstain {
     
     public static func searchSync<T>(_ text: String,
                                      in aList: [T],
-                                     by keyPath: KeyPath<T, [FuseProp]>) -> [Fuse.SearchResult] where T: Searchable
+                                     by keyPath: KeyPath<T, [FuseProp]>) -> [SrchDetails] where T: Searchable
     {
         let tmp = aList.enumerated()
-            .compactMap { (idx, item) -> Fuse.SearchResult?  in
+            .compactMap { (idx, item) -> SrchDetails?  in
                 let allValues = item[keyPath: keyPath].map{ $0.value }
                 
                 if let score = searchSync(text, in: allValues).first?.score {
-                    return Fuse.SearchResult(Int(idx), score, [] )
+                    return SrchDetails(Int(idx), score, [] )
                 }
                 
                 return nil

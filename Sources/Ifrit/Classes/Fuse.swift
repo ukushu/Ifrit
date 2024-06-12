@@ -10,8 +10,6 @@ public class Fuse {
     internal var isCaseSensitive: Bool
     internal var tokenize: Bool
     
-    public typealias SearchResult = (index: Int, score: Double, ranges: [CountableClosedRange<Int>])
-    
     internal lazy var searchQueue: DispatchQueue = { [unowned self] in
         let label = "fuse.search.queue"
         return DispatchQueue(label: label, attributes: .concurrent)

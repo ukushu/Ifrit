@@ -72,6 +72,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 [How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Documentation/LevenstainInstructions.md)
 
+[How to display search results in UI](https://github.com/ukushu/Ifrit/blob/main/Documentation/HowToUseSrchResult.md)
+
 ## Example Project
 
 Ifrit repository have no example project. 
