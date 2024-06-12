@@ -80,10 +80,6 @@ fuse.search("Te silm", in: books, completion: { results in
 
 Declaration of `Searchable` object:
 
-```diff
-+ note that `Searchable` object can have several blocks of "search fields"
-```
-
 ```swift
 struct Book: Searchable {
     let title: String
@@ -110,12 +106,13 @@ extension Book: Searchable {
 ```
 
 ```diff
-+ Important thing: you're able to use several [FuseProp] properties and 
-+ search in exact fields set that you need in curr situation. Or with different weights ofc :)
+
++ Important thing: note that `Searchable` you're able to use several blocks of "search fields" ( `[FuseProp]` ) 
++ Each block can be used for different situations for single object type. Or with different weights ofc :)
 + 
 + Use case sample:
 + if your user search in ukrainian language - you need to search string in ukrainian language titles.
-+ In case of english - in englishe titles.
++ In case of english - only in english titles. Optimization, bro! :D
 ```
 
 
