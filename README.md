@@ -6,7 +6,7 @@
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
 ```
-🇺🇦🇺🇦🇺🇦 PLEASE, SUPPORT UKRAINE! 🇺🇦🇺🇦🇺🇦
+🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
 
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
@@ -21,7 +21,7 @@ Advanteges:
 + Text highlight support (AttributedString)
 + Covered with automated tests
 + MIT Licensed
-+ Ability to link Ifrit as Static and dynamic package - you are able to choose what is better in your case
++ Ability to link Ifrit as Static and Dynamic package - you are able to choose what is better in your case
 
 Disadvantages:
 - Wasn't tested in production
@@ -62,8 +62,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 + Ifrit - extended coverage with automated tests in general :)
 + Ifrit have additional search system using Levenstain distance algorythm :)
-
-+ Ifrit have a little bit changed syntax
++ Ifrit have ability to search by several templates
++ Ifrit have a little bit changed syntax to be more flexible.
 ```
 
 ## Documentation / Instructions
