@@ -107,7 +107,7 @@ extension Book: Searchable {
 
 ```diff
 
-+ Important thing: note that `Searchable` you're able to use several blocks of "search fields" ( `[FuseProp]` ) 
++ Important thing: note that you're able to have in `Searchable` obj several blocks of "search fields" ( `[FuseProp]` ) 
 + Each block can be used for different situations for single object type. Or with different weights ofc :)
 + 
 + Use case sample:
