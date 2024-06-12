@@ -41,7 +41,7 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
         
         // --------------------
         // ASYNC search - async/await
-        let results2 = fuse.searchSync("Te silm", in: books)
+        let results2 = await fuse.search("Te silm", in: books)
         
         results2.forEach { item in
             print("""
@@ -75,6 +75,8 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
     
     // #### Search in `[Searchable]` objects
     func test_4() async throws {
+        // --------------------
+        // Intro :)
         struct Book: Searchable {
             let author: String
             let title: String
@@ -86,7 +88,10 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
             Book(author: "John X", title: "Old Man's War fiction"),
             Book(author: "P.D. Mans", title: "Right Ho Jeeves")
         ]
+        
         let fuse = Fuse()
+        //---------------------
+        
         
         // --------------------
         // SYNC version

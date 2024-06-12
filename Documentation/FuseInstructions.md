@@ -49,7 +49,7 @@ results1.forEach { item in
 
 // --------------------
 // ASYNC search - async/await
-let results2 = fuse.searchSync("Te silm", in: books)
+let results2 = await fuse.search("Te silm", in: books)
 
 results2.forEach { item in
     print("""
