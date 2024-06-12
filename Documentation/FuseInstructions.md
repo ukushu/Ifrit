@@ -172,7 +172,7 @@ fuse.search("Man", in: books, by: \Book.properties, completion: { results in
 })
 ```
 
-### How to use Ifrit with AttributedString (SwiftUI)
+### How to use Ifrit with `AttributedString` (SwiftUI)
 
 ```swift
 import SwiftUI
@@ -208,8 +208,29 @@ extension AttributedString {
 }
 ```
 
-### How to use Ifrit with NSAttributedString
+### How to use Ifrit with `NSAttributedString`
 
 ```diff
-- NSAttributedString example is absent at the moment :(
+- You can improve this code to style of sample with AttributedString, 
+- this is just code copy from FuseSwift sampl rpoject
+```
+
+```diff
+let results = fuse.search(searchText, in: books)
+
+var filteredBooks = [NSAttributedString]()
+
+filteredBooks = results.map { (index, _, matchedRanges) in
+    let book = books[index]
+    
+    let attributedString = NSMutableAttributedString(string: book)
+    matchedRanges
+        .map(Range.init)
+        .map(NSRange.init)
+        .forEach {
+            attributedString.addAttributes(boldAttrs, range: $0)
+        }
+    
+    return attributedString
+}
 ```
