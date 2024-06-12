@@ -78,7 +78,11 @@ fuse.search("Te silm", in: books, completion: { results in
 
 #### Search in `[Searchable]` objects - how to use `FuseProp`
 
-Declaration of searchable object:
+Declaration of `Searchable` object:
+
+```diff
++ note that `Searchable` object can have several blocks of "search fields"
+```
 
 ```swift
 struct Book: Searchable {
@@ -90,7 +94,7 @@ extension Book: Searchable {
     
     ///////////////////
     // each FuseProp weight == 1
-    var propertiesWeight1: [FuseProp] {
+    var properties: [FuseProp] {
         return [title, author].map{ FuseProp($0) }
     }
     
@@ -104,6 +108,7 @@ extension Book: Searchable {
     }
 }
 ```
+
 ```diff
 + Important thing: you're able to use several [FuseProp] properties and 
 + search in exact fields set that you need in curr situation. Or with different weights ofc :)
