@@ -24,6 +24,7 @@ Demo of Fuzzy Search:
 
 [![Ifrit demo][1]][1]
 
+### Advanteges / Disadvantages of Ifrit
 
 ```diff
 Advanteges:
