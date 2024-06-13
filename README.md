@@ -11,6 +11,19 @@ git@github.com:ukushu/Ifrit.git
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
 
+### What is fuzzy Search?
+
+A fuzzy search algorithm is designed to find approximate matches for a given search query. 
+
+Let's say you have a list of products, and a user is looking for a "Czy Swetr,". Exact match will return nothing, but the fuzzy search will find "Cozy Sweater.".
+
+If you need exact match - you need to use standard function `.filter { }` instead of this library.
+
+Demo of Fuzzy Search:
+<!-- ![Demo](https://s17.postimg.org/47a90nmvj/bitap-search-demo.gif) -->
+
+[![Ifrit demo][1]][1]
+
 
 ```diff
 Advanteges:
@@ -31,13 +44,6 @@ Disadvantages:
 This repository is based on archived repository Fuse-Swift by KRisk: https://github.com/krisk/fuse-swift
 
 Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
-
-
-## Demo
-
-<!-- ![Demo](https://s17.postimg.org/47a90nmvj/bitap-search-demo.gif) -->
-
-[![Ifrit demo][1]][1]
 
 
 ## Difference: Ifrit VS Fuze-Swift?
