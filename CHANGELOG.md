@@ -2,6 +2,7 @@ V.2.0.2 ~not released yet~
 
 * Documentation improvements
 * Ability to set QoS for fuse search
+* Improved sync search speed a little bit.
 
 V.2.0.1
 

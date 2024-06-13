@@ -71,6 +71,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit have additional search system using Levenstain distance algorythm :)
 + Ifrit have ability to search by several templates
 + Ifrit have a little bit changed syntax to be more flexible.
++ Ifrit's sync search faster than Fuse's on 2% (standard settings) using M1 processor. Async search have tha same speed (standard settings).
 ```
 
 ## Documentation / Instructions / Example Project
