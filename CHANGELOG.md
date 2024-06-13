@@ -1,3 +1,8 @@
+V.2.0.2 ~not released yet~
+
+* Documentation improvements
+* Ability to set QoS for fuse search
+
 V.2.0.1
 
 * Documentation improvements
