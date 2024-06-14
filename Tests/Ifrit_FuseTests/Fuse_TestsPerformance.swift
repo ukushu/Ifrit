@@ -25,8 +25,8 @@ class Fuse_Performance: XCTestCase {
      M1 Proccessor
      Books: 50 000
      
-     Average: 2.421
-     Time: [2.343995, 2.533559, 2.353903, 2.428667, 2.323356, 2.517610, 2.336135, 2.523576, 2.287798, 2.564045]
+     Average: 2.205
+     Time: [2.299982, 2.319346, 2.162927, 2.153129, 2.177680, 2.166128, 2.182223, 2.237912, 2.209319, 2.144492]
      */
     func testPerformanceAsync() {
         let books = largeBookTitlesArray()
