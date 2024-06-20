@@ -4,12 +4,12 @@ internal class FuseUtilities {
     /// Computes the score for a match with `e` errors and `x` location.
     ///
     /// - Parameter pattern: Pattern being sought.
-    /// - Parameter e: Number of errors in match.
-    /// - Parameter x: Location of match.
-    /// - Parameter loc: Expected location of match.
-    /// - Parameter scoreTextLength: Coerced version of text's length.
+    /// - Parameter errorsInMatch
+    /// - Parameter matchLocation
+    /// - Parameter expectedMatchLocation
+    /// - Parameter scoreTextLength: Coerced version of text's length. ?????
     /// - Returns: Overall score for match (0.0 = good, 1.0 = bad).
-    static func calculateScore(_ pattern: String, e: Int, x: Int, loc: Int, distance: Int) -> Double {
+    static func calculateScore(_ pattern: String, errorsInMatch e: Int, matchLocation x: Int, expectedMatchLocation loc: Int, distance: Int) -> Double {
         let len = pattern.count
         let accuracy = Double(e) / Double(len)
         let proximity = abs(x - loc)
@@ -22,12 +22,12 @@ internal class FuseUtilities {
     /// Computes the score for a match with `e` errors and `x` location.
     ///
     /// - Parameter patternLength: Length of pattern being sought.
-    /// - Parameter e: Number of errors in match.
-    /// - Parameter x: Location of match.
-    /// - Parameter loc: Expected location of match.
-    /// - Parameter scoreTextLength: Coerced version of text's length.
+    /// - Parameter errorsInMatch: --
+    /// - Parameter matchLocation:
+    /// - Parameter expectedMatchLocation:
+    /// - Parameter scoreTextLength: Coerced version of text's length. ??????
     /// - Returns: Overall score for match (0.0 = good, 1.0 = bad).
-    static func calculateScore(_ patternLength: Int, e: Int, x: Int, loc: Int, distance: Int) -> Double {
+    static func calculateScore(_ patternLength: Int, errorsInMatch e: Int, matchLocation x: Int, expectedMatchLocation loc: Int, distance: Int) -> Double {
         let accuracy = Double(e) / Double(patternLength)
         let proximity = abs(x - loc)
         if (distance == 0) {

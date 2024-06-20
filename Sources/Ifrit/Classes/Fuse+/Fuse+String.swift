@@ -87,7 +87,7 @@ extension Fuse {
         
         if let bestLoc = bestLocation {
             
-            threshold = min(threshold, FuseUtilities.calculateScore(pattern.len, e: 0, x: location, loc: bestLoc, distance: distance))
+            threshold = min(threshold, FuseUtilities.calculateScore(pattern.len, errorsInMatch: 0, matchLocation: location, expectedMatchLocation: bestLoc, distance: distance))
             
             // What about in the other direction? (speed up)
             bestLocation = {
@@ -98,7 +98,7 @@ extension Fuse {
             }()
             
             if let bestLocation = bestLocation {
-                threshold = min(threshold, FuseUtilities.calculateScore(pattern.len, e: 0, x: location, loc: bestLocation, distance: distance))
+                threshold = min(threshold, FuseUtilities.calculateScore(pattern.len, errorsInMatch: 0, matchLocation: location, expectedMatchLocation: bestLocation, distance: distance))
             }
         }
         
@@ -118,7 +118,7 @@ extension Fuse {
             var binMid = binMax
             
             while binMin < binMid {
-                if FuseUtilities.calculateScore(pattern.len, e: i, x: location, loc: location + binMid, distance: distance) <= threshold {
+                if FuseUtilities.calculateScore(pattern.len, errorsInMatch: i, matchLocation: location, expectedMatchLocation: location + binMid, distance: distance) <= threshold {
                     binMin = binMid
                 } else {
                     binMax = binMid
@@ -133,7 +133,9 @@ extension Fuse {
             
             // Initialize the bit array
             var bitArr = [Int](repeating: 0, count: finish + 2)
-            bitArr[finish + 1] = (1 << i) - 1
+            
+//            bitArr[finish + 1] = (1 << i) - 1 // original string. Possible crashes in some cases because of arithmetic overflow
+            bitArr[finish + 1] = (1 << i) == Int.min ? 0 : (1 << i) - 1
             
             if start > finish {
                 continue
@@ -171,7 +173,7 @@ extension Fuse {
                 }
                 
                 if (bitArr[j] & pattern.mask) != 0 {
-                    score = FuseUtilities.calculateScore(pattern.len, e: i, x: location, loc: currentLocation, distance: distance)
+                    score = FuseUtilities.calculateScore(pattern.len, errorsInMatch: i, matchLocation: location, expectedMatchLocation: currentLocation, distance: distance)
                     
                     // This match will almost certainly be better than any existing match. But check anyway.
                     if score <= threshold {
@@ -195,7 +197,7 @@ extension Fuse {
             }
             
             // No hope for a better match at greater error levels
-            if FuseUtilities.calculateScore(pattern.len, e: i + 1, x: location, loc: location, distance: distance) > threshold {
+            if FuseUtilities.calculateScore(pattern.len, errorsInMatch: i + 1, matchLocation: location, expectedMatchLocation: location, distance: distance) > threshold {
                 break
             }
             
