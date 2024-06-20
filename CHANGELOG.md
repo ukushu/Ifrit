@@ -1,8 +1,9 @@
-V.2.0.2 ~not released yet~
+V.2.0.2
 
 * Documentation improvements
 * Ability to set QoS for fuse search
-* Improved sync search speed a little bit.
+* Improved sync search speed a little bit
+* Fixed crash caused of binary operation arithmetic overflow
 
 V.2.0.1
 
