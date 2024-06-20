@@ -135,7 +135,8 @@ extension Fuse {
             var bitArr = [Int](repeating: 0, count: finish + 2)
             
 //            bitArr[finish + 1] = (1 << i) - 1 // original string. Possible crashes in some cases because of arithmetic overflow
-            bitArr[finish + 1] = (1 << i) == Int.min ? 0 : (1 << i) - 1
+            let arithmeticOverflowSafeVal = (1 << i) == Int.min ? 0 : (1 << i) - 1
+            bitArr[finish + 1] = arithmeticOverflowSafeVal
             
             if start > finish {
                 continue
