@@ -1,18 +1,22 @@
-V.2.0.2
+v.2.0.3 ~Not released yet~
+*
+*
+
+v.2.0.2
 
 * Documentation improvements
 * Ability to set QoS for fuse search
 * Improved sync search speed a little bit
 * Fixed crash caused of binary operation arithmetic overflow
 
-V.2.0.1
+v.2.0.1
 
 * Documentation improvements
 * Removed garbage from the repo
 * Minor improvements
 
 
-V.2.0.0
+v.2.0.0
 
 * Fuseable -> Searchable
 * Ability to search by exact property instead of standart "Fuseable's'" "properties" property. This will give you ability to implement different search logic for single type of objects. Use case sample: if user search in ukrainian language - it searches title in ukrainian language titles. In case of english - in englishe titles.
