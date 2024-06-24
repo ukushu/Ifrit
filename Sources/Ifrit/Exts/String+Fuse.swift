@@ -5,7 +5,6 @@ import Foundation
 internal extension String {
     /// Get the character at a given index
     ///
-    /// - Parameter index: some index
     /// - Returns: the character at the provided index
     func char(at index: Int) -> Character? {
         if index >= self.count {
