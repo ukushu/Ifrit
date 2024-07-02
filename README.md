@@ -100,3 +100,7 @@ Mariupol city before Russia invasion (2021):
 Mariupol city after Russia invasion (2022):
 
 <img src="https://www.ukrainianworldcongress.org/wp-content/uploads/2024/01/032522mariupol1_1920x1080.jpg" width="800" height="500">
+
+<img src="https://truthout.org/app/uploads/2022/04/2022_0411-mariupol-ukraine-scaled.jpg" width="800" height="500">
+
+
