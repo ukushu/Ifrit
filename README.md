@@ -94,9 +94,9 @@ Ifrit repository have no example project. Use instructions below:
 
 ## 🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
 
-Mariupol city before Russia invasion:
+Mariupol city before Russia invasion (2021):
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmistomariupol.com.ua%2Fwp-content%2Fuploads%2F2021%2F03%2Fdji_0301.mp4_snapshot_00.00.993-scaled.jpg" width="800" height="500">
 
-Mariupol city after Russia invasion:
+Mariupol city after Russia invasion (2022):
 
 <img src="https://www.ukrainianworldcongress.org/wp-content/uploads/2024/01/032522mariupol1_1920x1080.jpg" width="800" height="500">
