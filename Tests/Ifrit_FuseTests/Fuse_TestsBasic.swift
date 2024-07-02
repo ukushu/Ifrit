@@ -160,7 +160,7 @@ class Fuse_TestsBasic: XCTestCase {
         results1.indices.forEach{ idx in
             XCTAssertEqual(results1[idx].index, results2[idx].index)
             XCTAssertEqual(results1[idx].ranges, results2[idx].ranges)
-            XCTAssertEqual(results1[idx].score, results2[idx].score)
+            XCTAssertEqual(results1[idx].diffScore, results2[idx].diffScore)
         }
     }
 }

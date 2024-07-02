@@ -15,7 +15,7 @@ extension Fuse {
             var scores = [Double]()
             var totalScore = 0.0
             
-            var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
+            var propertyResults = [(value: String, diffScore: Double, ranges: [CountableClosedRange<Int>])]()
             
             item[keyPath: keyPath].forEach { property in
                 
@@ -28,7 +28,7 @@ extension Fuse {
                     
                     scores.append(score)
                     
-                    propertyResults.append((value: property.value, score: score, ranges: result.ranges))
+                    propertyResults.append((value: property.value, diffScore: score, ranges: result.ranges))
                 }
             }
             
@@ -38,12 +38,12 @@ extension Fuse {
             
             collectionResult.append((
                 index: index,
-                score: totalScore / Double(scores.count),
+                diffScore: totalScore / Double(scores.count),
                 results: propertyResults
             ))
         }
         
-        return collectionResult.sorted { $0.score < $1.score }
+        return collectionResult.sorted { $0.diffScore < $1.diffScore }
     }
     
     ///
@@ -71,7 +71,7 @@ extension Fuse {
                         var scores = [Double]()
                         var totalScore = 0.0
                         
-                        var propertyResults = [(value: String, score: Double, ranges: [CountableClosedRange<Int>])]()
+                        var propertyResults = [(value: String, diffScore: Double, ranges: [CountableClosedRange<Int>])]()
                         
                         item[keyPath: keyPath].forEach { property in
                             let value = property.value
@@ -83,7 +83,7 @@ extension Fuse {
                                 
                                 scores.append(score)
                                 
-                                propertyResults.append((value: property.value, score: score, ranges: result.ranges))
+                                propertyResults.append((value: property.value, diffScore: score, ranges: result.ranges))
                             }
                         }
                         
@@ -94,7 +94,7 @@ extension Fuse {
                         resultLock.lock()
                         collectionResult.append((
                             index: chunkIndex * chunkSize + index,
-                            score: totalScore / Double(scores.count),
+                            diffScore: totalScore / Double(scores.count),
                             results: propertyResults
                         ))
                         resultLock.unlock()
@@ -105,7 +105,7 @@ extension Fuse {
             }
         
         group.notify(queue: self.searchQueue) {
-            let sorted = collectionResult.sorted { $0.score < $1.score }
+            let sorted = collectionResult.sorted { $0.diffScore < $1.diffScore }
             DispatchQueue.main.async {
                 completion(sorted)
             }

@@ -28,6 +28,7 @@ print(result!.ranges) // [CountableClosedRange(0...0), CountableClosedRange(2...
 
 // --------------------
 // ASYNC search - callbacks
+
 ```
 
 #### Search in `[String]`
@@ -42,7 +43,7 @@ let results1 = fuse.searchSync("Te silm", in: books)
 results1.forEach { item in
     print("""
         index: \(item.index)
-        score: \(item.score)
+        score: \(item.diffScore)
         ranges: \(item.ranges)
         ---------------
         """
@@ -56,7 +57,7 @@ let results2 = await fuse.search("Te silm", in: books)
 results2.forEach { item in
     print("""
         index: \(item.index)
-        score: \(item.score)
+        score: \(item.diffScore)
         ranges: \(item.ranges)
         ---------------
         """
@@ -69,7 +70,7 @@ fuse.search("Te silm", in: books, completion: { results in
     results.forEach { item in
         print("""
             index: \(item.index)
-            score: \(item.score)
+            score: \(item.diffScore)
             ranges: \(item.ranges)
             ---------------
             """
@@ -137,6 +138,8 @@ struct Library: Fuseable {
 #### Search in `[Searchable]` objects
 
 ```swift
+// --------------------
+// Intro :)
 struct Book: Searchable {
     let author: String
     let title: String
@@ -148,14 +151,17 @@ let books: [Book] = [
     Book(author: "John X", title: "Old Man's War fiction"),
     Book(author: "P.D. Mans", title: "Right Ho Jeeves")
 ]
+
 let fuse = Fuse()
+//---------------------
+
 
 // --------------------
 // SYNC version
 let resultsSync = fuse.searchSync("man", in: books, by: \Book.properties)
 
 resultsSync.forEach { item in
-    print("index: \(item.index); score: \(item.score)")
+    print("index: \(item.index); score: \(item.diffScore)")
 }
 
 // --------------------
@@ -163,13 +169,13 @@ resultsSync.forEach { item in
 let resultsAsync = await fuse.search("Man", in: books, by: \Book.properties)
 
 resultsAsync.forEach { item in
-    print("index: \(item.index); score: \(item.score)")
+    print("index: \(item.index); score: \(item.diffScore)")
 }
 
 // ASYNC: callbacks
 fuse.search("Man", in: books, by: \Book.properties, completion: { results in
     results.forEach { item in
-        print("index: \(item.index); score: \(item.score)")
+        print("index: \(item.index); score: \(item.diffScore)")
     }
 })
 ```

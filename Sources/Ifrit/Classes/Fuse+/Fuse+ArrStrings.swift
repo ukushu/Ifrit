@@ -20,7 +20,7 @@ extension Fuse {
             }
         }
         
-        return items.sorted { $0.score < $1.score }
+        return items.sorted { $0.diffScore < $1.diffScore }
     }
     
     /// Asynchronously searches for a text pattern in an array of srings.
@@ -70,7 +70,7 @@ extension Fuse {
         }
         
         group.notify(queue: self.searchQueue) {
-            let sorted = items.sorted { $0.score < $1.score }
+            let sorted = items.sorted { $0.diffScore < $1.diffScore }
             DispatchQueue.main.async {
                 completion(sorted)
             }

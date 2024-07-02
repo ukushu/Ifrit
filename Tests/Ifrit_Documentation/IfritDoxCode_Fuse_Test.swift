@@ -32,7 +32,7 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
         results1.forEach { item in
             print("""
                 index: \(item.index)
-                score: \(item.score)
+                score: \(item.diffScore)
                 ranges: \(item.ranges)
                 ---------------
                 """
@@ -46,7 +46,7 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
         results2.forEach { item in
             print("""
                 index: \(item.index)
-                score: \(item.score)
+                score: \(item.diffScore)
                 ranges: \(item.ranges)
                 ---------------
                 """
@@ -59,7 +59,7 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
             results.forEach { item in
                 print("""
                     index: \(item.index)
-                    score: \(item.score)
+                    score: \(item.diffScore)
                     ranges: \(item.ranges)
                     ---------------
                     """
@@ -98,7 +98,7 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
         let resultsSync = fuse.searchSync("man", in: books, by: \Book.properties)
         
         resultsSync.forEach { item in
-            print("index: \(item.index); score: \(item.score)")
+            print("index: \(item.index); score: \(item.diffScore)")
         }
         
         // --------------------
@@ -106,13 +106,13 @@ final class IfritDoxCode_Fuse_Test: XCTestCase {
         let resultsAsync = await fuse.search("Man", in: books, by: \Book.properties)
         
         resultsAsync.forEach { item in
-            print("index: \(item.index); score: \(item.score)")
+            print("index: \(item.index); score: \(item.diffScore)")
         }
         
         // ASYNC: callbacks
         fuse.search("Man", in: books, by: \Book.properties, completion: { results in
             results.forEach { item in
-                print("index: \(item.index); score: \(item.score)")
+                print("index: \(item.index); score: \(item.diffScore)")
             }
         })
     }

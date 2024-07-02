@@ -15,12 +15,12 @@ final class Levenstain_Tests: XCTestCase {
         let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
         
         XCTAssertEqual(animesSearch.count, 4)
-        XCTAssertEqual(animesSearch.first?.score, 0)
+        XCTAssertEqual(animesSearch.first?.diffScore, 0)
         
         let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes)
         
         XCTAssertEqual(incorrectSearch.count, 4)
-        XCTAssertGreaterThan(incorrectSearch.first!.score, 0.9)
+        XCTAssertGreaterThan(incorrectSearch.first!.diffScore, 0.9)
     }
     
     func test_BasicSearch2() throws {
@@ -41,22 +41,22 @@ final class Levenstain_Tests: XCTestCase {
         let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result.count, 10)
-        XCTAssertEqual(result.first?.score, 0)
+        XCTAssertEqual(result.first?.diffScore, 0)
         
         let result2 = Levenstain.searchSync("Test of Array", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result2.count, 10)
-        XCTAssertEqual(result2.first?.score, 0)
+        XCTAssertEqual(result2.first?.diffScore, 0)
         
         let result3 = Levenstain.searchSync("Array of Tests", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result3.count, 10)
-        XCTAssertGreaterThan(result3.first!.score, 0.666)
+        XCTAssertGreaterThan(result3.first!.diffScore, 0.666)
         
         let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(incorrectSearch.count, 10)
-        XCTAssertGreaterThan(incorrectSearch.first!.score, 0.6)
+        XCTAssertGreaterThan(incorrectSearch.first!.diffScore, 0.6)
     }
 }
 

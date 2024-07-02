@@ -10,7 +10,7 @@ public class Levenstain {
             }
         
         return tmp
-            .sorted(by: { $0.score < $1.score } )
+            .sorted(by: { $0.diffScore < $1.diffScore } )
     }
     
     public static func searchSync<T>(_ text: String,
@@ -21,14 +21,14 @@ public class Levenstain {
             .compactMap { (idx, item) -> SrchDetails?  in
                 let allValues = item[keyPath: keyPath].map{ $0.value }
                 
-                if let score = searchSync(text, in: allValues).first?.score {
+                if let score = searchSync(text, in: allValues).first?.diffScore {
                     return SrchDetails(Int(idx), score, [] )
                 }
                 
                 return nil
             }
         
-        return tmp.sorted(by: { $0.score < $1.score } )
+        return tmp.sorted(by: { $0.diffScore < $1.diffScore } )
     }
     
     public static func searchFuzzy(_ text: String, 
