@@ -6,7 +6,6 @@
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
 ```
-🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
 
 ## What is Ifrit?
 Ifrit is fuzzy search library written in pure swift.
@@ -92,3 +91,12 @@ Ifrit repository have no example project. Use instructions below:
 2. `import Ifrit` to your source files.
 
   [1]: https://i.sstatic.net/8MwFeAHT.gif
+
+## 🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
+
+Mariupol city before Russia invasion:
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmistomariupol.com.ua%2Fwp-content%2Fuploads%2F2021%2F03%2Fdji_0301.mp4_snapshot_00.00.993-scaled.jpg" width="800" height="500">
+
+Mariupol city after Russia invasion:
+
+<img src="https://www.ukrainianworldcongress.org/wp-content/uploads/2024/01/032522mariupol1_1920x1080.jpg" width="800" height="500">
