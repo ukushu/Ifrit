@@ -1,4 +1,8 @@
-v.2.0.3 ~Not released yet~
+v.2.0.4 ~Not released yet~
+* 
+*
+
+v.2.0.3
 * score -> diffScore - more intuitive prop name
 * updated documentation
 
