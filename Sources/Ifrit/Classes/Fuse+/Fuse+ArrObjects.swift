@@ -54,7 +54,8 @@ extension Fuse {
                           chunkSize: Int = 100,
                           completion: @escaping ([FuzzySrchResult]) -> Void) where T: Searchable
     {
-        let pattern = self.createPattern(from: text)
+        let fixedText = text.replacingOccurrences(of: "\\", with: "")
+        let pattern = self.createPattern(from: fixedText )
         
         let group = DispatchGroup()
         
