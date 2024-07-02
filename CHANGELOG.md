@@ -1,6 +1,6 @@
 v.2.0.3 ~Not released yet~
-*
-*
+* score -> diffScore - more intuitive prop name
+* updated documentation
 
 v.2.0.2
 
