@@ -118,7 +118,9 @@ According to Ukrainian military intelligence, Russian forces carried out "major 
 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegraf.com.ua%2Fstatic%2Fstorage%2Foriginals%2F0%2F63%2F007c82db0653baa77e7fb321b7dc0630.jpg" width="800" height="350">
 
 
-The capacity of the Kakhovka reservoir was 18 million cubic meters of water. This reservoir could supply the entire planet of people with fresh water for more than 2 years. And this water was lost. 
+The capacity of the Kakhovka reservoir was 18 million cubic meters of fresh water. 
+==
+This reservoir could have provided all people on the planet with fresh water for more than 2 years. And this water was lost. 
 
 Not to mention the flooded residential areas and the environmental disaster caused by the washing away of cemeteries and desalination of water in the Black Sea.
 
