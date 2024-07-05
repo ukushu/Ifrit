@@ -84,6 +84,10 @@ Ifrit repository have no example project. Use instructions below:
 
 [How to display search results in UI](https://github.com/ukushu/Ifrit/blob/main/Documentation/HowToUseSrchResult.md)
 
+## Contributing
+
+SwiftUIX welcomes contributions in the form of GitHub issues and pull-requests.
+
 ## Installation
 
 1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
