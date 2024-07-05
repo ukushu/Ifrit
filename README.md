@@ -86,7 +86,7 @@ Ifrit repository have no example project. Use instructions below:
 
 ## Contributing
 
-SwiftUIX welcomes contributions in the form of GitHub issues and pull-requests.
+Ifrit welcomes contributions in the form of GitHub issues and pull-requests.
 
 ## Installation
 
