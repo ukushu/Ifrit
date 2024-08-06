@@ -44,7 +44,7 @@ extension AttributedString {
 
 ```diff
 - You can improve this code to style of sample with AttributedString,
-- this is just code copy from FuseSwift sampl rpoject
+- this is just code copy from FuseSwift sample project
 ```
 
 ```diff
