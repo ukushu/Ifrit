@@ -42,8 +42,9 @@ extension AttributedString {
 
 ### How to use Ifrit with `NSAttributedString`
 
+!!! You can improve this code to similar style to sample above (AttributedString) 
+
 ```diff
-- You can improve this code to style of sample with AttributedString,
 - this is just code copy from FuseSwift sample project
 ```
 
