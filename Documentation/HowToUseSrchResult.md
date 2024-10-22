@@ -35,7 +35,8 @@ func attributedString(_ fuzz: FuzzySrchResult, _ string: String) -> AttributedSt
 @available(macOS 12, *)
 extension AttributedString {
     func index(at offset: Int) -> AttributedString.Index? {
-        return index(startIndex, offsetByCharacters: offset)
+        let offsetByCharacters = offset > characters.count ? characters.count : offset
+        return index(startIndex, offsetByCharacters: offsetByCharacters)
     }
 }
 ```
