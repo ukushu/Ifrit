@@ -74,16 +74,6 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 +         Async search have tha same speed (standard settings).
 ```
 
-## Documentation / Instructions / Example Project
-
-Ifrit repository have no example project. Use instructions below:
-
-[How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Documentation/FuseInstructions.md)
-
-[How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Documentation/LevenstainInstructions.md)
-
-[How to display search results in UI](https://github.com/ukushu/Ifrit/blob/main/Documentation/HowToUseSrchResult.md)
-
 ## Contributing
 
 Ifrit welcomes contributions in the form of GitHub issues and pull-requests.
@@ -95,6 +85,18 @@ Ifrit welcomes contributions in the form of GitHub issues and pull-requests.
 2. `import Ifrit` to your source files.
 
   [1]: https://i.sstatic.net/8MwFeAHT.gif
+
+  
+## Documentation / Instructions / Example Project
+
+Ifrit repository have no example project. Use instructions below:
+
+[How to use Ifrit's Fuse](https://github.com/ukushu/Ifrit/blob/main/Documentation/FuseInstructions.md)
+
+[How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Documentation/LevenstainInstructions.md)
+
+[How to display search results in UI](https://github.com/ukushu/Ifrit/blob/main/Documentation/HowToUseSrchResult.md)
+
 
 ## 🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
 
