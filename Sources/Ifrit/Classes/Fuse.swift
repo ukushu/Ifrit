@@ -65,7 +65,7 @@ public extension Fuse {
 
 public enum ObjectsSortStrategy {
     /// scores.sum / scores.count
-    case totalScore
+    case averageScore
     /// scores.min
     case minimalScore
 }

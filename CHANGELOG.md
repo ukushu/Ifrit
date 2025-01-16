@@ -1,6 +1,6 @@
 v.2.0.4 ~Not released yet~
-* 
-*
+* Added ability to choose sorting strategy for search in array of objects
+* Changed default sorting strategy to "minimum score". For FuseSwift it was "average score". 
 
 v.2.0.3
 * score -> diffScore - more intuitive prop name
