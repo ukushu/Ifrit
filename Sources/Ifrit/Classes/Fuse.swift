@@ -9,6 +9,7 @@ public class Fuse {
     internal var maxPatternLength: Int
     internal var isCaseSensitive: Bool
     internal var tokenize: Bool
+    internal var objSortStrategy: ObjectsSortStrategy
     internal var qos: DispatchQoS
     
     internal lazy var searchQueue: DispatchQueue = { [unowned self] in
@@ -24,14 +25,16 @@ public class Fuse {
     ///   - maxPatternLength: The maximum valid pattern length. The longer the pattern, the more intensive the search operation will be. If the pattern exceeds the `maxPatternLength`, the `search` operation will return `nil`. Why is this important? [Read this](https://en.wikipedia.org/wiki/Word_(computer_architecture)#Word_size_choice). Defaults to `32`
     ///   - isCaseSensitive: Indicates whether comparisons should be case sensitive. Defaults to `false`
     ///   - tokenize: When true, the search algorithm will search individual words **and** the full string, computing the final score as a function of both. Note that when `tokenize` is `true`, the `threshold`, `distance`, and `location` are inconsequential for individual tokens.
+    ///    `objSortStrategy:` if you search in object by property with array - you can choose your sorting strategy.  By default is `.minimalScore`.
     ///   - qos: quality-of-service, use this to set search task priority. Better never use `.user-interactive`. By default is `.userInitiated`.
-    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, maxPatternLength: Int = 32, isCaseSensitive: Bool = false, tokenize: Bool = false, qos: DispatchQoS = .userInitiated) {
+    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, maxPatternLength: Int = 32, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .minimalScore, qos: DispatchQoS = .userInitiated) {
         self.location = location
         self.distance = distance
         self.threshold = threshold
         self.maxPatternLength = maxPatternLength
         self.isCaseSensitive = isCaseSensitive
         self.tokenize = tokenize
+        self.objSortStrategy = objSortStrategy
         self.qos = qos
     }
     
@@ -58,4 +61,11 @@ public extension Fuse {
             self.alphabet = FuseUtilities.calculatePatternAlphabet(text)
         }
     }
+}
+
+public enum ObjectsSortStrategy {
+    /// scores.sum / scores.count
+    case totalScore
+    /// scores.min
+    case minimalScore
 }
