@@ -1,4 +1,6 @@
-v.2.0.4 ~Not released yet~
+v.2.0.5 ~Not released yet~
+
+v.2.0.4
 * Added ability to choose sorting strategy for search in array of objects
 * Changed default sorting strategy to "minimum score". For FuseSwift it was "average score". 
 
