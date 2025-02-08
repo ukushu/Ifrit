@@ -68,7 +68,7 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 - Fuze-Swift always search for "average score" inside of objects array value :(
 + Ifrit have sorting strategy for search by array property in object. 
-          Choose between "average score" and "minimal score". :) Default is "minimal"
++          Choose between "average score" and "minimal score". :) Default is "minimal"
 
 + Ifrit - extended coverage with automated tests in general :)
 + Ifrit have additional search system using Levenstain distance algorythm :)
