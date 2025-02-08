@@ -100,37 +100,3 @@ Ifrit repository have no example project. Use instructions below:
 [How to use Ifrit's Levenstain](https://github.com/ukushu/Ifrit/blob/main/Documentation/LevenstainInstructions.md)
 
 [How to display search results in UI](https://github.com/ukushu/Ifrit/blob/main/Documentation/HowToUseSrchResult.md)
-
-
-## 🇺🇦🇺🇦🇺🇦 UKRAINE NEEDS YOUR SUPPORT! 🇺🇦🇺🇦🇺🇦
-
-Mariupol city before Russia invasion (2021):
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmistomariupol.com.ua%2Fwp-content%2Fuploads%2F2021%2F03%2Fdji_0301.mp4_snapshot_00.00.993-scaled.jpg" width="800" height="500">
-
-Mariupol city after Russia invasion (2022):
-
-( ruined almost all infrastructure )
-
-<img src="https://www.ukrainianworldcongress.org/wp-content/uploads/2024/01/032522mariupol1_1920x1080.jpg" width="800" height="500">
-
-<img src="https://truthout.org/app/uploads/2022/04/2022_0411-mariupol-ukraine-scaled.jpg" width="800" height="500">
-
-Destruction of the Kakhovka Dam
-==
-
-Russia destroyed Kakhovka Dam in the early hours of 6 June 2023 in Kherson Oblast. This was the second-largest reservoir in Ukraine by area (2,155 km2 [832 sq mi]) and the largest by water volume (18.19 km3 [4.36 cu mi]).
-According to Ukrainian military intelligence, Russian forces carried out "major mining" of the Kakhovka dam shortly after taking control in February 2022, and in April 2022 mined locks and supports and installed "tented trucks with explosives on the dam itself". In October 2022, the Foreign Minister of Moldova, Nicu Popescu, said that Ukraine had intercepted Russian missiles targeting a different dam, on the Dniester river. At the time, Ukrainian president Zelenskyy warned of Russian preparations to destroy the Kakhovka dam and blame Ukraine, and called for an international observation mission at the dam to prevent a potential catastrophe.
-
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftelegraf.com.ua%2Fstatic%2Fstorage%2Foriginals%2F0%2F63%2F007c82db0653baa77e7fb321b7dc0630.jpg" width="800" height="350">
-
-
-The capacity of the Kakhovka reservoir was 18 million cubic meters of fresh water. 
-==
-This reservoir could have provided all people on the planet with fresh water for more than 2 years. And this water was lost. 
-
-Not to mention the flooded residential areas and the environmental disaster caused by the washing away of cemeteries and desalination of water in the Black Sea.
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Ukrainereservoir_oli2_2023169.jpg" width="800" height="800">
-
-
-
