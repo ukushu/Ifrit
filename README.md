@@ -64,7 +64,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit's async functins returns correct indexes and covered with tests :)
 
 - Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
-+ Ifrit code is updated to swift's latest standards and there are no build warnings :)
++ Ifrit code is updated to swift's latest standards - Ifrit supports even Swift v6 :) 
+- But Ifrit have a few build warnings :(
 
 + Ifrit - extended coverage with automated tests in general :)
 + Ifrit have additional search system using Levenstain distance algorythm :)
@@ -72,8 +73,13 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit have a little bit changed syntax to be more flexible.
 + Ifrit's sync search faster than Fuse's on 2% (standard settings) using M1 processor.
 +         Async search have tha same speed (standard settings).
-+ Ifrit supports Swift v6
 ```
+
+## Installation
+
+1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
+
+2. `import Ifrit` to your source files.
 
 ## Documentation / Instructions / Example Project
 
@@ -88,11 +94,5 @@ Ifrit repository have no example project. Use instructions below:
 ## Contributing
 
 Ifrit welcomes contributions in the form of GitHub issues and pull-requests.
-
-## Installation
-
-1. XCode -> Menu Line -> Add Package Dependencies -> `https://github.com/ukushu/Ifrit.git`
-
-2. `import Ifrit` to your source files.
 
   [1]: https://i.sstatic.net/8MwFeAHT.gif
