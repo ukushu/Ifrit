@@ -50,7 +50,7 @@ extension Fuse {
     /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
     @Sendable
-    public func search<T>(_ text: String, in aList: [T],
+    public func search<T: Sendable>(_ text: String, in aList: [T],
                           by keyPath: KeyPath<T, [FuseProp]>,
                           chunkSize: Int = 100,
                           completion: @escaping @Sendable ([FuzzySrchResult]) -> Void) where T: Searchable
@@ -116,7 +116,7 @@ extension Fuse {
     ///
     /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
-    public func search<T>(_ text: String,
+    public func search<T: Sendable>(_ text: String,
                        in aList: [T],
                        by keyPath: KeyPath<T, [FuseProp]>,
                        chunkSize: Int = 100) async -> [FuzzySrchResult] where T: Searchable
