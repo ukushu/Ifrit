@@ -38,7 +38,7 @@ extension Fuse {
             
             collectionResult.append((
                 index: index,
-                diffScore: totalScore / Double(scores.count),
+                diffScore: self.objSortStrategy == .averageScore ? totalScore / Double(scores.count) : scores.min() ?? 1 ,
                 results: propertyResults
             ))
         }
@@ -95,7 +95,7 @@ extension Fuse {
                         resultLock.lock()
                         collectionResult.append((
                             index: chunkIndex * chunkSize + index,
-                            diffScore: totalScore / Double(scores.count),
+                            diffScore: self.objSortStrategy == .averageScore ? totalScore / Double(scores.count) : scores.min() ?? 1,
                             results: propertyResults
                         ))
                         resultLock.unlock()

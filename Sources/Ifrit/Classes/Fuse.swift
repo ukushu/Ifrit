@@ -2,13 +2,13 @@
 
 import Foundation
 
-
 public class Fuse: @unchecked Sendable {
     internal let location: Int
     internal let distance: Int
     internal let threshold: Double
     internal let maxPatternLength: Int
     internal let isCaseSensitive: Bool
+    internal let objSortStrategy: ObjectsSortStrategy
     internal let tokenize: Bool
     internal let qos: DispatchQoS
     internal let searchQueue: DispatchQueue
@@ -22,16 +22,18 @@ public class Fuse: @unchecked Sendable {
     ///   - maxPatternLength: The maximum valid pattern length. The longer the pattern, the more intensive the search operation will be. If the pattern exceeds the `maxPatternLength`, the `search` operation will return `nil`. Why is this important? [Read this](https://en.wikipedia.org/wiki/Word_(computer_architecture)#Word_size_choice). Defaults to `32`
     ///   - isCaseSensitive: Indicates whether comparisons should be case sensitive. Defaults to `false`
     ///   - tokenize: When true, the search algorithm will search individual words **and** the full string, computing the final score as a function of both. Note that when `tokenize` is `true`, the `threshold`, `distance`, and `location` are inconsequential for individual tokens.
+    ///    `objSortStrategy:` if you search in object by property with array - you can choose your sorting strategy.  By default is `.minimalScore`.
     ///   - qos: quality-of-service, use this to set search task priority. Better never use `.user-interactive`. By default is `.userInitiated`.
-    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, maxPatternLength: Int = 32, isCaseSensitive: Bool = false, tokenize: Bool = false, qos: DispatchQoS = .userInitiated) {
+    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, maxPatternLength: Int = 32, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .minimalScore, qos: DispatchQoS = .userInitiated) {
         self.location = location
         self.distance = distance
         self.threshold = threshold
         self.maxPatternLength = maxPatternLength
         self.isCaseSensitive = isCaseSensitive
         self.tokenize = tokenize
+        self.objSortStrategy = objSortStrategy
         self.qos = qos
-        searchQueue = DispatchQueue(label: "ifrit.search.queue", qos: qos, attributes: .concurrent)
+        self.searchQueue = DispatchQueue(label: "ifrit.search.queue", qos: qos, attributes: .concurrent)
     }
     
     /// Creates a pattern tuple.
@@ -57,4 +59,11 @@ public extension Fuse {
             self.alphabet = FuseUtilities.calculatePatternAlphabet(text)
         }
     }
+}
+
+public enum ObjectsSortStrategy {
+    /// scores.sum / scores.count
+    case averageScore
+    /// scores.min
+    case minimalScore
 }

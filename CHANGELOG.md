@@ -1,8 +1,14 @@
-v.2.0.5 ~Not released yet~
+v.2.0.6 ~Not released yet~
+*
 
-v.2.0.4
+v.2.0.5
 * More fixes of multithreading
 * Code updated to meet all Swift v6 requirements but retains swift-tools-version 5.9 / Swift Language 5.
+
+v.2.0.4
+* Added ability to choose sorting strategy for search in array of objects
+* Changed default sorting strategy to "minimum score". For FuseSwift it was "average score". 
+
 
 v.2.0.3
 * score -> diffScore - more intuitive prop name
