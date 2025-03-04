@@ -49,10 +49,11 @@ extension Fuse {
     ///
     /// instructions how to use: https://github.com/ukushu/Ifrit/blob/main/Docs/FuseInstructions.md
     ///
+    @Sendable
     public func search<T>(_ text: String, in aList: [T],
                           by keyPath: KeyPath<T, [FuseProp]>,
                           chunkSize: Int = 100,
-                          completion: @escaping ([FuzzySrchResult]) -> Void) where T: Searchable
+                          completion: @escaping @Sendable ([FuzzySrchResult]) -> Void) where T: Searchable
     {
         let pattern = self.createPattern(from: text )
         

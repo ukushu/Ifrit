@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum FuzzyResultSegment {
+public enum FuzzyResultSegment: Sendable {
     case gap([Character])
     case match([Character])
     

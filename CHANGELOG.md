@@ -1,6 +1,8 @@
-v.2.0.4 ~Not released yet~
-* 
-*
+v.2.0.5 ~Not released yet~
+
+v.2.0.4
+* More fixes of multithreading
+* Code updated to meet all Swift v6 requirements but retains swift-tools-version 5.9 / Swift Language 5.
 
 v.2.0.3
 * score -> diffScore - more intuitive prop name

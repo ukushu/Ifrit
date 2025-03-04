@@ -20,7 +20,7 @@ let package = Package(
         .target(name: "Ifrit"),
         .testTarget(name: "IfritTests", dependencies: ["Ifrit"]),
     ],
-    swiftLanguageVersions: [
-      .v5
+    swiftLanguageModes: [
+        .v5
     ]
 )

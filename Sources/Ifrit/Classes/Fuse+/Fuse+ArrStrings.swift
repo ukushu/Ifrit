@@ -45,7 +45,7 @@ extension Fuse {
     ///   - aList: The list of string in which to search
     ///   - chunkSize: The size of a single chunk of the array. For example, if the array has `1000` items, it may be useful to split the work into 10 chunks of 100. This should ideally speed up the search logic. Defaults to `100`.
     ///   - completion: The handler which is executed upon completion
-    public func search(_ text: String, in aList: [String], chunkSize: Int = 100, completion: @escaping ([SrchDetails]) -> Void) {
+    public func search(_ text: String, in aList: [String], chunkSize: Int = 100, completion: @escaping @Sendable ([SrchDetails]) -> Void) {
         let pattern = self.createPattern(from: text)
         
         var items = [SrchDetails]()

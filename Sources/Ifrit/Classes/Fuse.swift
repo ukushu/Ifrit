@@ -2,18 +2,16 @@
 
 import Foundation
 
-public class Fuse {
-    internal var location: Int
-    internal var distance: Int
-    internal var threshold: Double
-    internal var maxPatternLength: Int
-    internal var isCaseSensitive: Bool
-    internal var tokenize: Bool
-    internal var qos: DispatchQoS
-    
-    internal lazy var searchQueue: DispatchQueue = { [unowned self] in
-        DispatchQueue(label: "ifrit.search.queue", qos: qos, attributes: .concurrent)
-    }()
+
+public class Fuse: @unchecked Sendable {
+    internal let location: Int
+    internal let distance: Int
+    internal let threshold: Double
+    internal let maxPatternLength: Int
+    internal let isCaseSensitive: Bool
+    internal let tokenize: Bool
+    internal let qos: DispatchQoS
+    internal let searchQueue: DispatchQueue
     
     /// Creates a new instance of `Fuse`
     ///
@@ -33,6 +31,7 @@ public class Fuse {
         self.isCaseSensitive = isCaseSensitive
         self.tokenize = tokenize
         self.qos = qos
+        searchQueue = DispatchQueue(label: "ifrit.search.queue", qos: qos, attributes: .concurrent)
     }
     
     /// Creates a pattern tuple.
@@ -47,7 +46,7 @@ public class Fuse {
 }
 
 public extension Fuse {
-    struct Pattern {
+    struct Pattern : Sendable {
         let text: String
         var len: Int { text.count }
         var mask: Int { 1 << (text.count - 1) }

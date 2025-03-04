@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct FuzzyResult {
+public struct FuzzyResult: Sendable {
     public let segments: [FuzzyResultSegment]
 
     public var asString: String {
