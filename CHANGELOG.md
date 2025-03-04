@@ -3,7 +3,7 @@ v2.0.6 ~Not released yet~
 
 v2.0.5
 * More fixes of multithreading
-* Code updated to meet all Swift v6 requirements but retains swift-tools-version 5.9 / Swift Language 5.
+* Code updated to meet most of Swift v6 requirements but retains swift-tools-version 5.9 / Swift Language 5.
 
 v2.0.4
 * Added ability to choose sorting strategy for search in array of objects
