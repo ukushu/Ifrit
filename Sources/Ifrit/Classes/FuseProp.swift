@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct FuseProp {
+public struct FuseProp : Sendable {
     public let value: String
     public let weight: Double
     

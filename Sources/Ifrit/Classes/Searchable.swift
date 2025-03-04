@@ -1,5 +1,5 @@
 
-public protocol Searchable { }
+public protocol Searchable: Sendable { }
 
 public typealias FuzzySrchResult = (
     index: Int,
