@@ -30,18 +30,18 @@ Advanteges:
 + Super lightweight
 + No dependencies
 + OS supported: MacOS(>=v10_15), iOS(>=v13), visionOS, watchOS, twOS, Linux
-+ Asynchronous search ( async/await + callbacks both )
++ Async ( async/await + callbacks both )
 + Text highlight support (AttributedString)
-+ Covered with automated tests
++ Code covered with automated tests
 + MIT Licensed
-+ Ability to link Ifrit as Static and Dynamic package - choose what is better in your case
++ Can be linked as both Static and Dynamic package — choose what works best for you
 
 Disadvantages:
-- Wasn't tested in production
-- Swift 5.9 and higher, older version of Swift does not supported.
+- Not tested in production
+- Requires Swift 5.9 or higher (older versions not supported)
 ```
 
-This repository is based on archived repository Fuse-Swift by KRisk: https://github.com/krisk/fuse-swift
+This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
 
 Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
@@ -52,27 +52,27 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 - Ifrit supports only Packages :(
 
 - Fuze-Swift is dead :(
-+ Ifrit is a Fuse-Swift reborn from hell and ALIVE as ever :)
++ 🔥🔥🔥 Ifrit is Fuse-Swift, reborn from the hells ashes! But more powerful and alive than ever! 🔥🔥🔥 :)
 
-- Fuze-Swift supports async functins with callbacks, but does not support async/await
-+ Ifrit supports callbacks and async/await both:)
+- Fuse-Swift supports asynchronous functions with callbacks but lacks native async/await support. :(
++ Ifrit supports callbacks and async/await both :)
 
 - Fuze-Swift have async/multithreading issues. Crashes is possible :(
-+ Ifrit is a Fuze-Swift with fixed multithreading issues - no crashes :)
++ Ifrit is stable and crash-free!
 
-- Fuze-Swift async functions returns incorrect results (wrong indexes) :((((
-+ Ifrit's async functins returns correct indexes and covered with tests :)
+- Fuse-Swift's async functions return incorrect results - wrong indexes. :((((
++ Ifrit's async functions return correct indexes and are fully covered with tests :)
 
-- Fuze-Swift written for xcode 11 and have a lot of warnings at now :(
-+ Ifrit code is updated to swift's latest standards - Ifrit supports even Swift v6 :) 
+- Fuze-Swift was written for Xcode 11 and now generates numerous warnings :(
++ Ifrit's code is updated to the latest Swift standards and fully supports Swift 6 :) 
 - But Ifrit have a few build warnings :(
 
-+ Ifrit - extended coverage with automated tests in general :)
-+ Ifrit have additional search system using Levenstain distance algorythm :)
-+ Ifrit have ability to search by several templates
-+ Ifrit have a little bit changed syntax to be more flexible.
-+ Ifrit's sync search faster than Fuse's on 2% (standard settings) using M1 processor.
-+         Async search have tha same speed (standard settings).
++ Ifrit - extended coverage with automated tests :)
++ Ifrit features an additional search system using the Levenshtein distance algorithm. :)
++ Ifrit allows searching by multiple search templates
++ Ifrit's syntax has been slightly adjusted for improved flexibility
++ Ifrit's sync search is 2% faster than Fuse's (using M1 processor and standard settings).
++         Async search performance remains the same as Fuse's (standard settings).
 ```
 
 ## Installation
