@@ -6,7 +6,6 @@ public class Fuse: @unchecked Sendable {
     internal let location: Int
     internal let distance: Int
     internal let threshold: Double
-    internal let maxPatternLength: Int
     internal let isCaseSensitive: Bool
     internal let objSortStrategy: ObjectsSortStrategy
     internal let tokenize: Bool
@@ -19,16 +18,14 @@ public class Fuse: @unchecked Sendable {
     ///   - location: Approximately where in the text is the pattern expected to be found. Defaults to `0`
     ///   - distance: Determines how close the match must be to the fuzzy `location` (specified above). An exact letter match which is `distance` characters away from the fuzzy location would score as a complete mismatch. A distance of `0` requires the match be at the exact `location` specified, a `distance` of `1000` would require a perfect match to be within `800` characters of the fuzzy location to be found using a 0.8 threshold. Defaults to `100`
     ///   - threshold: At what point does the match algorithm give up. A threshold of `0.0` requires a perfect match (of both letters and location), a threshold of `1.0` would match anything. Defaults to `0.6`
-    ///   - maxPatternLength: The maximum valid pattern length. The longer the pattern, the more intensive the search operation will be. If the pattern exceeds the `maxPatternLength`, the `search` operation will return `nil`. Why is this important? [Read this](https://en.wikipedia.org/wiki/Word_(computer_architecture)#Word_size_choice). Defaults to `32`
     ///   - isCaseSensitive: Indicates whether comparisons should be case sensitive. Defaults to `false`
     ///   - tokenize: When true, the search algorithm will search individual words **and** the full string, computing the final score as a function of both. Note that when `tokenize` is `true`, the `threshold`, `distance`, and `location` are inconsequential for individual tokens.
     ///    `objSortStrategy:` if you search in object by property with array - you can choose your sorting strategy.  By default is `.minimalScore`.
     ///   - qos: quality-of-service, use this to set search task priority. Better never use `.user-interactive`. By default is `.userInitiated`.
-    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, maxPatternLength: Int = 32, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .minimalScore, qos: DispatchQoS = .userInitiated) {
+    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .minimalScore, qos: DispatchQoS = .userInitiated) {
         self.location = location
         self.distance = distance
         self.threshold = threshold
-        self.maxPatternLength = maxPatternLength
         self.isCaseSensitive = isCaseSensitive
         self.tokenize = tokenize
         self.objSortStrategy = objSortStrategy
