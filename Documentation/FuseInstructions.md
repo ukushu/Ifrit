@@ -134,7 +134,7 @@ let fuse = Fuse()
 
 // --------------------
 // SYNC version
-let resultsSync = fuse.searchSync("man", in: fuseProps)
+let resultsSync = fuse.searchSync("man", in: srchEngBookNames)
 
 resultsSync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
@@ -142,14 +142,14 @@ resultsSync.forEach { item in
 
 // --------------------
 // ASYNC: async/await
-let resultsAsync = await fuse.search("Man", in: fuseProps)
+let resultsAsync = await fuse.search("Man", in: srchEngBookNames)
 
 resultsAsync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
 }
 
 // ASYNC: callbacks
-fuse.search("Man", in: fuseProps, completion: { results in
+fuse.search("Man", in: srchEngBookNames, completion: { results in
     results.forEach { item in
         print("index: \(item.index); score: \(item.diffScore)")
     }
