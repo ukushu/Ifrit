@@ -22,7 +22,7 @@ public class Fuse: @unchecked Sendable {
     ///   - tokenize: When true, the search algorithm will search individual words **and** the full string, computing the final score as a function of both. Note that when `tokenize` is `true`, the `threshold`, `distance`, and `location` are inconsequential for individual tokens.
     ///    `objSortStrategy:` if you search in object by property with array - you can choose your sorting strategy.  By default is `.minimalScore`.
     ///   - qos: quality-of-service, use this to set search task priority. Better never use `.user-interactive`. By default is `.userInitiated`.
-    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .averageScore, qos: DispatchQoS = .userInitiated) {
+    public init (location: Int = 0, distance: Int = 100, threshold: Double = 0.6, isCaseSensitive: Bool = false, tokenize: Bool = false, objSortStrategy: ObjectsSortStrategy = .minimalScore, qos: DispatchQoS = .userInitiated) {
         self.location = location
         self.distance = distance
         self.threshold = threshold
