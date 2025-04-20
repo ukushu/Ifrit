@@ -132,7 +132,7 @@ class Book: Searchable {
 }
 ```
 
-```
+```swift
 let fuse = Fuse()
 
 // --------------------
