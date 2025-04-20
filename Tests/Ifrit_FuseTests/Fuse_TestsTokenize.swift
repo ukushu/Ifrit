@@ -63,8 +63,8 @@ class Fuse_TestsTokenize: XCTestCase {
     
     func testProtocolWeightedSearchTokenized() {
         let books: [Book] = [
+            Book(author: "P.D. Mans", title: "Right Ho Jeeves"),
             Book(author: "John X", title: "Old Man's War fiction"),
-            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
         ]
         
         let fuse = Fuse(tokenize: true)
