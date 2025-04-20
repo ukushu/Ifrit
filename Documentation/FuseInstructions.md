@@ -112,19 +112,20 @@ let books: [Book] = [
 You could convert each book to an array of `FuseProp` objects and search them like this:
 
 ```swift
-class MyModel: @retroactive Searchable {
-    var books: [Book] = // books
+class Book: Searchable {
+    var namesUkr: [String]
+    var namesEng: [String]
+    var namesEngBritan: [String]
     
-    public var srchUkrBookNames: [FuseProp] {
+    public var srchUkrNamesProp: [FuseProp] {
         namesUkr
-            .appending(contentsOf: namesUkrCust)
             .distinct()
             .map { FuseProp($0) }
     }
     
-    public var srchEngBookNames: [FuseProp] {
-        namesOther
-            .appending(contentsOf: namesEngCust)
+    public var srchEngNamesProp: [FuseProp] {
+        namesEng
+            .appending(contentsOf: namesEngBritan)
             .distinct()
             .map { FuseProp($0) }
     }
@@ -136,7 +137,7 @@ let fuse = Fuse()
 
 // --------------------
 // SYNC version
-let resultsSync = fuse.searchSync("man", in: srchEngBookNames)
+let resultsSync = fuse.searchSync("man", in: booksDb, by: \Book.srchEngNamesProp)
 
 resultsSync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
@@ -144,7 +145,7 @@ resultsSync.forEach { item in
 
 // --------------------
 // ASYNC: async/await
-let resultsAsync = await fuse.search("Man", in: srchEngBookNames)
+let resultsAsync = await fuse.search("man", in: booksDb, by: \Book.srchEngNamesProp)
 
 resultsAsync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
