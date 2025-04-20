@@ -78,7 +78,85 @@ fuse.search("Te silm", in: books, completion: { results in
 })
 ```
 
-#### Search in `[Searchable]` objects - how to use `FuseProp`
+#### Search in `[[FuseProp]]`
+
+A `FuseProp` is a struct of searchable values and the weights to assign to them.
+
+```swift
+public struct FuseProp : Sendable {
+    public let value: String
+    public let weight: Double
+    
+    public init (_ value: String, weight: Double = 1.0) {
+        self.value = value
+        
+        self.weight = weight
+    }
+}
+```
+
+So, suppose you have an array of `Book` objects, like this:
+
+```swift
+struct Book {
+    let author: String
+    let title: String
+}
+
+let books: [Book] = [
+    Book(author: "John X", title: "Old Man's War fiction"),
+    Book(author: "P.D. Mans", title: "Right Ho Jeeves")
+]
+```
+
+You could convert each book to an array of `FuseProp` objects and search them like this:
+
+```swift
+let fuseProps = books.lazy.map({book in 
+    [
+        FuseProp(value: book.title),
+        FuseProp(value: book.author),
+    ]
+})
+
+let fuse = Fuse()
+
+// --------------------
+// SYNC version
+let resultsSync = fuse.searchSync("man", in: fuseProps)
+
+resultsSync.forEach { item in
+    print("index: \(item.index); score: \(item.diffScore)")
+}
+
+// --------------------
+// ASYNC: async/await
+let resultsAsync = await fuse.search("Man", in: fuseProps)
+
+resultsAsync.forEach { item in
+    print("index: \(item.index); score: \(item.diffScore)")
+}
+
+// ASYNC: callbacks
+fuse.search("Man", in: fuseProps, completion: { results in
+    results.forEach { item in
+        print("index: \(item.index); score: \(item.diffScore)")
+    }
+})
+```
+
+You can also add weights to your `FuseProp` objects. This example would prioritize author matches over title matches:
+
+```swift
+let fuseProps = books.map({book in 
+    [
+        FuseProp(value: book.title, weight: 0.3),
+        FuseProp(value: book.author, weight: 0.7),
+    ]
+})
+```
+
+#### Search in `[Searchable]` objects
 
 Declaration of `Searchable` object:
 
