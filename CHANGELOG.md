@@ -1,4 +1,7 @@
-v2.0.6 ~Not released yet~
+v3.0.0
+* Change default `objSortStrategy` to `.minimalScore` (breaked backward compatibility)
+
+v2.0.6
 * Improved documentation
 * Temporary reverted `objSortStrategy` to `.averageScore`
 * removed 'maxPatternLength' as it was not used
