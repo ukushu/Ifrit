@@ -152,7 +152,7 @@ resultsAsync.forEach { item in
 }
 
 // ASYNC: callbacks
-fuse.search("Man", in: srchEngBookNames, completion: { results in
+fuse.search("Man", in: booksDb, by: \Book.srchEngNamesProp, completion: { results in
     results.forEach { item in
         print("index: \(item.index); score: \(item.diffScore)")
     }
