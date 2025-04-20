@@ -1,5 +1,7 @@
 v2.0.6 ~Not released yet~
-*
+* Improved documentation
+* Temporary reverted `objSortStrategy` to `.averageScore`
+* removed 'maxPatternLength' as it was not used
 
 v2.0.5
 * More fixes of multithreading
