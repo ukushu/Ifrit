@@ -129,7 +129,9 @@ class MyModel: @retroactive Searchable {
             .map { FuseProp($0) }
     }
 }
+```
 
+```
 let fuse = Fuse()
 
 // --------------------
