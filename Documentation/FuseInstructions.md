@@ -112,12 +112,23 @@ let books: [Book] = [
 You could convert each book to an array of `FuseProp` objects and search them like this:
 
 ```swift
-let fuseProps = books.lazy.map({book in 
-    [
-        FuseProp(value: book.title),
-        FuseProp(value: book.author),
-    ]
-})
+class MyModel: @retroactive Searchable {
+    var books: [Book] = // books
+    
+    public var srchUkrBookNames: [FuseProp] {
+        namesUkr
+            .appending(contentsOf: namesUkrCust)
+            .distinct()
+            .map { FuseProp($0) }
+    }
+    
+    public var srchEngBookNames: [FuseProp] {
+        namesOther
+            .appending(contentsOf: namesEngCust)
+            .distinct()
+            .map { FuseProp($0) }
+    }
+}
 
 let fuse = Fuse()
 

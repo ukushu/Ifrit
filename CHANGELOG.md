@@ -1,5 +1,6 @@
 v3.0.0
 * Change default `objSortStrategy` to `.minimalScore` (breaked backward compatibility)
+* Improved documentation
 
 v2.0.6
 * Improved documentation
