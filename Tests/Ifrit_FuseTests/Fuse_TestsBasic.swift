@@ -102,6 +102,30 @@ class Fuse_TestsBasic: XCTestCase {
         XCTAssert(results[1].index == 0, "The second result is the first book")
     }
     
+    func testProtocolWeightedSearch3() {
+        struct Book: Searchable {
+            let author: String
+            let title: String
+        }
+        
+        let books: [Book] = [
+            Book(author: "John X", title: "Old Man's War fiction"),
+            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
+        ]
+        
+        let fuse = Fuse()
+        let results = fuse.searchSync("man", in: books) {book in
+            return [
+                FuseProp(book.author, weight: 0.7),
+                FuseProp(book.title, weight: 0.3)
+            ]
+        }
+        
+        XCTAssert(results.count > 0, "There are results")
+        XCTAssert(results[0].index == 1, "The first result is the second book")
+        XCTAssert(results[1].index == 0, "The second result is the first book")
+    }
+    
     func test_CorrectIdOfObject_ProperiesArraysSearchSync() {
         let animes: [Anime] = largeAnimeArray()
         
