@@ -78,7 +78,7 @@ fuse.search("Te silm", in: books, completion: { results in
 })
 ```
 
-#### Search in `[[FuseProp]]`
+#### Search in objects by `(T) -> [FuseProp]` closure
 
 A `FuseProp` is a struct of searchable values and the weights to assign to them.
 
@@ -109,35 +109,19 @@ let books: [Book] = [
 ]
 ```
 
-You could convert each book to an array of `FuseProp` objects and search them like this:
-
-```swift
-class Book: Searchable {
-    var namesUkr: [String]
-    var namesEng: [String]
-    var namesEngBritan: [String]
-    
-    public var srchUkrNamesProp: [FuseProp] {
-        namesUkr
-            .distinct()
-            .map { FuseProp($0) }
-    }
-    
-    public var srchEngNamesProp: [FuseProp] {
-        namesEng
-            .appending(contentsOf: namesEngBritan)
-            .distinct()
-            .map { FuseProp($0) }
-    }
-}
-```
+To search them, you can provide a closure, which will convert each book into an array of FuseProps.
 
 ```swift
 let fuse = Fuse()
 
 // --------------------
 // SYNC version
-let resultsSync = fuse.searchSync("man", in: booksDb, by: \Book.srchEngNamesProp)
+let resultsSync = fuse.searchSync("man", in: books) { book in
+    [
+        FuseProp(value: book.title),
+        FuseProp(value: book.author),
+    ]
+}
 
 resultsSync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
@@ -145,14 +129,24 @@ resultsSync.forEach { item in
 
 // --------------------
 // ASYNC: async/await
-let resultsAsync = await fuse.search("man", in: booksDb, by: \Book.srchEngNamesProp)
+let resultsAsync = await fuse.search("man", in: books) { book in
+    [
+        FuseProp(value: book.title),
+        FuseProp(value: book.author),
+    ]
+}
 
 resultsAsync.forEach { item in
     print("index: \(item.index); score: \(item.diffScore)")
 }
 
 // ASYNC: callbacks
-fuse.search("Man", in: booksDb, by: \Book.srchEngNamesProp, completion: { results in
+fuse.search("Man", in: books, by:  { book in
+    [
+        FuseProp(value: book.title),
+        FuseProp(value: book.author),
+    ]
+}, completion: { results in
     results.forEach { item in
         print("index: \(item.index); score: \(item.diffScore)")
     }
@@ -162,15 +156,15 @@ fuse.search("Man", in: booksDb, by: \Book.srchEngNamesProp, completion: { result
 You can also add weights to your `FuseProp` objects. This example would prioritize author matches over title matches:
 
 ```swift
-let fuseProps = books.map({book in 
+let resultsSync = fuse.searchSync("man", in: books) { book in
     [
         FuseProp(value: book.title, weight: 0.3),
         FuseProp(value: book.author, weight: 0.7),
     ]
-})
+}
 ```
 
-#### Search in `[Searchable]` objects
+#### Search in `[Searchable]` objects by key path
 
 Declaration of `Searchable` object:
 
@@ -225,8 +219,7 @@ struct Library: Fuseable {
 }
 ```
 
-
-#### Search in `[Searchable]` objects
+Now, you're ready to search your Searchable objects by key path.
 
 ```swift
 // --------------------
