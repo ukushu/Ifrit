@@ -51,6 +51,9 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 
 ## Difference: Ifrit VS Fuze-Swift?
 ```diff
+- Fuze-Swift: Swift 5.1~
++ Ifrit: Swift 6.2 compatible
+
 + Fuze-Swift support Pods and Packages :)
 - Ifrit supports only Packages :(
 
@@ -76,6 +79,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit's syntax has been slightly adjusted for improved flexibility
 + Ifrit's sync search is 2% faster than Fuse's (using M1 processor and standard settings).
 +         Async search performance remains the same as Fuse's (standard settings).
+
++ Ifrit was ported to Kotlin programming language: https://github.com/dfabulich/skip-ifrit
 ```
 
 ## Installation
