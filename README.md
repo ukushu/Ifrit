@@ -11,6 +11,7 @@ Works on iOS / macOS / Linux / Android and more:
 
 <img src="https://raw.githubusercontent.com/ukushu/Ifrit/main/Ifrit_Logo_360.png" width="150" height="150">
 
+This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
 
 ---
 
@@ -50,11 +51,6 @@ Advanteges:
 Disadvantages:
 - Not tested in production
 ```
-
-This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
-
-Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
-
 
 ## Difference: Ifrit VS Fuze-Swift?
 ```diff
