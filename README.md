@@ -49,7 +49,6 @@ Advanteges:
 
 Disadvantages:
 - Not tested in production
-- Requires Swift 5.9 or higher (older versions not supported)
 ```
 
 This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
@@ -78,8 +77,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit's async functions return correct indexes and are fully covered with tests :)
 
 - Fuze-Swift was written for Xcode 11 and now generates numerous warnings :(
-+ Ifrit's code is updated to the latest Swift standards and fully supports Swift 6 :) 
-- But Ifrit have a few build warnings :(
++ Ifrit's code is updated to the latest Swift standards of 2025 year :) 
+- But Ifrit still have a few build warnings :(
 
 + Ifrit - extended coverage with automated tests :)
 + Ifrit features an additional search system using the Levenshtein distance algorithm. :)
