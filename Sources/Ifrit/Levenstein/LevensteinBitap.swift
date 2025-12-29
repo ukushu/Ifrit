@@ -33,37 +33,4 @@ internal class LevensteinBitap {
         
         return results.sorted(by: { $0.diffScore < $1.diffScore })
     }
-    
-    public static func searchFuzzy(_ text: String,
-                                   in aList: [String],
-                                   match: Score = .defaultMatch,
-                                   mismatch: Score = .defaultMismatch,
-                                   gapPenalty: (Int) -> Score = Score.defaultGapPenalty,
-                                   boundaryBonus: Score = .defaultBoundary,
-                                   camelCaseBonus: Score = .defaultCamelCase,
-                                   firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
-                                   consecutiveBonus: Score = Score.defaultConsecutiveBonus
-    ) -> [Alignment] {
-        fatalError()
-        // not implemented yet
-        
-//        return fuzzyFind(queries: [text], inputs: aList)
-    }
-    
-    public static func searchFuzzy(_ searchQueries: [String],
-                                   in aList: [String],
-                                   match: Score = .defaultMatch,
-                                   mismatch: Score = .defaultMismatch,
-                                   gapPenalty: (Int) -> Score = Score.defaultGapPenalty,
-                                   boundaryBonus: Score = .defaultBoundary,
-                                   camelCaseBonus: Score = .defaultCamelCase,
-                                   firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
-                                   consecutiveBonus: Score = Score.defaultConsecutiveBonus
-    
-    ) -> [Alignment] {
-        fatalError()
-        // not implemented yet
-        
-//        return fuzzyFind(queries: searchQueries, inputs: aList)
-    }
 }

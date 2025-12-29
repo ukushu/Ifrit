@@ -28,6 +28,8 @@ public class Levenstein {
         }
     }
     
+    
+    /// For UKS: This is not Levenstein. This must be in another place.
     public static func searchFuzzy(_ text: String,
                                    in aList: [String],
                                    match: Score = .defaultMatch,
@@ -41,6 +43,7 @@ public class Levenstein {
         return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
     
+    /// For UKS: This is not Levenstein. This must be in another place.
     public static func searchFuzzy(_ searchQueries: [String],
                                    in aList: [String],
                                    match: Score = .defaultMatch,

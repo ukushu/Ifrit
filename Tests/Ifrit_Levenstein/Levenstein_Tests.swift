@@ -28,33 +28,26 @@ final class Levenstein_Tests: XCTestCase {
 /////////////////////////
 extension Levenstein_Tests {
     func test_AdvancedSearchPerformance() throws {
-        let animes = getAnimeList(count: 1_300)
+        let animes = getAnimeList(count: 10_000)
         
         self.measure {
-            let _ = Levenstein.searchSync(type: .text,"Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
+            let _ = Levenstein.searchSync(type: .text, "Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         }
         // M1 PC results:
-        // search in 10_000 objects [5 search strings in object]
-        // 178.825 seconds
-        
-        // M1 PC results:
-        // search in 1_300 objects
-        // 2.360 seconds
+        // Search in 10_000 objects [5 search strings in object]
+        // Average time: 13.265 sec
     }
     
     func test_AdvancedSearchPerformanceBitap() throws {
-        let animes = getAnimeList(count: 1_300)
+        let animes = getAnimeList(count: 10_000)
         
         self.measure {
             let _ = Levenstein.searchSync(type: .bitap, "Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         }
-        // M1 PC results:
-        // search in 10_000 objects [5 search strings in object]
-        //
         
         // M1 PC results:
-        // search in 1_300 objects [5 search strings in object]
-        // 0.666 seconds
+        // Search in 10_000 objects [5 search strings in object]
+        // Average time: 2.470 sec
     }
     
     func test_BasicSearchPerformance() throws {
@@ -63,19 +56,15 @@ extension Levenstein_Tests {
                       "Priestess of the Phoenix",
                       "Fairy Tail: The Phoenix Priestess"]
         
-        animes.append(contentsOf: stride(from: 4, to: 1_300, by: 1).map{ _ in UUID().uuidString }  )
+        animes.append(contentsOf: stride(from: 4, to: 10_000, by: 1).map{ _ in UUID().uuidString }  )
         
         self.measure {
             let _ = Levenstein.searchSync(type: .text, "Fairy Tail the Movie: The Phoenix Priestess", in: animes)
         }
         
         // M1 PC results:
-        // search in 10_000 strings array
-        // 36.356 seconds
-        
-        // M1 PC results:
-        // search in 1_300 strings array
-        // 0.470 seconds
+        // Search in 10_000 strings array
+        // Average time: 2.243 seconds
     }
     
     func test_BasicSearchPerformanceBitap() throws {
@@ -84,19 +73,15 @@ extension Levenstein_Tests {
                       "Priestess of the Phoenix",
                       "Fairy Tail: The Phoenix Priestess"]
         
-        animes.append(contentsOf: stride(from: 4, to: 1_300, by: 1).map{ _ in UUID().uuidString }  )
+        animes.append(contentsOf: stride(from: 4, to: 10_000, by: 1).map{ _ in UUID().uuidString }  )
         
         self.measure {
             let _ = Levenstein.searchSync(type: .bitap, "Fairy Tail the Movie: The Phoenix Priestess", in: animes)
         }
         
         // M1 PC results:
-        // search in 10_000 strings array
-        // 0.776 seconds
-        
-        // M1 PC results:
-        // search in 1_300 strings array
-        // 0.098 seconds
+        // Search in 10_000 strings array
+        // Average time: 0.479 seconds
     }
 }
 
