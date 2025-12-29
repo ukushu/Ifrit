@@ -45,7 +45,8 @@ public func fuzzyFind(
                 }
             }
         }
-    }.sorted { a1, a2 in a1.score > a2.score }
+    }
+    .sorted { a1, a2 in a1.score > a2.score }
 }
 
 /// Finds the best Alignment, if any, for the query in the input word.
@@ -96,15 +97,15 @@ public func bestMatch(
         (0 ... n).map { j in bonus(i,j) }
     }
     var hs: [Pair<Int, Int>: Score] = [:]
-
+    
     func find(_ array: [Character], at position: Int) -> Character {
         return array[position - 1]
     }
-
+    
     func similarity(_ a: Character, _ b: Character) -> Score {
         return (a.lowercased() == b.lowercased()) ? match : mismatch
     }
-
+    
     func bonus(_ i: Int, _ j: Int) -> Score {
         if i == 0 || j == 0 {
             return 0
@@ -124,7 +125,7 @@ public func bestMatch(
             }
         }
     }
-
+    
     func h(_ i: Int, _ j: Int) -> Score {
         if let score = hs[Pair(i, j)] { return score }
         if i == 0 || j == 0 {
@@ -139,17 +140,17 @@ public func bestMatch(
         hs[Pair(i, j)] = score
         return score
     }
-
+    
     func localMax(_ m: Int, _ n: Int) -> Int {
         return (1 ... n).max { b, d in
             totalScore(m, b) < totalScore(m, d)
         }!
     }
-
+    
     func totalScore(_ i: Int, _ j: Int) -> Score {
         return (i > m) ? 0 : (h(i, j) + bonuses[i][j])
     }
-
+    
     func go(_ x: Int, _ y: Int) -> FuzzyResult? {
         var i = x
         var j = y
@@ -171,12 +172,12 @@ public func bestMatch(
             }
         }
     }
-
+    
     let nx = localMax(m, n)
     let traceback = go(m, nx).flatMap { result in
         FuzzyResult.gaps(String(input.dropFirst(nx))).combine(result)
     }
-
+    
     return traceback.flatMap { result in
         Alignment(score: totalScore(m, nx), result: result.reversed())
     }
@@ -191,7 +192,7 @@ private extension Character {
 private struct Pair<A: Hashable, B: Hashable>: Hashable {
     let a: A
     let b: B
-
+    
     init(_ a: A, _ b: B) {
         self.a = a
         self.b = b

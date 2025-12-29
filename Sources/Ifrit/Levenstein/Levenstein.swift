@@ -9,9 +9,9 @@ public class Levenstein {
     public static func searchSync(type: LeventeinType = .text, _ text: String, in aList: [String]) -> [FuzzySrchResult] {
         switch type {
         case .bitap:
-            LevensteinText.searchSync(text, in: aList)
-        case .text:
             LevensteinBitap.searchSync(text, in: aList)
+        case .text:
+            LevensteinText.searchSync(text, in: aList)
         }
     }
     
@@ -22,9 +22,9 @@ public class Levenstein {
     {
         switch type {
         case .bitap:
-            LevensteinText.searchSync(text, in: aList, by: keyPath)
-        case .text:
             LevensteinBitap.searchSync(text, in: aList, by: keyPath)
+        case .text:
+            LevensteinText.searchSync(text, in: aList, by: keyPath)
         }
     }
     
@@ -43,9 +43,9 @@ public class Levenstein {
         case .bitap:
             fatalError()
             // not implemented
-            return fuzzyFind(queries: [text], inputs: aList)
+            return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
         case .text:
-            return fuzzyFind(queries: [text], inputs: aList)
+            return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
         }
     }
     
@@ -59,15 +59,14 @@ public class Levenstein {
                                    camelCaseBonus: Score = .defaultCamelCase,
                                    firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
-    
     ) -> [Alignment] {
         switch type {
         case .bitap:
             fatalError()
             // not implemented
-            return fuzzyFind(queries: searchQueries, inputs: aList)
+            return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
         case .text:
-            return fuzzyFind(queries: searchQueries, inputs: aList)
+            return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
         }
     }
 }
