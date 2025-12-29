@@ -11,7 +11,7 @@ final class IfritDoxCode_Leve_Test: XCTestCase {
                     "Priestess of the Phoenix",
                     "Fairy Tail: The Phoenix Priestess"]
         
-        let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
+        let animesSearch = Levenstein.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
         
         // --------------------
         // ASYNC: async/await
@@ -26,7 +26,7 @@ final class IfritDoxCode_Leve_Test: XCTestCase {
     func test_2() throws {
         let animes = getAnimeList(count: 10) // Fusable objects
         
-        let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties )
+        let result = Levenstein.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties )
         
         // --------------------
         // ASYNC: async/await
