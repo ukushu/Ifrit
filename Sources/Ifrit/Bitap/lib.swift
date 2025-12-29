@@ -70,7 +70,7 @@ enum BitapError: Error {
 // Helpers
 //
 
-private let maxPatternLength = MemoryLayout<UInt>.size * 8 // - 1
+private let maxPatternLength = MemoryLayout<UInt>.size * 8
 
 @inline(__always)
 private func patternLengthIsValid(_ patternLength: Int) -> Bool {
@@ -122,9 +122,13 @@ private func levenshteinBitap<I: IteratorProtocol>(maskIter: I, patternLength: I
         return .failure(BitapError.invalidPatternLength)
     }
     
-    let max_distance = min(maxDistance, patternLength)
-    var r = (0...max_distance).map { UInt(~1) << $0 }
+    let max_distance = min(maxDistance, patternLength, maxPatternLength)
+    let allOnes: UInt = UInt.max
+    var r = (0...max_distance).map { allOnes & ~(1 << $0) }
     var iterator = maskIter
+    
+    
+    
     
     let resultIterator = AnyIterator<Match> {
         while let mask = iterator.next() {
