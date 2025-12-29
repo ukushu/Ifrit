@@ -6,7 +6,7 @@ public enum LeventeinType {
 }
 
 public class Levenstein {
-    public static func searchSync(type: LeventeinType = .bitap, _ text: String, in aList: [String]) -> [FuzzySrchResult] {
+    public static func searchSync(type: LeventeinType = .text, _ text: String, in aList: [String]) -> [FuzzySrchResult] {
         switch type {
         case .bitap:
             LevensteinText.searchSync(text, in: aList)
@@ -15,7 +15,7 @@ public class Levenstein {
         }
     }
     
-    public static func searchSync<T>(type: LeventeinType = .bitap,
+    public static func searchSync<T>(type: LeventeinType = .text,
                                      _ text: String,
                                      in aList: [T],
                                      by keyPath: KeyPath<T, [FuseProp]>) -> [FuzzySrchResult] where T: Searchable
@@ -28,7 +28,7 @@ public class Levenstein {
         }
     }
     
-    public static func searchFuzzy(type: LeventeinType = .bitap,
+    public static func searchFuzzy(type: LeventeinType = .text,
                                    _ text: String,
                                    in aList: [String],
                                    match: Score = .defaultMatch,
@@ -49,7 +49,7 @@ public class Levenstein {
         }
     }
     
-    public static func searchFuzzy(type: LeventeinType = .bitap,
+    public static func searchFuzzy(type: LeventeinType = .text,
                                    _ searchQueries: [String],
                                    in aList: [String],
                                    match: Score = .defaultMatch,
