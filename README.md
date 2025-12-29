@@ -1,17 +1,26 @@
 # Ifrit
 
+Super lightweight lib for fuzzy searching. 
+
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fukushu%2FIfrit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ukushu/Ifrit)
+
+
+Works on iOS / macOS / Linux / Android and more: 
+
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fukushu%2FIfrit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ukushu/Ifrit)
 
 <img src="https://raw.githubusercontent.com/ukushu/Ifrit/main/Ifrit_Logo_360.png" width="150" height="150">
+
+This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
+
+---
 
 ```
 https://github.com/ukushu/Ifrit.git
 git@github.com:ukushu/Ifrit.git
 ```
 
-## What is Ifrit?
-Ifrit is fuzzy search library written in pure swift.
+---
 
 ### What is fuzzy Search?
 
@@ -41,16 +50,13 @@ Advanteges:
 
 Disadvantages:
 - Not tested in production
-- Requires Swift 5.9 or higher (older versions not supported)
 ```
-
-This repository is built upon the archived Fuse-Swift project by KRisk: https://github.com/krisk/fuse-swift
-
-Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
-
 
 ## Difference: Ifrit VS Fuze-Swift?
 ```diff
+- Fuze-Swift: Swift 5.1~
++ Ifrit: Swift 6.2 compatible
+
 + Fuze-Swift support Pods and Packages :)
 - Ifrit supports only Packages :(
 
@@ -67,8 +73,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit's async functions return correct indexes and are fully covered with tests :)
 
 - Fuze-Swift was written for Xcode 11 and now generates numerous warnings :(
-+ Ifrit's code is updated to the latest Swift standards and fully supports Swift 6 :) 
-- But Ifrit have a few build warnings :(
++ Ifrit's code is updated to the latest Swift standards of 2025 year :) 
+- But Ifrit still have a few build warnings :(
 
 + Ifrit - extended coverage with automated tests :)
 + Ifrit features an additional search system using the Levenshtein distance algorithm. :)
@@ -76,6 +82,8 @@ Swift Package Index information: https://swiftpackageindex.com/ukushu/Ifrit
 + Ifrit's syntax has been slightly adjusted for improved flexibility
 + Ifrit's sync search is 2% faster than Fuse's (using M1 processor and standard settings).
 +         Async search performance remains the same as Fuse's (standard settings).
+
++ Ifrit was ported to Kotlin programming language: https://github.com/dfabulich/skip-ifrit
 ```
 
 ## Installation
