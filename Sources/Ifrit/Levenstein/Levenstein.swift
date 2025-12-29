@@ -1,37 +1,36 @@
 import Foundation
 
+public enum LeventeinType {
+    case bitap
+    case text
+}
+
 public class Levenstein {
-    public static func searchSync(_ text: String, in aList: [String]) -> [FuzzySrchResult] {
-        let tmp = aList.indices
-            .map { idx -> FuzzySrchResult in
-                let score = aList[idx].levenshteinDistanceScore(to: text, trimWhiteSpacesAndNewLines: true)
-                
-                return FuzzySrchResult(Int(idx), 1 - score, [])
-            }
-        
-        return tmp
-            .sorted(by: { $0.diffScore < $1.diffScore } )
+    public static func searchSync(type: LeventeinType = .text, _ text: String, in aList: [String]) -> [FuzzySrchResult] {
+        switch type {
+        case .bitap:
+            LevensteinBitap.searchSync(text, in: aList)
+        case .text:
+            LevensteinText.searchSync(text, in: aList)
+        }
     }
     
-    public static func searchSync<T>(_ text: String,
+    public static func searchSync<T>(type: LeventeinType = .text,
+                                     _ text: String,
                                      in aList: [T],
                                      by keyPath: KeyPath<T, [FuseProp]>) -> [FuzzySrchResult] where T: Searchable
     {
-        let tmp = aList.enumerated()
-            .compactMap { (idx, item) -> FuzzySrchResult?  in
-                let allValues = item[keyPath: keyPath].map{ $0.value }
-                
-                if let score = searchSync(text, in: allValues).first?.diffScore {
-                    return FuzzySrchResult(Int(idx), score, [] )
-                }
-                
-                return nil
-            }
-        
-        return tmp.sorted(by: { $0.diffScore < $1.diffScore } )
+        switch type {
+        case .bitap:
+            LevensteinBitap.searchSync(text, in: aList, by: keyPath)
+        case .text:
+            LevensteinText.searchSync(text, in: aList, by: keyPath)
+        }
     }
     
-    public static func searchFuzzy(_ text: String, 
+    
+    /// For UKS: This is not Levenstein. This must be in another place.
+    public static func searchFuzzy(_ text: String,
                                    in aList: [String],
                                    match: Score = .defaultMatch,
                                    mismatch: Score = .defaultMismatch,
@@ -41,9 +40,10 @@ public class Levenstein {
                                    firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
     ) -> [Alignment] {
-        return fuzzyFind(queries: [text], inputs: aList)
+        return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
     
+    /// For UKS: This is not Levenstein. This must be in another place.
     public static func searchFuzzy(_ searchQueries: [String],
                                    in aList: [String],
                                    match: Score = .defaultMatch,
@@ -53,8 +53,7 @@ public class Levenstein {
                                    camelCaseBonus: Score = .defaultCamelCase,
                                    firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
-    
     ) -> [Alignment] {
-        return fuzzyFind(queries: searchQueries, inputs: aList)
+        return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
 }

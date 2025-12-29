@@ -1,3 +1,10 @@
+v3.0.1
+* Improved Levenstein performance by implementing LevensteinBitap
+* Implemented and used BitapFilter inside of Levenstein.fuzzySearch
+* Minor improvements
+
+TODO: Levenstein.searchFuzzy is not Levenstein. Need to move to another place =(
+
 v3.0.0
 * Change default `objSortStrategy` to `.minimalScore` (breaked backward compatibility)
 * Improved documentation
