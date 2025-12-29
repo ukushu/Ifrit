@@ -2,7 +2,7 @@ import Foundation
 import XCTest
 @testable import Ifrit
 
-final class Levenstain_TestsCore: XCTestCase {
+final class Levenstein_TestsCore: XCTestCase {
     func testMatch() {
         let actual = bestMatch(query: "ff", input: "FuzzyFind")
         let expected = Alignment(

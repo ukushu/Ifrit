@@ -1,3 +1,4 @@
+
 import Foundation
 import XCTest
 @testable import Ifrit
@@ -5,19 +6,19 @@ import XCTest
 /////////////////////////
 ///Functional tests
 /////////////////////////
-final class Levenstain_Tests: XCTestCase {
+final class Levenstein_Tests: XCTestCase {
     func test_BasicSearch() throws {
         let animes = ["Gekijouban Fairy Tail: Houou no Miko",
                     "Fairy Tail the Movie: The Phoenix Priestess",
                     "Priestess of the Phoenix",
                     "Fairy Tail: The Phoenix Priestess"]
         
-        let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
+        let animesSearch = Levenstein.searchSync("Fairy Tail: The Phoenix Priestess", in: animes)
         
         XCTAssertEqual(animesSearch.count, 4)
         XCTAssertEqual(animesSearch.first?.diffScore, 0)
         
-        let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes)
+        let incorrectSearch = Levenstein.searchSync("Мій маленький поні", in: animes)
         
         XCTAssertEqual(incorrectSearch.count, 4)
         XCTAssertGreaterThan(incorrectSearch.first!.diffScore, 0.9)
@@ -29,7 +30,7 @@ final class Levenstain_Tests: XCTestCase {
                     "Priestess of the Phoenix",
                     "Fairy Tail: The Phoenix Priestess"]
         
-        let animesSearch = Levenstain.searchFuzzy("Fairy Tail: The Phoenix Priestess", in: animes )
+        let animesSearch = Levenstein.searchFuzzy("Fairy Tail: The Phoenix Priestess", in: animes )
         
         
         XCTAssertEqual(animesSearch[0].asString, "Fairy Tail: The Phoenix Priestess")
@@ -38,22 +39,22 @@ final class Levenstain_Tests: XCTestCase {
     func test_AdvancedSearch() throws {
         let animes = getAnimeList(count: 10)
         
-        let result = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
+        let result = Levenstein.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.diffScore, 0)
         
-        let result2 = Levenstain.searchSync("Test of Array", in: animes, by: \AnimeListInfo.properties)
+        let result2 = Levenstein.searchSync("Test of Array", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result2.count, 10)
         XCTAssertEqual(result2.first?.diffScore, 0)
         
-        let result3 = Levenstain.searchSync("Array of Tests", in: animes, by: \AnimeListInfo.properties)
+        let result3 = Levenstein.searchSync("Array of Tests", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(result3.count, 10)
         XCTAssertGreaterThan(result3.first!.diffScore, 0.666)
         
-        let incorrectSearch = Levenstain.searchSync("Мій маленький поні", in: animes, by: \AnimeListInfo.properties)
+        let incorrectSearch = Levenstein.searchSync("Мій маленький поні", in: animes, by: \AnimeListInfo.properties)
         
         XCTAssertEqual(incorrectSearch.count, 10)
         XCTAssertGreaterThan(incorrectSearch.first!.diffScore, 0.6)
@@ -64,12 +65,12 @@ final class Levenstain_Tests: XCTestCase {
 /////////////////////////
 ///Performance tests
 /////////////////////////
-extension Levenstain_Tests {
+extension Levenstein_Tests {
     func test_AdvancedSearchPerformance() throws {
         let animes = getAnimeList(count: 1_300)
         
         self.measure {
-            let _ = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
+            let _ = Levenstein.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes, by: \AnimeListInfo.properties)
         }
         // M1 PC results:
         // search in 10_000 objects [5 search strings in object]
@@ -85,7 +86,7 @@ extension Levenstain_Tests {
         animes.append(contentsOf: stride(from: 4, to: 1_300, by: 1).map{ _ in UUID().uuidString }  )
         
         self.measure {
-            let _ = Levenstain.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
+            let _ = Levenstein.searchSync("Fairy Tail the Movie: The Phoenix Priestess", in: animes)
         }
         
         // M1 PC results:
