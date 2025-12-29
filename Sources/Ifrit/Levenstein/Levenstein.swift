@@ -28,8 +28,7 @@ public class Levenstein {
         }
     }
     
-    public static func searchFuzzy(type: LeventeinType = .text,
-                                   _ text: String,
+    public static func searchFuzzy(_ text: String,
                                    in aList: [String],
                                    match: Score = .defaultMatch,
                                    mismatch: Score = .defaultMismatch,
@@ -39,18 +38,10 @@ public class Levenstein {
                                    firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
     ) -> [Alignment] {
-        switch type {
-        case .bitap:
-            fatalError()
-            // not implemented
-            return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
-        case .text:
-            return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
-        }
+        return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
     
-    public static func searchFuzzy(type: LeventeinType = .text,
-                                   _ searchQueries: [String],
+    public static func searchFuzzy(_ searchQueries: [String],
                                    in aList: [String],
                                    match: Score = .defaultMatch,
                                    mismatch: Score = .defaultMismatch,
@@ -60,13 +51,6 @@ public class Levenstein {
                                    firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
     ) -> [Alignment] {
-        switch type {
-        case .bitap:
-            fatalError()
-            // not implemented
-            return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
-        case .text:
-            return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
-        }
+        return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
 }

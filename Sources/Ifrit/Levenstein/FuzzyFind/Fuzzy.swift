@@ -20,6 +20,7 @@ import Foundation
 public func fuzzyFind(
     queries: [String],
     inputs: [String],
+    maxDistance: Int = 2,
     match: Score = .defaultMatch,
     mismatch: Score = .defaultMismatch,
     gapPenalty: (Int) -> Score = Score.defaultGapPenalty,
@@ -29,7 +30,17 @@ public func fuzzyFind(
     consecutiveBonus: Score = Score.defaultConsecutiveBonus
 ) -> [Alignment] {
     inputs.compactMap { input in
-        queries.reduce(.some(Alignment.empty)) { partial, next in
+        for q in queries {
+            if !BitapFilter.matches(
+                pattern: q,
+                text: input,
+                maxDistance: maxDistance
+            ) {
+                return nil
+            }
+        }
+        
+        return queries.reduce(.some(Alignment.empty)) { partial, next in
             partial.flatMap { alignment in
                 bestMatch(
                     query: next,
