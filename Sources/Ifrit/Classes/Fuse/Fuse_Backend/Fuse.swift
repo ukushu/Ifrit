@@ -44,20 +44,6 @@ public class Fuse: @unchecked Sendable {
     }
 }
 
-public extension Fuse {
-    struct Pattern : Sendable {
-        let text: String
-        var len: Int { text.count }
-        var mask: Int { 1 << (text.count - 1) }
-        let alphabet: [Character : Int]
-        
-        public init(text: String) {
-            self.text = text
-            self.alphabet = FuseUtilities.calculatePatternAlphabet(text)
-        }
-    }
-}
-
 public enum ObjectsSortStrategy {
     /// scores.sum / scores.count
     case averageScore

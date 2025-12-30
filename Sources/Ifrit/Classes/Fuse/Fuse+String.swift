@@ -38,7 +38,6 @@ extension Fuse {
             
             //If the averaged score is 1 then there were no matches so return nil. Otherwise return the average result
             return averagedResult.score == 1 ? nil : averagedResult
-            
         } else {
             let result = _search(pattern, in: aString)
             
@@ -227,5 +226,36 @@ extension Fuse {
     /// - Returns: A tuple containing a `score` between `0.0` (exact match) and `1` (not a match), and `ranges` of the matched characters.
     public func searchSync(_ text: String, in aString: String) -> (score: Double, ranges: [CountableClosedRange<Int>])? {
         return self.search(self.createPattern(from: text), in: aString)
+    }
+}
+
+//
+// Helpers
+//
+fileprivate extension FuseUtilities {
+    /// Returns an array of `CountableClosedRange<Int>`, where each range represents a consecutive list of `1`s.
+    ///
+    ///     let arr = [0, 1, 1, 0, 1, 1, 1 ]
+    ///     let ranges = findRanges(arr)
+    ///     // [{startIndex 1, endIndex 2}, {startIndex 4, endIndex 6}
+    ///
+    /// - Parameter mask: A string representing the value to search for.
+    ///
+    /// - Returns: `CountableClosedRange<Int>` array.
+    static func findRanges(_ mask: [Int]) -> [CountableClosedRange<Int>] {
+        var ranges = [CountableClosedRange<Int>]()
+        var start: Int = -1
+        for (n, bit) in mask.enumerated() {
+            if start == -1 && bit == 1 {
+                start = n
+            } else if start != -1 && bit == 0 {
+                ranges.append(CountableClosedRange<Int>(start..<n))
+                start = -1
+            }
+        }
+        if mask.last == 1 {
+            ranges.append(start...mask.count - 1)
+        }
+        return ranges
     }
 }
