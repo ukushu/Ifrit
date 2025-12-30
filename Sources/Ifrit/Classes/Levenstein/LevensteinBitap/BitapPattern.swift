@@ -167,8 +167,11 @@ private func optStrAlignment<I: IteratorProtocol>(
     }
     
     let max_distance = min(maxDistance, patternLength)
-    var r = (0...max_distance).map { UInt(~1) << $0 }
-    var t = Array(repeating: UInt(~1), count: max_distance)
+    
+    let allOnes: UInt = ~UInt(0)
+    var r = (0...max_distance).map { allOnes << $0 }
+    var t = Array(repeating: allOnes, count: max_distance)
+    
     var iterator = maskIter
     
     let resultIterator = AnyIterator<Match> {
