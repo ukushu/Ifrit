@@ -11,7 +11,7 @@ public enum StaticMaxDistance: Int {
     case two = 2
 }
 
-public struct Pattern {
+public struct BitapPattern {
     let length: Int
     let masks : [Character: UInt]
     
@@ -41,9 +41,9 @@ public struct Pattern {
         }
     }
     
-    //Levenshtein (fuzzy search)
+    //Levenstein (fuzzy search)
     public func lev(text: String, maxDistance: Int) -> AnyIterator<Match> {
-        switch Ifrit.levenshteinBitap(maskIter: maskIterator(text: text), patternLength: self.length, maxDistance: maxDistance) {
+        switch Ifrit.levensteinBitap(maskIter: maskIterator(text: text), patternLength: self.length, maxDistance: maxDistance) {
         case .success(let iter): return iter
         case .failure: return AnyIterator { nil }
         }
@@ -115,7 +115,7 @@ private func findBitap<I: IteratorProtocol>(maskIter: I, patternLength: Int) -> 
     return .success(resultIterator)
 }
 
-private func levenshteinBitap<I: IteratorProtocol>(maskIter: I, patternLength: Int, maxDistance: Int )
+private func levensteinBitap<I: IteratorProtocol>(maskIter: I, patternLength: Int, maxDistance: Int )
     -> Result<AnyIterator<Match>, Error> where I.Element == UInt
 {
     guard patternLengthIsValid(patternLength) else {

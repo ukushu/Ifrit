@@ -45,11 +45,12 @@ Advanteges:
 + Async ( async/await + callbacks both )
 + Text highlight support (AttributedString)
 + Code covered with automated tests
-+ MIT Licensed
++ Most of code licensed by "MIT License" 
 + Can be linked as both Static and Dynamic package — choose what works best for you
 
 Disadvantages:
 - Not tested in production
+- FuzzyFind licensed by "Apache License, Version 2.0"
 ```
 
 ## Difference: Ifrit VS Fuze-Swift?

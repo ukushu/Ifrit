@@ -1,36 +1,8 @@
 import Foundation
 
-public enum LeventeinType {
-    case bitap
-    case text
-}
-
-public class Levenstein {
-    public static func searchSync(type: LeventeinType = .text, _ text: String, in aList: [String]) -> [FuzzySrchResult] {
-        switch type {
-        case .bitap:
-            LevensteinBitap.searchSync(text, in: aList)
-        case .text:
-            LevensteinText.searchSync(text, in: aList)
-        }
-    }
-    
-    public static func searchSync<T>(type: LeventeinType = .text,
-                                     _ text: String,
-                                     in aList: [T],
-                                     by keyPath: KeyPath<T, [FuseProp]>) -> [FuzzySrchResult] where T: Searchable
-    {
-        switch type {
-        case .bitap:
-            LevensteinBitap.searchSync(text, in: aList, by: keyPath)
-        case .text:
-            LevensteinText.searchSync(text, in: aList, by: keyPath)
-        }
-    }
-    
-    
-    /// For UKS: This is not Levenstein. This must be in another place.
-    public static func searchFuzzy(_ text: String,
+public class FuzzyFind {
+    @available(*, deprecated, message: "Better do not use right now")
+    public static func searchSync(_ text: String,
                                    in aList: [String],
                                    match: Score = .defaultMatch,
                                    mismatch: Score = .defaultMismatch,
@@ -43,8 +15,8 @@ public class Levenstein {
         return fuzzyFind(queries: [text], inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
     }
     
-    /// For UKS: This is not Levenstein. This must be in another place.
-    public static func searchFuzzy(_ searchQueries: [String],
+    @available(*, deprecated, message: "Better do not use right now")
+    public static func searchSync(_ searchQueries: [String],
                                    in aList: [String],
                                    match: Score = .defaultMatch,
                                    mismatch: Score = .defaultMismatch,
@@ -55,5 +27,32 @@ public class Levenstein {
                                    consecutiveBonus: Score = Score.defaultConsecutiveBonus
     ) -> [Alignment] {
         return fuzzyFind(queries: searchQueries, inputs: aList, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus)
+    }
+    
+    @available(*, deprecated, message: "Better do not use right now")
+    public static func searchSync<T>(_ text: String,
+                                     in aList: [T],
+                                     by keyPath: KeyPath<T, [FuseProp]>,
+                                     match: Score = .defaultMatch,
+                                     mismatch: Score = .defaultMismatch,
+                                     gapPenalty: (Int) -> Score = Score.defaultGapPenalty,
+                                     boundaryBonus: Score = .defaultBoundary,
+                                     camelCaseBonus: Score = .defaultCamelCase,
+                                     firstCharBonusMultiplier: Int = Score.defaultFirstCharBonusMultiplier,
+                                     consecutiveBonus: Score = Score.defaultConsecutiveBonus
+    
+    ) -> [Alignment] where T: Searchable {
+        var result: [Alignment] = []
+        
+        for item in aList {
+            let allValues = item[keyPath: keyPath].map { $0.value }
+            
+            if let tmp = fuzzyFind(queries: [text], inputs: allValues, match: match, mismatch: mismatch, gapPenalty: gapPenalty, boundaryBonus: boundaryBonus, camelCaseBonus: camelCaseBonus, firstCharBonusMultiplier: firstCharBonusMultiplier, consecutiveBonus: consecutiveBonus).first
+            {
+                result.append(tmp)
+            }
+        }
+        
+        return result.sorted { a1, a2 in a1.score > a2.score }
     }
 }

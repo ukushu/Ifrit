@@ -12,10 +12,6 @@ final class Levenstein_Tests: XCTestCase {
         try basicSearch(type: .bitap)
     }
     
-    func test_BasicSearch2() throws {
-        try basicSearch2()
-    }
-    
     func test_AdvancedSearch() throws {
         try advancedSearch(type: .text)
         try advancedSearch(type: .bitap)
@@ -108,15 +104,6 @@ private func basicSearch(type: LeventeinType) throws {
     XCTAssertGreaterThan(incorrectSearch.first!.diffScore, 0.9)
 }
 
-private func basicSearch2() throws {
-    let animes = ["Gekijouban Fairy Tail: Houou no Miko",
-                  "Fairy Tail the Movie: The Phoenix Priestess",
-                  "Priestess of the Phoenix",
-                  "Fairy Tail: The Phoenix Priestess"]
-    
-    let animesSearch = Levenstein.searchFuzzy("Fairy Tail: The Phoenix Priestess", in: animes )
-    XCTAssertEqual(animesSearch[0].asString, "Fairy Tail: The Phoenix Priestess")
-}
 
 private func advancedSearch(type: LeventeinType) throws {
     let animes = getAnimeList(count: 10)

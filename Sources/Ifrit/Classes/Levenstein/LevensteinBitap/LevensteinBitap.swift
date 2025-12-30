@@ -5,7 +5,7 @@ internal class LevensteinBitap {
         var results: [FuzzySrchResult] = []
         
         for (idx, item) in aList.enumerated() {
-            guard let pattern = Pattern(pattern: text) else { continue }
+            guard let pattern = BitapPattern(pattern: text) else { continue }
             let matchesIter = pattern.lev(text: item, maxDistance: 1)
             let minDistance = matchesIter.min(by: { $0.distance < $1.distance })?.distance ?? text.count
             

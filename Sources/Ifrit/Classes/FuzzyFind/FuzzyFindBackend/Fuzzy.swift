@@ -17,7 +17,7 @@ import Foundation
 ///   - firstCharBonusMultiplier: Multiplier for a match in the first character of the input.
 ///   - consecutiveBonus: Bonus for consecutive matches.
 /// - Returns: An array of all alignments found for the input words, sorted by their score.
-public func fuzzyFind(
+internal func fuzzyFind(
     queries: [String],
     inputs: [String],
     maxDistance: Int = 2,
@@ -89,7 +89,7 @@ public func fuzzyFind(
 ///   - firstCharBonusMultiplier: Multiplier for a match in the first character of the input.
 ///   - consecutiveBonus: Bonus for consecutive matches.
 /// - Returns: An `Alignment` of the query and the input, if it is possible.
-public func bestMatch(
+internal func bestMatch(
     query: String,
     input: String,
     match: Score = .defaultMatch,

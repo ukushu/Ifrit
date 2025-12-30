@@ -1,9 +1,11 @@
-v3.0.1
-* Improved Levenstein performance by implementing LevensteinBitap
-* Implemented and used BitapFilter inside of Levenstein.fuzzySearch
-* Minor improvements
-
-TODO: Levenstein.searchFuzzy is not Levenstein. Need to move to another place =(
+v4.0.1
+* Renamed `Levenstain` to `Levenstein` (Breaked backward compatibility)
+* Improved `Levenstein` performance by implementing `LevensteinBitap` algorythm
+* Now you can choose which one algorythm do you want to use in Levenstain. You can choose: `.text` and `.bitap`. Default is `.bitap` because of it's much-much faster.
+* Separated `Levenstein` and `FuzzyFind`, because of `FuzzyFind` is not related to `Levenstein`
+* Implemented and used `BitapFilter` inside of `FuzzyFind` to improve performance `FuzzyFind`'s performance
+* Improved tests
+* Other minor improvements
 
 v3.0.0
 * Change default `objSortStrategy` to `.minimalScore` (breaked backward compatibility)
