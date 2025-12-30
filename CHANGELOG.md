@@ -5,6 +5,7 @@ v4.0.1
 * Separated `Levenstein` and `FuzzyFind`, because of `FuzzyFind` is not related to `Levenstein`
 * Implemented and used `BitapFilter` inside of `FuzzyFind` to improve performance `FuzzyFind`'s performance
 * Improved tests
+* Minor documentation fixes 
 * Other minor improvements
 
 v3.0.0

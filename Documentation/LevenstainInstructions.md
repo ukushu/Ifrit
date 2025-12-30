@@ -30,7 +30,10 @@ let animesSearch = Levenstain.searchSync("Fairy Tail: The Phoenix Priestess", in
 // DOES NOT SUPPORTED
 ```
 
-#### Levenstain search in `[Fuseable]` objects
+#### Levenstain search in `[Searchable]` objects
+
+For implementing `Searchable` check documentation in `FuseInstructions.md` file
+
 ```swift
 let animes = getAnimeList(count: 10) // Fusable objects
 
