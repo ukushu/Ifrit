@@ -1,4 +1,4 @@
-v4.0.1
+v4.0.0
 * Renamed `Levenstain` to `Levenstein` (Breaked backward compatibility)
 * Improved `Levenstein` performance by implementing `LevensteinBitap` algorythm
 * Now you can choose which one algorythm do you want to use in Levenstain. You can choose: `.text` and `.bitap`. Default is `.bitap` because of it's much-much faster.
