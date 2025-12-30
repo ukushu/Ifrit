@@ -74,7 +74,7 @@ Disadvantages:
 + Ifrit's async functions return correct indexes and are fully covered with tests :)
 
 - Fuze-Swift was written for Xcode 11 and now generates numerous warnings :(
-+ Ifrit's code is updated to the latest Swift standards of 2025 year :) 
++ Ifrit's code is updated to the latest Swift standards of 2026 year :) 
 - But Ifrit still have a few build warnings :(
 
 + Ifrit - extended coverage with automated tests :)
