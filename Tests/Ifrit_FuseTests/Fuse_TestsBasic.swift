@@ -59,12 +59,12 @@ class Fuse_TestsBasic: XCTestCase {
         //p3
         let result2 = fuse.searchSync("anwer", in: ["answer"]).first!
         XCTAssert(result2.ranges.first == 0...1, "Must found \"an\"")
-        XCTAssert(result2.ranges.last == 2...4, "Must found \"wer\"")
+        XCTAssert(result2.ranges.last == 3...5, "Must found \"wer\"")
         
         let pattern22 = fuse.createPattern(from: "anwer")
         let result22 = fuse.search(pattern22, in: "answer")!
         XCTAssert(result22.ranges.first == 0...1, "Must found \"an\"")
-        XCTAssert(result22.ranges.last  == 2...4, "Must found \"wer\"")
+        XCTAssert(result22.ranges.last  == 3...5, "Must found \"wer\"")
         
         
         //p4
