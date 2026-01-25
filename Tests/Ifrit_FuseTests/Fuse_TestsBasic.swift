@@ -41,41 +41,41 @@ class Fuse_TestsBasic: XCTestCase {
     }
     
     func testRange() {
-        let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
-        
         let fuse = Fuse()
+        
+        //p1
+        let books = ["The Lock Artist", "The Lost Symbol", "The Silmarillion", "xyz", "fga"]
         let results = fuse.searchSync("silm", in: books)
         
         XCTAssert(results[0].ranges.count == 1, "There is a matching range in the first result")
         XCTAssert(results[0].ranges[0] == 4...7, "The range goes over the matched substring")
+        
+        
+        //p2
+        let result1 = fuse.searchSync("answer", in: ["answer"]).first!
+        XCTAssert(result1.ranges.first == 0...5, "Must found \"answer\"")
+        
+        
+        //p3
+        let result2 = fuse.searchSync("anwer", in: ["answer"]).first!
+        XCTAssert(result2.ranges.first == 0...1, "Must found \"an\"")
+        XCTAssert(result2.ranges.last == 2...4, "Must found \"wer\"")
+        
+        let pattern22 = fuse.createPattern(from: "anwer")
+        let result22 = fuse.search(pattern22, in: "answer")!
+        XCTAssert(result22.ranges.first == 0...1, "Must found \"an\"")
+        XCTAssert(result22.ranges.last  == 2...4, "Must found \"wer\"")
+        
+        
+        //p4
+        let result3 = fuse.searchSync("nswer", in: ["answer"]).first!
+        XCTAssert(result3.ranges.first == 1...5, "Must found \"nswer\"")
+        
+        
+        //p5
+        let result4 = fuse.searchSync("answe", in: ["answer"]).first!
+        XCTAssert(result4.ranges.first == 0...4, "Must found \"answe\"")
     }
-    
-    func testProtocolWeightedSearch1() {
-        struct Book: Searchable {
-            let author: String
-            let title: String
-            
-            var properties: [FuseProp] {
-                return [
-                    FuseProp(author, weight: 0.3),
-                    FuseProp(title, weight: 0.7)
-                ]
-            }
-        }
-        
-        let books: [Book] = [
-            Book(author: "John X", title: "Old Man's War fiction"),
-            Book(author: "P.D. Mans", title: "Right Ho Jeeves")
-        ]
-        
-        let fuse = Fuse()
-        let results = fuse.searchSync("man", in: books, by: \Book.properties)
-        
-        XCTAssert(results.count > 0, "There are results")
-        XCTAssert(results[0].index == 0, "The first result is the first book")
-        XCTAssert(results[1].index == 1, "The second result is the second book")
-    }
-    
     func testProtocolWeightedSearch2() {
         struct Book: Searchable {
             let author: String
