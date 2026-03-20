@@ -22,6 +22,12 @@ git@github.com:ukushu/Ifrit.git
 
 ---
 
+#WARNING!
+NOT ALL CODE IS MIT-LICENSED! PLEASE, READ THIS README CAREFULY
+NOT ALL CODE IS MIT-LICENSED! PLEASE, READ THIS README CAREFULY
+NOT ALL CODE IS MIT-LICENSED! PLEASE, READ THIS README CAREFULY
+
+
 ### What is fuzzy Search?
 
 A fuzzy search algorithm is designed to find approximate matches for a given search query. 
