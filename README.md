@@ -22,7 +22,7 @@ git@github.com:ukushu/Ifrit.git
 
 ---
 
-#WARNING!
+# WARNING!
 
 NOT ALL CODE IS MIT-LICENSED! PLEASE, READ THIS README CAREFULY
 
