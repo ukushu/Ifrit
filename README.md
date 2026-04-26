@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=ukushu&project=Ifrit&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 # NOT ALL CODE IS MIT-LICENSED! FULLY READ README
 
 
